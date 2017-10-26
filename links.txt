@@ -1,0 +1,4 @@
+https://trends.google.com/trends/
+https://www.kaggle.com/datasets
+https://www.kaggle.com/c/two-sigma-financial-modeling
+https://www.kaggle.com/c/the-winton-stock-market-challenge
