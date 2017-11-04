@@ -2,3 +2,13 @@ https://trends.google.com/trends/
 https://www.kaggle.com/datasets
 https://www.kaggle.com/c/two-sigma-financial-modeling
 https://www.kaggle.com/c/the-winton-stock-market-challenge
+
+Useful datasets
+https://www.kaggle.com/camnugent/sandp500
+  data of the new york stock exchange for the 500 biggest american companies
+  5 years
+https://www.kaggle.com/dgawlik/nyse
+  same but with additional information for each stock
+  2010-2016
+https://www.kaggle.com/aaron7sun/stocknews
+  top 25 headlines of reddit per single date since 08.06.2008
