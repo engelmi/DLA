@@ -8,6 +8,8 @@ import time
 from datetime import datetime, timedelta
 
 # used symbols to indicate a parameter within an url
+from imaplib import readonly
+
 paramSymbolPre = "{{"
 paramSymbolPost = "}}"
 
@@ -146,10 +148,65 @@ def collectRelated(keyword, relatedSearchToken, relatedFlag, relatedText):
 		return None
 	return data
 
+def collectData(node):
+	keyword = node["keyword"]
+
+	print("Processing '" + keyword + "'...")
+
+	resourceUrl = urlTrendsExplore \
+		.replace(paramSymbolPre + paramSymbolsExplore["keyword"] + paramSymbolPost, keyword) \
+		.replace(paramSymbolPre + paramSymbolsExplore["geolocation"] + paramSymbolPost, "")
+
+	print("\t requesting explore data...")
+	requestSuccessful, data = requestURLData(resourceUrl)
+	if not requestSuccessful or data is None:
+		print("\t >> Request for explore data failed...")
+		return
+
+	print("\t parsing explore data...")
+	parsedData = parseResponseToJSON(data[5:])  # cut off the first 5 chars ")]}'\n"
+	if parsedData is None:
+		return
+
+	print("\t extracting request tokens...")
+	for widget in parsedData["widgets"]:
+		token = widget["token"]
+		if widget["title"] == "Interesse im zeitlichen Verlauf":
+			node["token"] = token
+		elif widget["title"] == "Verwandte Themen":
+			node["relatedTopics"] = {}
+			node["relatedTopics"]["token"] = token
+		elif widget["title"] == u"Ähnliche Suchanfragen":
+			node["relatedSearches"] = {}
+			node["relatedSearches"]["token"] = token
+
+	print("\t requesting course data...")
+	resourceUrl = urlTrendsMultiline \
+		.replace(paramSymbolPre + paramSymbolsMultiline["keyword"] + paramSymbolPost, keyword) \
+		.replace(paramSymbolPre + paramSymbolsMultiline["token"] + paramSymbolPost, node["token"])
+	requestSuccessful, courseData = requestURLData(resourceUrl)
+	if not requestSuccessful or courseData is None:
+		print("\t >> Request for course data failed...")
+		return
+
+	print("\t parsing course data...")
+	parsedCourseData = parseResponseToJSON(courseData[5:])  # cut off the first 5 chars ")]}'\n"
+	if parsedCourseData is None:
+		return
+
+	print("\t creating folder and saving data to files...")
+	path = "keyword-" + keyword
+	try:
+		os.mkdir(path)
+		with open(os.path.join(path, "course.csv"), "w") as f:
+			f.write(json.dumps(parsedCourseData))
+	except Exception as ex:
+		print("\t error writing course data: " + ex.message)
+
 """
 TODO:
 """
-def collectGoogleTrendsData():
+def collectGoogleTrendsData(start, end):
 
 	with open('securities.csv', 'rb') as csvfile: 
 		reader = csv.reader(csvfile, delimiter = ',', quotechar = '"')
@@ -161,87 +218,7 @@ def collectGoogleTrendsData():
 				"sector" : row[3],
 				"subindustry" : row[4]
 			}
-			keyword = node["keyword"]
-			
-			print("Processing '" + keyword + "'...")
 
-			resourceUrl = urlTrendsExplore\
-							.replace(paramSymbolPre + paramSymbolsExplore["keyword"] + paramSymbolPost, keyword)\
-							.replace(paramSymbolPre + paramSymbolsExplore["geolocation"] + paramSymbolPost, "")
+			collectData(node)
 
-			print("\t requesting explore data...")
-			requestSuccessful, data = requestURLData(resourceUrl)
-			if not requestSuccessful or data is None:
-				print("\t >> Request for explore data failed...")
-				continue
-
-			print("\t parsing explore data...")
-			parsedData = parseResponseToJSON(data[5:])	# cut off the first 5 chars ")]}'\n"
-			if parsedData is None:
-				continue
-
-			print("\t extracting request tokens...")
-			for widget in parsedData["widgets"]:
-				token = widget["token"]
-				if widget["title"] == "Interesse im zeitlichen Verlauf":
-					node["token"] = token
-				elif widget["title"] == "Verwandte Themen":
-					node["relatedTopics"] = {}
-					node["relatedTopics"]["token"] = token
-				elif widget["title"] == u"Ähnliche Suchanfragen":
-					node["relatedSearches"] = {}
-					node["relatedSearches"]["token"] = token
-
-			print("\t requesting course data...")
-			resourceUrl = urlTrendsMultiline\
-							.replace(paramSymbolPre + paramSymbolsMultiline["keyword"] + paramSymbolPost, keyword)\
-							.replace(paramSymbolPre + paramSymbolsMultiline["token"] + paramSymbolPost, node["token"])
-			requestSuccessful, courseData = requestURLData(resourceUrl)
-			relatedSearchData = collectRelated(keyword, node["relatedSearches"]["token"], relatedTypes["search"], 'related search')
-			relatedTopicData = collectRelated(keyword, node["relatedTopics"]["token"], relatedTypes["topic"], 'related topic')
-			if not requestSuccessful or courseData is None:
-				print("\t >> Request for course data failed...")
-				continue
-			elif relatedSearchData is None:
-				print("\t >> Request for related search data failed...")
-				continue
-			elif relatedTopicData is None:
-				print("\t >> Request for related topic data failed...")
-				continue
-
-			print("\t parsing course data...")
-			parsedCourseData = parseResponseToJSON(courseData[5:])	# cut off the first 5 chars ")]}'\n"
-			if parsedCourseData is None:
-				continue
-			print("\t parsing related search data...")
-			parsedSearchData = parseResponseToJSON(relatedSearchData[5:])	# cut off the first 5 chars ")]}'\n"
-			if parsedSearchData is None:
-				continue
-			print("\t parsing related topic data...")
-			parsedTopicData = parseResponseToJSON(relatedTopicData[5:])	# cut off the first 5 chars ")]}'\n"
-			if parsedTopicData is None:
-				continue
-
-			print("\t creating folder and saving data to files...")
-			path = "keyword-" + keyword
-			try:
-				os.mkdir(path)
-				with open(os.path.join(path,"course.csv"), "w") as f:
-					f.write(json.dumps(parsedCourseData))
-			except Exception as ex:
-				print("\t error writing course data: " + ex.message)
-			
-			try:
-				with open(os.path.join(path,"relatedSearches.csv"), "w") as f:
-					f.write(json.dumps(parsedSearchData))
-			except Exception as ex:
-				print("\t error writing related search data: " + ex.message)
-
-			try:
-				with open(os.path.join(path,"relatedTopics.csv"), "w") as f:
-					f.write(json.dumps(parsedTopicData))
-			except Exception as ex:
-				print("\t error writing related topic data: " + ex.message)
-
-
-collectGoogleTrendsData()
+collectGoogleTrendsData(1,10)
