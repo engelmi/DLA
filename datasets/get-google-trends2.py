@@ -7,7 +7,6 @@ import json
 import shutil
 import logging
 from datetime import date
-from operator import le
 
 from trend import Trend
 
@@ -33,11 +32,10 @@ def collectGoogleTrendsData(start, end):
                 continue
 
             trend.collectData()
-            index = 0
-            for j in trend.getData():
-              with open(os.path.join(path, "course"+str(index)+".json"), "w") as f:
-                f.write(json.dumps(j))
-              index += 1
+            for keyword, data in trend.getData():
+              for index in range(len(data)):
+                with open(os.path.join(path, keyword+str(index)+".json"), "w") as f:
+                  json.dump(data[index], f, indent=2, separators=(',', ': '))
 
 
 if __name__ == "__main__":
