@@ -67,7 +67,7 @@ class Trend:
     startTime, endTime -- date, collecting data from startTime till endTime
     """
     self.timeBounderies = []
-    self.data = {}
+    self.data = []
     while startTime < endTime:
       stopTime = startTime + timedelta(days=90)
       if stopTime > date.today():
@@ -163,8 +163,6 @@ class Trend:
     related -- boolean, should we look for related searches too? defaults to False.
     """
     logging.info("Processing '" + keyword + "'...")
-    self.data[keyword] = []
-
     resourceUrlExplore = self.urlTrendsExplore \
       .replace(self.prepareParam(self.paramSymbols["keyword"]), keyword) \
       .replace(self.prepareParam(self.paramSymbols["geoLocation"]), "")
@@ -206,7 +204,7 @@ class Trend:
 
       try:
         parsedCourseData = self.parseResponseToJSON(courseData)
-        self.data[keyword].append(parsedCourseData)
+        self.data.append((keyword, parsedCourseData))
       except Exception as ex:
         logging.error("Parsing data to json failed...")
 
