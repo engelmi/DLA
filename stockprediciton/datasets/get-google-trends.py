@@ -31,16 +31,9 @@ def collectGoogleTrendsData(start, end):
                 continue
 
             trend.collectData()
-            index = 0
-            s = ''
             for keyword, data in trend.getData():
-              with open(os.path.join(path, keyword+str(index)+".json"), "w") as f:
+              with open(os.path.join(path, keyword+".json"), "w") as f:
                 json.dump(data, f, indent=2, separators=(',', ': '))
-              if s == keyword:
-                index += 1
-              else:
-                s = keyword
-                index = 0
 
 
 if __name__ == "__main__":

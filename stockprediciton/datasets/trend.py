@@ -1,6 +1,7 @@
 # coding=utf8
 from Queue import Queue
 from datetime import date, timedelta
+from jsonmerge import Merger
 import urllib2
 import json
 import logging
@@ -231,4 +232,32 @@ class Trend:
 
   def getData(self):
     """Return the data. All requests for each keyword get merged."""
-    return self.data
+    schema = {
+      "oneOf": [
+        {
+          "type": "array",
+          "mergeStrategy": "append"
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#"
+          }
+        },
+        {
+          "type": "string"
+        },
+      ]
+    }
+    merger = Merger(schema)
+    mData = []
+    k = self.data[0][0]
+    j = {}
+    for keyword, d in self.data:
+      if k != keyword:
+        mData.append((k, j))
+        k = keyword
+        j = {}
+      j = merger.merge(j,d)
+    mData.append((k,j))
+    return mData
