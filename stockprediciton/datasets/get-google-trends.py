@@ -21,12 +21,11 @@ def collectGoogleTrendsData(start, end):
         for i in range(start, end):
             stock = rows[i]
             trend = Trend(stock, date(2016, 1, 1), date.today())
-            path = "googletrends/" + stock[0]
-
             try:
+                path = os.path.join("googletrends", stock[0])
                 if os.path.exists(path):
                     shutil.rmtree(path)
-                os.mkdir(path)
+                os.makedirs(path)
             except Exception as ex:
                 print("\t error creating folder: " + ex.message)
                 continue
