@@ -20,7 +20,7 @@ def collectGoogleTrendsData(start, end):
         rows = list(reader)
         for i in range(start, end):
             stock = rows[i]
-            trend = Trend(stock, date(2016, 1, 1), date.today())
+            trend = Trend(stock, date(2016, 8, 12), date(2017,8,11))
             try:
                 path = os.path.join("googletrends", stock[0])
                 if os.path.exists(path):
