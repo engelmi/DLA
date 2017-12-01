@@ -6,7 +6,7 @@ import urllib2
 import json
 import logging
 
-class Trend:
+class TrendCollector:
   """Class summarizing all googletrend requests for one stock."""
 
   # used symbols for parameter within the urls
