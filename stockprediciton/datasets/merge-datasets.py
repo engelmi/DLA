@@ -45,14 +45,14 @@ class Trend(object):
         for day in trend["default"]["timelineData"]:
           self.data[day["formattedTime"]] = int(day["formattedValue"][0])
     except Exception as ex:
-      logging.error("Could not get the googletrend data. " + ex.message)
+      logging.error("Could not get the googletrend data. " + ex)
 
   def getAllData(self):
     """
     Get all data for this trend sorted by day.
     :return: A list of tuples (day, value).
     """
-    return sorted(self.data.items(), key=lambda (k, v): datetime.strptime(k, "%d.%m.%Y"))
+    return sorted(self.data.items(), key=lambda d: datetime.strptime(d[0], "%d.%m.%Y"))
 
   def getData(self, day):
     """
@@ -85,9 +85,9 @@ class Stock(object):
     :param path: The folder where the stock file is located.
     """
     try:
-      with open(join(path, self.name + "_data.csv"), 'rb') as csvfile:
+      with open(join(path, self.name + "_data.csv"), 'r') as csvfile:
         reader = csv.reader(csvfile, delimiter=',', quotechar='"')
-        csvHeader = reader.next()
+        csvHeader = next(reader)
         for row in reader:
           try:
             currOpen = float(row[1])
@@ -97,7 +97,7 @@ class Stock(object):
           except ValueError:
             logging.warn("Could not interpret day " + row[0])
     except Exception as ex:
-      logging.error("Could not get the stock data. " + ex.message)
+      logging.error("Could not get the stock data. " + ex)
 
   def getData(self, day):
     """
@@ -115,7 +115,7 @@ class Stock(object):
     Get all data for this stock sorted by day.
     :return: A list of tuples (day, stockdata)
     """
-    return sorted(self.data.items(), key=lambda (k, v): datetime.strptime(k, "%d.%m.%Y"))
+    return sorted(self.data.items(), key=lambda d: datetime.strptime(d[0], "%d.%m.%Y"))
 
 
 class StockTrend(object):
@@ -168,14 +168,14 @@ class StockTrend(object):
     Write the collected data to a file with the name of the stock
     :param path: Path were the file should be.
     """
-    with open(join(path,self.name + ".csv"), "wb") as fp:
+    with open(join(path,self.name + ".csv"), "w") as fp:
       writer = csv.writer(fp, delimiter=",", quotechar='"')
       writer.writerows(self.getData())
 
 
 if __name__ == "__main__":
   if len(sys.argv) < 2:
-    print("Not enough input parameters: starting sock and ending stock needed")
+    print("Not enough input parameters: stock name needed")
   stock = sys.argv[1]
   path = "myDataset"
   if len(sys.argv) > 2:

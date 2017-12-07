@@ -1,4 +1,4 @@
-import preprocessing as pp
+from . import preprocessing as pp
 
 import os
 import tensorflow as tf
@@ -18,12 +18,12 @@ class StockPredictor(object):
     """
     def preprocessing(self):
         stock = pp.loadSingleStock(os.path.join("datasets", "sandp500", "individual_stocks_5yr", "AAL_data.csv"))
-        print stock.getStockName()
+        print(stock.getStockName())
         for d in stock.getDates():
-            print d, stock.getDay(d)
+            print(d, stock.getDay(d))
 
         allStocks = pp.loadAllStockData(os.path.join("datasets", "sandp500", "individual_stocks_5yr"))
-        print list(allStocks.keys())
+        print(list(allStocks.keys()))
 
 
 
