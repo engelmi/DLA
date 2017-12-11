@@ -7,8 +7,11 @@ import preprocessing as pp
 
 import os
 import csv
+import sys
 import tensorflow as tf
 import numpy as np
+
+PY3 = sys.version_info[0] == 3
 
 """
 Main class for the prediction of stock course development. 
