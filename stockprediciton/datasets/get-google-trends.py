@@ -11,7 +11,10 @@ from datetime import date
 from stockprediciton.datasets.trendcollector import TrendCollector
 
 """
-TODO:
+Method for collecting the google trends data for the stocks with indexes between 
+the start and end parameter. 
+:param start: The index to start from to gather the google trends data. 
+:param start: The index to end the gathering of the google trends data. 
 """
 def collectGoogleTrendsData(start, end):
     with open('nyse/securities.csv', 'r') as csvfile:
