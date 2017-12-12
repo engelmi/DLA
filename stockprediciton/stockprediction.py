@@ -4,6 +4,7 @@ from os import listdir
 from os.path import isfile, join
 
 import preprocessing as pp
+import stockpredictorconfig as config
 
 import os
 import csv
@@ -12,17 +13,20 @@ import shutil
 import tensorflow as tf
 import numpy as np
 
+# flag to check if python3 is used
 PY3 = sys.version_info[0] == 3
 
 """
-Main class for the prediction of stock course development. 
+Model class.
+Used to predict the development of stock courses. 
 """
-class StockPredictor(object):
+class Stockpredictor(object):
 
 	"""
 	Initialization. 
 	"""
-	def __init__(self):
+	def __init__(self, config):
+		self.config = config
 		self.folderMergedData = "datasets/myDataset"
 		self.folderPreprocessedData = "datasets/preprocessed"
 
@@ -30,7 +34,7 @@ class StockPredictor(object):
 	Creates a BasicLSTMCell with a given size of units. 
 	:param lstm_size: The size of the cell.
 	"""
-	def createLstmCell(lstm_size):
+	def createLstmCell(self, lstm_size):
   		return tf.contrib.rnn.BasicLSTMCell(lstm_size)
 	
 	"""
@@ -44,8 +48,8 @@ class StockPredictor(object):
 			centeredData = pp.zeroCenter(join(self.folderMergedData, csvfile))
 			# maybe further preprocessing...
 			self.persistPreprocessedData(centeredData, self.folderPreprocessedData, csvfile[:len(csvfile)-4])
-			d = self.loadPreprocessedData(join(self.folderPreprocessedData, csvfile[:len(csvfile)-4] + ".npy"))
-			
+
+
 	"""
 	Persists a numpy matrix containing preprocessed data. 
 	:param matrix: The numpy matrix to persist. 
@@ -82,6 +86,40 @@ class StockPredictor(object):
 		if doPreprocessing:
 			self.preprocessing()
 		
+		
+
+		lstm = self.createLstmCell(self.config.hidden_size)
+		# Initial state of the lstm
+		hidden_state = tf.zeros([self.config.batch_size, self.config.hidden_size], dtype=tf.float64)
+		current_state = tf.zeros([self.config.batch_size, self.config.hidden_size], dtype=tf.float64)
+		state = hidden_state, current_state
+		probabilities = []
+		loss = 0.0
+
+		processedFiles = [f for f in listdir(self.folderPreprocessedData) if isfile(join(self.folderPreprocessedData, f)) and f[-3:] == "npy"]
+		for pFile in processedFiles:
+			loadedMatrix = self.loadPreprocessedData(join(self.folderPreprocessedData, pFile))
+			num_of_datarows = loadedMatrix.shape[0]
+			lower_index = 0
+			while lower_index < num_of_datarows:
+				upper_index = lower_index + self.config.batch_size
+				# ensure dimension 0 is equal in both shapes (data_batch + state)
+				if upper_index > num_of_datarows:
+					break
+				data_batch = tf.constant(loadedMatrix[lower_index : upper_index])
+				# The value of state is updated after processing each batch of words.
+				output, state = lstm(data_batch, state)	
+
+				print(output)
+				print(state)
+				print("-------------------------------")
+				# The LSTM output can be used to make next word predictions
+				#logits = tf.matmul(output, softmax_w) + softmax_b
+				#probabilities.append(tf.nn.softmax(logits))
+				#loss += loss_function(probabilities, target_words)
+
+				lower_index = upper_index
+		
 		return
 
 	"""
@@ -94,5 +132,6 @@ class StockPredictor(object):
 
 
 if __name__ == "__main__":
-	sp = StockPredictor()
+	config = config.StockpredictorConfig()
+	sp = Stockpredictor(config)
 	sp.train(True)
