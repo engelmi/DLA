@@ -8,6 +8,7 @@ import preprocessing as pp
 import os
 import csv
 import sys
+import shutil
 import tensorflow as tf
 import numpy as np
 
@@ -37,12 +38,13 @@ class StockPredictor(object):
 	applies preprocessing routines to it and writes the result out. 
     """
 	def preprocessing(self):
-		deletePreprocessedData(self.folderPreprocessedData)
+		self.deletePreprocessedData(self.folderPreprocessedData)
 		mergedCSVFiles = [f for f in listdir(self.folderMergedData) if isfile(join(self.folderMergedData, f)) and f[-3:] == "csv"]
 		for csvfile in mergedCSVFiles:
 			centeredData = pp.zeroCenter(join(self.folderMergedData, csvfile))
 			# maybe further preprocessing...
 			self.persistPreprocessedData(centeredData, self.folderPreprocessedData, csvfile[:len(csvfile)-4])
+			d = self.loadPreprocessedData(join(self.folderPreprocessedData, csvfile[:len(csvfile)-4] + ".npy"))
 			
 	"""
 	Persists a numpy matrix containing preprocessed data. 
@@ -54,6 +56,15 @@ class StockPredictor(object):
 		if not os.path.exists(filepath):
 			os.makedirs(filepath)
 		np.save(join(filepath, filename), matrix)
+
+	"""
+	Loads a persisted numpy matrix containing preprocessed data. 
+	:param filepath: The relative path including the filename and extension. 
+	"""
+	def loadPreprocessedData(self, filepath):
+		if os.path.exists(filepath):
+			return np.matrix(np.load(filepath))
+		return None
 
 	"""
 	Deletes the saved preprocessed data. 
@@ -69,7 +80,7 @@ class StockPredictor(object):
 	"""
 	def train(self, doPreprocessing):
 		if doPreprocessing:
-			preprocessing()
+			self.preprocessing()
 		
 		return
 
