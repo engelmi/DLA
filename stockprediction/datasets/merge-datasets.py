@@ -93,7 +93,7 @@ class Stock(object):
             currOpen = float(row[1])
             currClose = float(row[4])
             day = datetime.strptime(row[0], "%Y-%m-%d").strftime("%d.%m.%Y")
-            self.data[day] = (currOpen, int(np.sign(currClose-currOpen)))
+            self.data[day] = (int(np.sign(currClose-currOpen)), currOpen)
           except ValueError:
             logging.warn("Could not interpret day " + row[0])
     except Exception as ex:
@@ -103,7 +103,7 @@ class Stock(object):
     """
     Get the data for one special day.
     :param day: The day to get the data for.
-    :return: The stock at this day or None. (value, label)
+    :return: The stock at this day or None. (label, value)
     """
     if day in self.data:
       return self.data[day]
@@ -168,7 +168,7 @@ class StockTrend(object):
     Write the collected data to a file with the name of the stock
     :param path: Path were the file should be.
     """
-    with open(join(path,self.name + ".csv"), "w") as fp:
+    with open(join(path,self.name + ".csv"), "w", newline='') as fp:
       writer = csv.writer(fp, delimiter=",", quotechar='"')
       writer.writerows(self.getData())
 
