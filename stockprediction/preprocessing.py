@@ -1,80 +1,55 @@
 # -*- coding: utf-8 -*-
 
-from stock import Stock
-
-from os import listdir
 from os.path import isfile, join
 
 import numpy as np
 import csv
 import sys
+import logging
 
 # flag to check if python3 is used
 PY3 = sys.version_info[0] == 3
 
-"""
-Zero centers the stock and google trends data for a given csv file. 
-:param filepath: The path to the csv file to read and zero center the data. 
-:return: A zero centered numpy matrix containing the stock and google trends numbers. 
 
-TODO: exclude the labels (-1, 0, 1) from the mean calculation (column 1)?!
-"""
-def zeroCenter(filepath):
-	data = readMergedCSV(filepath)
-	data -= np.mean(data, axis=0)
-	return data
+def zeroCenter(filepath, shape):
+    """
+    Zero centers the stock and google trends data for a given csv file.
+    :param filepath: The path to the csv file to read and zero center the data.
+    :param shape: The shape of each set (30 rows, 16 columns).
+    :return: A zero centered numpy array of shape (z, shape) containing the stock and google trends numbers. Where z is the
+             number of sets. z=int(csvfilerows/shape[0])=int(csvfilerows/30)
+    """
+    data = readMergedCSV(filepath)
+    # reshape and discard oldest values
+    rows = data.shape[0]
+    sets = int(data.shape[0] / shape[0])
+    data = data[rows - sets * shape[0]:]
+    data = data.reshape(sets, shape[0], shape[1])
+    for s in range(0, sets):
+        data[s, :, 2:] -= np.mean(data[s, :, 2:], axis=0)
+    return data
 
-"""
-Reads a csv file and returns a 2D array. 
-:param filepath: The path to the csv file. 
-:return: A numpy matrix.  
-"""
+
 def readMergedCSV(filepath):
-	data = []
-	try:
-		if isfile(filepath) and filepath[-3:] == "csv":
-			with open(filepath) as f:
-				reader = csv.reader(f, delimiter=',', quotechar='"')
-				for row in reader:
-					data.append([float(row[i]) for i in range(len(row))])
-	except Exception as ex:
-		# print ex.message
-		pass
-	return np.matrix(data)
+    """
+    Reads a csv file and returns a 2D array.
+    :param filepath: The path to the csv file.
+    :return: A numpy array.
+    """
+    data = []
+    try:
+        if isfile(filepath) and filepath[-3:] == "csv":
+            with open(filepath) as f:
+                reader = csv.reader(f, delimiter=',', quotechar='"')
+                for row in reader:
+                    data.append([float(row[i]) for i in range(len(row))])
+    except Exception as ex:
+        logging.error(ex)
+    return np.array(data)
 
 
-#"""
-#Iterates over all .csv files within the given folder. 
-#
-#ToDo:   + error handling
-#        + extend function params -> file extension
-#"""
-#def loadAllStockData(relativeFolderPath):
-#    allStocks = {}
-#    csvfiles = [f for f in listdir(relativeFolderPath) if isfile(join(relativeFolderPath, f)) and f[-3:] == "csv"]
-#    for f in csvfiles:
-#        stock = loadSingleStock(join(relativeFolderPath, f))
-#        if stock is not None:
-#            allStocks[stock.getStockName()] = stock
-#    return allStocks
-#
-#"""
-#ToDo: + Exception handling -> additional logging?
-#"""
-#def loadSingleStock(relativePath):
-#    stock = None
-#    try:
-#        csvfile = open(relativePath, 'rb')
-#        reader = csv.reader(csvfile, delimiter=',', quotechar='"')
-#        csvHeader = reader.next()
-#        currDate, currOpen, currHigh, currLow, currClose, currVolume, currName = reader.next()
-#        stock = Stock(currName)
-#        stock.addDay(currDate, currOpen, currHigh, currLow, currClose, currVolume, currName)
-#        for rowCurrentDay in reader:
-#            currDate, currOpen, currHigh, currLow, currClose, currVolume, currName = rowCurrentDay
-#            stock.addDay(currDate, currOpen, currHigh, currLow, currClose, currVolume, currName)
-#
-#    except Exception as ex:
-#        return stock
-#
-#    return stock
+if __name__ == "__main__":
+    time_steps = 30
+    values = 16
+    d = zeroCenter("datasets/myDataset/MMM.csv", (time_steps, values))
+    print(d[0])
