@@ -2,6 +2,7 @@
 
 from os import listdir
 from os.path import isfile, join
+from tensorflow.contrib import rnn
 
 import preprocessing as pp
 import stockpredictorconfig as config
@@ -32,12 +33,13 @@ class Stockpredictor(object):
         self.folderPreprocessedData = "datasets/preprocessed"
 
 
-    def createLstmCell(self, lstm_size):
+    def createLstmCell(self, lstmSize, forgetBias=1.0):
         """
         Creates a BasicLSTMCell with a given size of units.
-        :param lstm_size: The size of the cell.
+        :param lstmSize: The number of hidden layers (size of the lstm cell).
+        :param forgetBias: The forget bias.
         """
-        return tf.contrib.rnn.BasicLSTMCell(lstm_size)
+        return rnn.BasicLSTMCell(lstm_size, forget_bias=forgetBias)
 
 
     def preprocessing(self):
