@@ -25,21 +25,83 @@ Irgendein Abstract... zusammenfassend vll.
 
 \section{Einleitung}
 \label{sec:einleitung}
-Irgendeine Einleitung... Motivation vll. 
+Neural networks experienced a steep rise in popularity over the last years. One reason for this trend is the versatility of these networks. They are being deployed in many domains such as computer vision and pattern recognition, predictions, robotics and self-driving cars and many more. 
+\\
+However, quite few scientific papers of neural networks are released in the financial domain and even fewer with the objective to predict the development of stock prices. 
+%The reason for this might be controversial as the ability to predict stock course development approximately may result in exploitation. This papers motivation, however, is scientifically. 
+The task of stock course prediction is difficult as the stock prices are influenced by a multitude of seemingly unpredictable and uncorrelated factors. Nevertheless, the development of a stock course depends strongly on the actions of traders. Those traders could use the search engine google to gather information about stocks they are interested in right before a trade. The service \textit{Google Trends} views various graphs displaying data of search terms typed in by users at the google search engine. This service is accessible by the public. Based on these thoughts the following hypothesis can be formulated: \\
+\textit{A correlation between google trends search terms and stock courses exists. } \\
+In this paper the previous hypothesis is being investigated. In order to check the existence of a correlation between goolge trends data and stock courses, a neural network will be implemented and verified. 
 
 \section{Related Work}
 \label{sec:relatedwork}
-Irgendein Related Work...
+In \cite{todo} the author tries to train a neural network to predict the price of various stocks. 
 
-\section{Implementierung}
-Irgendeine Implementierung...
+\section{Implementation}
+\label{sec:implementation}
+
+\begin{itemize}
+	\item short description of the following subsections
+	\item selection of the framework: tensorflow ('native')
+	\item implementation results can be found at \url{repo-link}
+	\item ...
+\end{itemize}
+
+\subsection{Collecting data}
+\label{subsec:collectingdata}
+\begin{itemize}
+	\item{first of all the necessary data needs to be collected: \\
+		\begin{itemize}
+			\item google trends data for training
+			\item stock data for validation
+		\end{itemize}
+}
+	\item stock data was easy to collect
+	\item google trends data, however, was a quite hard task
+\end{itemize}
+
+\subsubsection{Hacking Google Trends}
+\label{subsubsec:hackinggoogletrends}
+\begin{itemize}
+	\item google trends has no api unlike many other google services
+	\item therefore, an analysis of the request url was done to send prepared requests for data collection
+	\item some additional problems like max. number of requests, request blockade etc.
+\end{itemize}
+
+\subsection{Preprocessing}
+\label{subsec:preprocessing}
+\begin{itemize}
+	\item csv format
+	\item zero centering
+	\item ...
+\end{itemize}
+
+\subsection{Defining the model}
+\label{subsec:modeldefinition}
+\begin{itemize}
+	\item logical representation of the model
+	\item lstm/rnn: why?
+\end{itemize}
+
+\subsection{Implementation details}
+\label{subsec:impldetails}
 
 \section{Evaluation}
-Irgendeine Evaluation
+\label{sec:evaluation}
+\begin{itemize}
+	\item describe how the implementation is being evaluated
+	\item execute the evaluation
+	\item describe and interpret the results
+\end{itemize}
 
 \section{Fazit und Ausblick}
 \label{sec:ausblick}
-Irgendein Fazit mit irgendeinem Ausblick...
+\begin{itemize}
+	\item summarize the results (implementation? evaluation results?) 
+	\item does it work? why? why not? 
+	\item how could the current solution be improved? 
+	\item possible further research? 
+\end{itemize}
 
 \bibliography{mybib}{}
 \end{document}
