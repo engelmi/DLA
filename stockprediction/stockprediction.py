@@ -3,6 +3,7 @@
 from os import listdir
 from os.path import isfile, join
 from tensorflow.contrib import rnn
+from tensorflow import nn
 
 import preprocessing as pp
 import stockpredictorconfig as config
@@ -29,17 +30,19 @@ class Stockpredictor(object):
         Initialization.
         """
         self.config = config
-        self.folderMergedData = "datasets/myDataset"
-        self.folderPreprocessedData = "datasets/preprocessed"
+        self.folderMergedData = join("datasets", "myDataset")
+        self.folderPreprocessedData = join("datasets", "preprocessed")
+        self.modelSaver = tf.train.Saver()
+        self.folderModelSafe = join("model")
 
 
-    def createLstmCell(self, lstmSize, forgetBias=1.0):
+    def createLstmCell(self, lstm_size, forget_bias=1.0):
         """
         Creates a BasicLSTMCell with a given size of units.
-        :param lstmSize: The number of hidden layers (size of the lstm cell).
-        :param forgetBias: The forget bias.
+        :param lstm_size: The number of hidden layers (size of the lstm cell).
+        :param forget_bias: The forget bias.
         """
-        return rnn.BasicLSTMCell(lstm_size, forget_bias=forgetBias)
+        return rnn.BasicLSTMCell(lstm_size, forget_bias=forget_bias)
 
 
     def preprocessing(self):
@@ -82,6 +85,23 @@ class Stockpredictor(object):
         """
         if os.path.exists(filepath):
             shutil.rmtree(filepath)
+
+    def saveModel(self, session, filename):
+        """
+        Saves a trained model.
+        :param session: The session to be saved.
+        :param filename: The name of the file for the trained model.
+        :return: The location of the saved model.
+        """
+        return saver.save(session, join(self.folderModelSafe, filename))
+
+    def restoreModel(self, session, filename):
+        """
+        Restores a previously trained model.
+        :param session: The session where the model will be restored to.
+        :param filename: The name of the file of the pre-trained model to restore.  
+        """
+        saver.restore(session, join(self.folderModelSafe, filename))
 
     def train_2(self, doPreprocessing):
         """
@@ -139,7 +159,7 @@ class Stockpredictor(object):
 
         return
 
-    def train(self, doPreprocessing):
+    def train_lstm(self, doPreprocessing):
         """
         Train the model.
         :param dataIsPreprocessed: Boolean flag to indicate data is already preprocessed.
@@ -147,32 +167,9 @@ class Stockpredictor(object):
         if doPreprocessing:
             self.preprocessing()
 
-        lstm = self.createLstmCell(self.config.hidden_size)
-        # Initial state of the lstm
-        hidden_state = tf.zeros([self.config.batch_size, self.config.hidden_size], dtype=tf.float64)
-        current_state = tf.zeros([self.config.batch_size, self.config.hidden_size], dtype=tf.float64)
-        state = hidden_state, current_state
-        probabilities = []
-        loss = 0.0
-
         processedFiles = [f for f in listdir(self.folderPreprocessedData) if
                           isfile(join(self.folderPreprocessedData, f)) and f[-3:] == "npy"]
-        for pFile in processedFiles:
-            loadedMatrix = self.loadPreprocessedData(join(self.folderPreprocessedData, pFile))
-            num_of_sets = loadedMatrix.shape[0]
-            lower_index = 0
-            for set in range(0, num_of_sets):
-                data_batch = tf.constant(loadedMatrix[set])
-                # The value of state is updated after processing each batch of words.
-                output, state = lstm(data_batch, state)
 
-                print(output)
-                print(state)
-                print("-------------------------------")
-                # The LSTM output can be used to make next word predictions
-                # logits = tf.matmul(output, softmax_w) + softmax_b
-                # probabilities.append(tf.nn.softmax(logits))
-                # loss += loss_function(probabilities, target_words)
 
 
         return
@@ -188,4 +185,4 @@ class Stockpredictor(object):
 if __name__ == "__main__":
     config = config.StockpredictorConfig()
     sp = Stockpredictor(config)
-    sp.train_2(True)
+    sp.train_lstm(True)
