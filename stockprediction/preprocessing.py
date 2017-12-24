@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from os.path import isfile, join
+from os import listdir, makedirs
+from os.path import isfile, join, exists
+import shutil
 
 import numpy as np
 import csv
@@ -46,6 +48,51 @@ def readMergedCSV(filepath):
     except Exception as ex:
         logging.error(ex)
     return np.array(data)
+
+
+def preprocessing(folderPreprocessedData, folderMergedData, time_steps, values):
+    """
+    Preprocessing of the merged data. Reads the merged data of stocks and google trends,
+    applies preprocessing routines to it and writes the result out.
+    """
+    deletePreprocessedData(folderPreprocessedData)
+    mergedCSVFiles = [f for f in listdir(folderMergedData) if
+                      isfile(join(folderMergedData, f)) and f[-3:] == "csv"]
+    for csvfile in mergedCSVFiles:
+        centeredData = zeroCenter(join(folderMergedData, csvfile), (time_steps, values+1))
+        # maybe further preprocessing...
+        persistPreprocessedData(centeredData, folderPreprocessedData, csvfile[:len(csvfile) - 4])
+
+
+def persistPreprocessedData(matrix, filepath, filename):
+    """
+    Persists a numpy matrix containing preprocessed data.
+    :param matrix: The numpy matrix to persist.
+    :param filepath: The relative path.
+    :param filename: The name of the file.
+    """
+    if not exists(filepath):
+        makedirs(filepath)
+    np.save(join(filepath, filename), matrix)
+
+
+def loadPreprocessedData(filepath):
+    """
+    Loads a persisted numpy matrix containing preprocessed data.
+    :param filepath: The relative path including the filename and extension.
+    """
+    if exists(filepath):
+        return np.array(np.load(filepath))
+    return None
+
+
+def deletePreprocessedData(filepath):
+    """
+    Deletes the saved preprocessed data.
+    :param filepath: The relative path.
+    """
+    if exists(filepath):
+        shutil.rmtree(filepath)
 
 
 if __name__ == "__main__":

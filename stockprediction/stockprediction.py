@@ -1,19 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from os import listdir
-from os.path import isfile, join
-from tensorflow.contrib import rnn
-from tensorflow import nn
-
-import preprocessing as pp
 import stockpredictorconfig as config
+import preprocessing as pp
 
-import os
-import csv
 import sys
-import shutil
 import tensorflow as tf
 import numpy as np
+from os.path import isfile, join
+from os import listdir
 
 # flag to check if python3 is used
 PY3 = sys.version_info[0] == 3
@@ -32,59 +26,10 @@ class Stockpredictor(object):
         self.config = config
         self.folderMergedData = join("datasets", "myDataset")
         self.folderPreprocessedData = join("datasets", "preprocessed")
-        self.modelSaver = tf.train.Saver()
+        #self.modelSaver = tf.train.Saver()
         self.folderModelSafe = join("model")
-
-
-    def createLstmCell(self, lstm_size, forget_bias=1.0):
-        """
-        Creates a BasicLSTMCell with a given size of units.
-        :param lstm_size: The number of hidden layers (size of the lstm cell).
-        :param forget_bias: The forget bias.
-        """
-        return rnn.BasicLSTMCell(lstm_size, forget_bias=forget_bias)
-
-
-    def preprocessing(self):
-        """
-        Preprocessing of the merged data. Reads the merged data of stocks and google trends,
-        applies preprocessing routines to it and writes the result out.
-        """
-        self.deletePreprocessedData(self.folderPreprocessedData)
-        mergedCSVFiles = [f for f in listdir(self.folderMergedData) if
-                          isfile(join(self.folderMergedData, f)) and f[-3:] == "csv"]
-        for csvfile in mergedCSVFiles:
-            centeredData = pp.zeroCenter(join(self.folderMergedData, csvfile), (self.config.time_steps, self.config.values+1))
-            # maybe further preprocessing...
-            self.persistPreprocessedData(centeredData, self.folderPreprocessedData, csvfile[:len(csvfile) - 4])
-
-    def persistPreprocessedData(self, matrix, filepath, filename):
-        """
-        Persists a numpy matrix containing preprocessed data.
-        :param matrix: The numpy matrix to persist.
-        :param filepath: The relative path.
-        :param filename: The name of the file.
-        """
-        if not os.path.exists(filepath):
-            os.makedirs(filepath)
-        np.save(join(filepath, filename), matrix)
-
-    def loadPreprocessedData(self, filepath):
-        """
-        Loads a persisted numpy matrix containing preprocessed data.
-        :param filepath: The relative path including the filename and extension.
-        """
-        if os.path.exists(filepath):
-            return np.array(np.load(filepath))
-        return None
-
-    def deletePreprocessedData(self, filepath):
-        """
-        Deletes the saved preprocessed data.
-        :param filepath: The relative path.
-        """
-        if os.path.exists(filepath):
-            shutil.rmtree(filepath)
+        self.counter = 0
+        self.loadPreprocessedData()
 
     def saveModel(self, session, filename):
         """
@@ -93,7 +38,8 @@ class Stockpredictor(object):
         :param filename: The name of the file for the trained model.
         :return: The location of the saved model.
         """
-        return saver.save(session, join(self.folderModelSafe, filename))
+        #return saver.save(session, join(self.folderModelSafe, filename))
+        pass
 
     def restoreModel(self, session, filename):
         """
@@ -101,7 +47,31 @@ class Stockpredictor(object):
         :param session: The session where the model will be restored to.
         :param filename: The name of the file of the pre-trained model to restore.  
         """
-        saver.restore(session, join(self.folderModelSafe, filename))
+        #saver.restore(session, join(self.folderModelSafe, filename))
+        pass
+
+    def preprocess(self):
+        pp.preprocessing(self.folderPreprocessedData, self.folderMergedData, self.config.time_steps, self.config.values)
+
+    def loadPreprocessedData(self):
+        processedFiles = [f for f in listdir(self.folderPreprocessedData) if
+                          isfile(join(self.folderPreprocessedData, f)) and f[-3:] == "npy"]
+        first = True
+        for pFile in processedFiles:
+            loadedMatrix = pp.loadPreprocessedData(join(self.folderPreprocessedData, pFile))
+            if first:
+                self.data = loadedMatrix
+                first = False
+            else:
+                self.data = np.concatenate((self.data, loadedMatrix))
+        print(self.data.shape)
+
+    def next_batch(self, batch_size):
+        next_counter = self.counter + batch_size
+        data_batch = self.data[self.counter:next_counter]
+        self.counter = next_counter
+        return data_batch
+
 
     def train_2(self, doPreprocessing):
         """
@@ -109,21 +79,17 @@ class Stockpredictor(object):
         :param doPreprocessing: Boolean flag to indicate data is already preprocessed.
         """
         if doPreprocessing:
-            self.preprocessing()
+            self.preprocess()
 
-        num_classes = 30
+        num_classes = 1
         X = tf.placeholder("float", [None, self.config.time_steps, self.config.values])
         Y = tf.placeholder("float", [None, num_classes])
-        weights = {
-            'out': tf.Variable(tf.random_normal([self.config.hidden_size, num_classes]))
-        }
-        biases = {
-            'out': tf.Variable(tf.random_normal([num_classes]))
-        }
+        weights = tf.Variable(tf.random_normal([self.config.hidden_size, num_classes]))
+        biases = tf.Variable(tf.random_normal([num_classes]))
         x = tf.unstack(X, self.config.time_steps, 1)
         lstm = tf.contrib.rnn.BasicLSTMCell(self.config.hidden_size, forget_bias=1.0)
         outputs, states = tf.contrib.rnn.static_rnn(lstm, x, dtype=tf.float32)
-        logits = tf.matmul(outputs[-1], weights['out'] + biases['out'])
+        logits = tf.matmul(outputs[-1], weights + biases)
         prediction = tf.nn.softmax(logits)
         loss_op = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(
             logits=logits, labels=Y))
@@ -137,40 +103,22 @@ class Stockpredictor(object):
         # Initialize the variables (i.e. assign their default value)
         init = tf.global_variables_initializer()
 
-        processedFiles = [f for f in listdir(self.folderPreprocessedData) if
-                          isfile(join(self.folderPreprocessedData, f)) and f[-3:] == "npy"]
         with tf.Session() as sess:
             sess.run(init)
-            for pFile in processedFiles:
-                loadedMatrix = self.loadPreprocessedData(join(self.folderPreprocessedData, pFile))
-                num_of_sets = loadedMatrix.shape[0]
-                lower_index = 0
-                for set in range(0, num_of_sets-self.config.batch_size, self.config.batch_size):
-                    data_batch = loadedMatrix[set:set+self.config.batch_size]
-                    batch_x = data_batch[:, :, 1:]
-                    batch_x = batch_x.reshape((self.config.batch_size, self.config.time_steps, self.config.values))
-                    batch_y = data_batch[:, :, 0]
-                    sess.run(train_op, feed_dict={X: batch_x, Y: batch_y})
-                    if set % 10 == 0 or set == 1:
-                        loss, acc = sess.run([loss_op, accuracy], feed_dict={X: batch_x, Y: batch_y})
-                        print("Step " + str(set))
-                        print("Loss " + str(loss))
-                        print("Accuracy " + str(acc))
-
-        return
-
-    def train_lstm(self, doPreprocessing):
-        """
-        Train the model.
-        :param dataIsPreprocessed: Boolean flag to indicate data is already preprocessed.
-        """
-        if doPreprocessing:
-            self.preprocessing()
-
-        processedFiles = [f for f in listdir(self.folderPreprocessedData) if
-                          isfile(join(self.folderPreprocessedData, f)) and f[-3:] == "npy"]
-
-
+            lower_index = 0
+            for step in range(1, self.config.training_steps + 1):
+                data_batch = self.next_batch(self.config.batch_size)
+                batch_x = data_batch[:, :, 1:]
+                batch_x = batch_x.reshape((self.config.batch_size, self.config.time_steps, self.config.values))
+                batch_y = data_batch[:, self.config.time_steps-1, 0]
+                batch_y = batch_y.reshape((self.config.batch_size, 1))
+                sess.run(train_op, feed_dict={X: batch_x, Y: batch_y})
+                if step % 10 == 0 or step == 1:
+                    p, loss, acc = sess.run([prediction, loss_op, accuracy], feed_dict={X: batch_x, Y: batch_y})
+                    print("Step " + str(step))
+                    print("Loss " + str(loss))
+                    print("Accuracy " + str(acc))
+                    print("Prediction " + str(p))
 
         return
 
@@ -185,4 +133,4 @@ class Stockpredictor(object):
 if __name__ == "__main__":
     config = config.StockpredictorConfig()
     sp = Stockpredictor(config)
-    sp.train_lstm(True)
+    sp.train_2(True)
