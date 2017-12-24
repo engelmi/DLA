@@ -64,13 +64,32 @@ class Stockpredictor(object):
                 first = False
             else:
                 self.data = np.concatenate((self.data, loadedMatrix))
-        print(self.data.shape)
 
-    def next_batch(self, batch_size):
-        next_counter = self.counter + batch_size
+    def classes(self, value):
+        if value == 1 or value == 0:
+            return np.array([1, 0])
+        elif value == -1:
+            return np.array([0, 1])
+        else:
+            raise Exception("no valid classes")
+
+    def next_batch(self):
+        next_counter = self.counter + self.config.batch_size
         data_batch = self.data[self.counter:next_counter]
         self.counter = next_counter
-        return data_batch
+        batch_x = data_batch[:, :, 1:]
+        batch_x = batch_x.reshape((self.config.batch_size, self.config.time_steps, self.config.values))
+        batch_y_tmp = data_batch[:, self.config.time_steps - 1, 0]
+        first = True
+        for i in range(0, self.config.batch_size):
+            if first:
+                batch_y = self.classes(batch_y_tmp[i])
+                first = False
+            else:
+                batch_y = np.concatenate((batch_y, self.classes(batch_y_tmp[i])))
+
+        batch_y = batch_y.reshape((self.config.batch_size, 2))
+        return batch_x, batch_y
 
 
     def train_2(self, doPreprocessing):
@@ -81,7 +100,7 @@ class Stockpredictor(object):
         if doPreprocessing:
             self.preprocess()
 
-        num_classes = 1
+        num_classes = 2
         X = tf.placeholder("float", [None, self.config.time_steps, self.config.values])
         Y = tf.placeholder("float", [None, num_classes])
         weights = tf.Variable(tf.random_normal([self.config.hidden_size, num_classes]))
@@ -107,18 +126,13 @@ class Stockpredictor(object):
             sess.run(init)
             lower_index = 0
             for step in range(1, self.config.training_steps + 1):
-                data_batch = self.next_batch(self.config.batch_size)
-                batch_x = data_batch[:, :, 1:]
-                batch_x = batch_x.reshape((self.config.batch_size, self.config.time_steps, self.config.values))
-                batch_y = data_batch[:, self.config.time_steps-1, 0]
-                batch_y = batch_y.reshape((self.config.batch_size, 1))
-                sess.run(train_op, feed_dict={X: batch_x, Y: batch_y})
-                if step % 10 == 0 or step == 1:
-                    p, loss, acc = sess.run([prediction, loss_op, accuracy], feed_dict={X: batch_x, Y: batch_y})
+                batch_x, batch_y = self.next_batch()
+                sess.run([train_op], feed_dict={X: batch_x, Y: batch_y})
+                if step % 5 == 0 or step == 1 or step == self.config.training_steps:
+                    loss, acc = sess.run([loss_op, accuracy], feed_dict={X: batch_x, Y: batch_y})
                     print("Step " + str(step))
                     print("Loss " + str(loss))
                     print("Accuracy " + str(acc))
-                    print("Prediction " + str(p))
 
         return
 
@@ -133,4 +147,4 @@ class Stockpredictor(object):
 if __name__ == "__main__":
     config = config.StockpredictorConfig()
     sp = Stockpredictor(config)
-    sp.train_2(True)
+    sp.train_2(False)

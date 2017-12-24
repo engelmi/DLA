@@ -26,10 +26,10 @@ class StockpredictorConfig(object):
     hidden_size = 1        # The number of hidden layers within one lstm cell
     # max_epoch = 14
     # max_max_epoch = 55
-    training_steps = 10
+    training_steps = 16
     # keep_prob = 0.35
     # lr_decay = 1 / 1.15
-    batch_size = 1
+    batch_size = 5
     time_steps = 30         # 30 days
     values = 15             # stock value, googletrends counter
     # vocab_size = 10000
