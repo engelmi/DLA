@@ -168,7 +168,10 @@ class StockTrend(object):
     Write the collected data to a file with the name of the stock
     :param path: Path were the file should be.
     """
-    with open(join(path,self.name + ".csv"), "w", newline='') as fp:
+    store = join(path,self.name + ".csv")
+    if os.path.exists(store):
+      os.remove(store)
+    with open(store, "w", newline='') as fp:
       writer = csv.writer(fp, delimiter=",", quotechar='"')
       writer.writerows(self.getData())
 
@@ -183,7 +186,4 @@ if __name__ == "__main__":
   trends = list(map(lambda file: file[:-5], os.listdir(join("googletrends", stock))))
   st = StockTrend(stock, trends)
   st.load()
-  if os.path.exists(path):
-    shutil.rmtree(path)
-  os.makedirs(path)
   st.write(path)
