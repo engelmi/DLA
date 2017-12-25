@@ -74,9 +74,8 @@ class Stockpredictor(object):
             raise Exception("no valid classes")
 
     def next_batch(self):
-        next_counter = self.counter + self.config.batch_size
-        data_batch = self.data[self.counter:next_counter]
-        self.counter = next_counter
+        rands = np.random.randint(0, self.data.shape[0], self.config.batch_size)
+        data_batch = self.data[rands]
         batch_x = data_batch[:, :, 1:]
         batch_x = batch_x.reshape((self.config.batch_size, self.config.time_steps, self.config.values))
         batch_y_tmp = data_batch[:, self.config.time_steps - 1, 0]
@@ -127,7 +126,7 @@ class Stockpredictor(object):
             for step in range(1, self.config.training_steps + 1):
                 batch_x, batch_y = self.next_batch()
                 sess.run([train_op], feed_dict={X: batch_x, Y: batch_y})
-                if step % 5 == 0 or step == 1 or step == self.config.training_steps:
+                if step % 100 == 0 or step == 1 or step == self.config.training_steps:
                     loss, acc = sess.run([loss_op, accuracy], feed_dict={X: batch_x, Y: batch_y})
                     print("Step " + str(step))
                     print("Loss " + str(loss))
