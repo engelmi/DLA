@@ -32,5 +32,6 @@ class StockpredictorConfig(object):
     batch_size = 5
     time_steps = 30         # 30 days
     values = 15             # stock value, googletrends counter
+    num_classes = 2
     # vocab_size = 10000
     rnn_mode = RNN_MODES["BASIC"]

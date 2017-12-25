@@ -100,11 +100,10 @@ class Stockpredictor(object):
         if doPreprocessing:
             self.preprocess()
 
-        num_classes = 2
         X = tf.placeholder("float", [None, self.config.time_steps, self.config.values])
-        Y = tf.placeholder("float", [None, num_classes])
-        weights = tf.Variable(tf.random_normal([self.config.hidden_size, num_classes]))
-        biases = tf.Variable(tf.random_normal([num_classes]))
+        Y = tf.placeholder("float", [None, self.config.num_classes])
+        weights = tf.Variable(tf.random_normal([self.config.hidden_size, self.config.num_classes]))
+        biases = tf.Variable(tf.random_normal([self.config.num_classes]))
         x = tf.unstack(X, self.config.time_steps, 1)
         lstm = tf.contrib.rnn.BasicLSTMCell(self.config.hidden_size, forget_bias=1.0)
         outputs, states = tf.contrib.rnn.static_rnn(lstm, x, dtype=tf.float32)
