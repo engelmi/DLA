@@ -19,111 +19,19 @@
 
 \begin{document}
 \maketitle
-\section{Abstract}
-\label{sec:abstract}
-Irgendein Abstract... zusammenfassend vll. 
+\input{abstract.tex} 
 
-\section{Introduction}
-\label{sec:introduction}
-Neural networks experienced a steep rise in popularity over the last years. One reason for this trend is the versatility of these networks. They are being deployed in many domains such as computer vision and pattern recognition, predictions, robotics and self-driving cars and many more. 
-\\
-However, quite few scientific papers of neural networks are released in the financial domain and even fewer with the objective to predict the development of stock prices. 
-%The reason for this might be controversial as the ability to predict stock course development approximately may result in exploitation. This papers motivation, however, is scientifically. 
-% volatile and shit
-The task of stock course prediction is difficult as the stock prices are influenced by a multitude of seemingly unpredictable and uncorrelated factors. Nevertheless, the development of a stock course depends strongly on the actions of traders. Those traders could use the search engine google to gather information about stocks they are interested in right before a trade. The service \textit{Google Trends} views various graphs displaying data of search terms typed in by users at the google search engine. This service is accessible by the public. Based on these thoughts the following hypothesis can be formulated: \\
-\textit{A correlation between google trends search terms and stock courses exists. } \\
-In this paper the previous hypothesis is being investigated. In order to check the existence of a correlation between goolge trends data and stock courses, a neural network will be implemented and verified. 
-\\ \\
-TODO: bei den related work papern schauen, ob hier material für weiteres zum Intro passen würde!!!
-\\
+\input{introduction.tex}
+\input{relatedwork.tex}
+\input{idea.tex}
+\input{background.tex}
+\input{dataset.tex}
+\input{preprocessing.tex}
+\input{model.tex}
+\input{implementation.tex}
+\input{evaluation.tex}
+\input{conclusion.tex}
 
-\section{Related Work}
-\label{sec:relatedwork}
-+ stock market description: chaotic, volatile, complex and seemingly unpredictable
-+ result: few research teams try to find a way to predict stock development
-+ the hype of deep learning also triggered the research in the field of stock market prediction, as dl models find application in a huge variety of domains (so why not prediciton of stock prices)
-+ however: older research only hit about 5\% accuracy at best, even more discouraging for future work
-+ nevertheless: recent research work used the improving methods of dl by using RNN and RBFNN and therefore the accuracy was improved 
-
-As a result of the stock market being chaotic, complex and volatile, there are few published research papers to facilitate the work for this paper. 
-
-Nevertheless, the few scientific papers exists which try to predict stock market development. 
-
-
-There are few published research papers in the fields of deep learning and neural networks regarding the prediction of price development. 
-Additionally, most of the available research's results are discouraging. The accuracy of price prediction is quite low with about 5\%. 
-
-Although the number of publications are few, the
-
-In \cite{stockprediction01} the authors use a combination of (2D)2PCA + Deep Neural Network (DNN) and compare this model with the current state of the art (2D)2PCA + RBFNN. 
-
-In \cite{stockprediction02} the authors have done some shit. 
-
-\section{Implementation}
-\label{sec:implementation}
-
-\begin{itemize}
-	\item short description of the following subsections
-	\item selection of the framework: tensorflow ('native')
-	\item implementation results can be found at \url{repo-link}
-	\item ...
-\end{itemize}
-
-\subsection{Collecting data}
-\label{subsec:collectingdata}
-\begin{itemize}
-	\item{first of all the necessary data needs to be collected: \\
-		\begin{itemize}
-			\item google trends data for training
-			\item stock data for validation
-		\end{itemize}
-}
-	\item stock data was easy to collect
-	\item google trends data, however, was a quite hard task
-\end{itemize}
-
-\subsubsection{Hacking Google Trends}
-\label{subsubsec:hackinggoogletrends}
-\begin{itemize}
-	\item google trends has no api unlike many other google services
-	\item therefore, an analysis of the request url was done to send prepared requests for data collection
-	\item some additional problems like max. number of requests, request blockade etc.
-\end{itemize}
-
-\subsection{Preprocessing}
-\label{subsec:preprocessing}
-\begin{itemize}
-	\item csv format
-	\item zero centering
-	\item ...
-\end{itemize}
-
-\subsection{Defining the model}
-\label{subsec:modeldefinition}
-\begin{itemize}
-	\item logical representation of the model
-	\item lstm/rnn: why?
-\end{itemize}
-
-\subsection{Implementation details}
-\label{subsec:impldetails}
-
-\section{Evaluation}
-\label{sec:evaluation}
-\begin{itemize}
-	\item describe how the implementation is being evaluated
-	\item execute the evaluation
-	\item describe and interpret the results
-\end{itemize}
-
-\section{Conclusion}
-\label{sec:ausblick}
-\begin{itemize}
-	\item summarize the results (implementation? evaluation results?) 
-	\item does it work? why? why not? 
-	\item how could the current solution be improved? 
-	\item possible further research? 
-\end{itemize}
 
 \bibliography{mybib}{}
 \end{document}
