@@ -12,3 +12,12 @@ https://www.kaggle.com/dgawlik/nyse
   2010-2016
 https://www.kaggle.com/aaron7sun/stocknews
   top 25 headlines of reddit per single date since 08.06.2008
+
+
+LSTM:
+http://colah.github.io/posts/2015-08-Understanding-LSTMs/
+	-> lstm on basis of recurrent networks
+https://jasdeep06.github.io/posts/Understanding-LSTM-in-Tensorflow-MNIST/
+	-> structure of a lstm cell etc.
+http://cs231n.stanford.edu/syllabus.html
+	-> slides and videos of stanfords course of NN 
