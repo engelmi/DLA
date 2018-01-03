@@ -1,21 +1,25 @@
 \section{Datasets}
 \label{sec:datasets}
-There are many databases, which provide a lot of datasets. One of those is \textit{Kaggle}. \textit{Kaggle} does not only provide datasets, they also organize competitions in analizing datasets or improving already invented algorithms. We found a lot of data about to \textit{New York Stock Exchange}. Unfortunately we did not find one single dataset which satisfied all our requirements. There was no data about how often a search term was requested at \textit{Google}. So we had to collect the data ourselves from \textit{Google Trends}. In the following chapters we describe our datasets and why we are using them.
-
-\begin{itemize}
-	\item{first of all the necessary data needs to be collected: \\
-		\begin{itemize}
-			\item google trends data for training
-			\item stock data for validation
-		\end{itemize}
-	}
-	\item stock data was easy to collect
-	\item google trends data, however, was a quite hard task
-\end{itemize}
+There are many databases, which provide a lot of datasets. One of those is \textit{kaggle}. \textit{kaggle} does not only provide datasets, they also organize competitions in analizing datasets or improving already invented algorithms. We found a lot of data about to \textit{New York Stock Exchange}. Unfortunately we did not find one single dataset which satisfied all our requirements. There was no data about how often a search term was requested at \textit{Google}. So we had to collect the data ourselves from \textit{Google Trends}. In the following chapters we describe our datasets and why we are using them.
 
 \subsection{Stock data}
+We combined data about the \textit{New York Stock Exchange} of two datasets from \textit{kaggle}.
 \label{subsec:stockdata}
-nyse
+
+\subsubsection{NYSE}
+\label{subsub:nyse}
+\cite{NYSE} collected information about historical prices of the S\&P 500 companies and additional fundamental data in his dataset. Standard and Poor`s 500 (S\&P 500) is a stock index of the 500 biggest US companies listed on the stock exchange.\\
+The dataset has 4 files:
+\begin{itemize}
+	\item \textbf{prices.csv} This file contains the daily stock prices from 2010 until the end of 2016. For newer companies the range is shorter. Unfortunately the prices are sorted by day and not stock and therefore we could not use this data without preprocessing it. Instead we found a better suiting dataset.
+	\item \textbf{prices-split-adjusted.csv} Approximately 140 stock splits occured during that time. This file has the same data with adjustments for the splits. We do not use this data neither.
+	\item \textbf{fundamentals.csv} The file summarises some metrics from the annual SECC 10K fillings. The metrics are useless for us, too.
+	\item \textbf{securities.csv} Additional information for each stock can be found in this file. The most important data is the mapping from the ticker symbol to the full name of the companies. We use this data as an input for collecting data from \textit{Google Trends}.
+\end{itemize}
+
+\subsubsection{S\&P500}
+\label{subsub:sp5000}
+\cite{SP500}
 
 
 \subsection{Google Trends data}
