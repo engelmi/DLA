@@ -66,9 +66,9 @@ class Stockpredictor(object):
                 self.data = np.concatenate((self.data, loadedMatrix))
 
     def classes(self, value):
-        if value == 1 or value == 0:
+        if value == 1:
             return np.array([1, 0])
-        elif value == -1:
+        elif value == -1 or value == 0:
             return np.array([0, 1])
         else:
             raise Exception("no valid classes")

@@ -1,6 +1,6 @@
 \section{Datasets}
 \label{sec:datasets}
-There are many databases, which provide a lot of datasets. One of those is \textit{kaggle}. \textit{kaggle} does not only provide datasets, they also organize competitions in analizing datasets or improving already invented algorithms. We found a lot of data about to \textit{New York Stock Exchange}. Unfortunately we did not find one single dataset which satisfied all our requirements. There was no data about how often a search term was requested at \textit{Google}. So we had to collect the data ourselves from \textit{Google Trends}. In the following chapters we describe our datasets and why we are using them.
+There are many databases, which provide a lot of datasets. One of those is \textit{kaggle}. \textit{kaggle} does not only provide datasets, they also organize competitions in analyzing datasets or improving already invented algorithms. We found a lot of data about to \textit{New York Stock Exchange}. Unfortunately we did not find one single dataset which satisfied all our requirements. There was no data about how often a search term was requested at \textit{Google}. So we had to collect the data ourselves from \textit{Google Trends}. In the following chapters we describe our datasets and why we are using them.
 
 \subsection{Stock data}
 We combined data about the \textit{New York Stock Exchange} of two datasets from \textit{kaggle}.
@@ -11,14 +11,14 @@ We combined data about the \textit{New York Stock Exchange} of two datasets from
 \cite{NYSE} collected information about historical prices of the S\&P 500 companies and additional fundamental data in his dataset. Standard and Poor`s 500 (S\&P 500) is a stock index of the 500 biggest US companies listed on the stock exchange.\\
 The dataset has 4 files:
 \begin{itemize}
-	\item \textbf{prices.csv} This file contains the daily stock prices from 2010 until the end of 2016. For newer companies the range is shorter. Unfortunately the prices are sorted by day and not stock and therefore we could not use this data without preprocessing it. Instead we found a better suiting dataset.
-	\item \textbf{prices-split-adjusted.csv} Approximately 140 stock splits occured during that time. This file has the same data with adjustments for the splits. We do not use this data neither.
-	\item \textbf{fundamentals.csv} The file summarises some metrics from the annual SECC 10K fillings. The metrics are useless for us, too.
+	\item \textbf{prices.csv} This file contains the daily stock prices from 2010 until the end of 2016. For newer companies the range is shorter. Unfortunately the prices are sorted by day and not stock and therefore we could not use this data without preprocessing it. Instead, we found a better suiting dataset.
+	\item \textbf{prices-split-adjusted.csv} Approximately 140 stock splits occurred during that time. This file has the same data with adjustments for the splits. We do not use this data neither.
+	\item \textbf{fundamentals.csv} The file summarizes some metrics from the annual SECC 10K fillings. The metrics are useless for us, too.
 	\item \textbf{securities.csv} Additional information for each stock can be found in this file. The most important data is the mapping from the ticker symbol to the full name of the companies. We use this data as an input for collecting data from \textit{Google Trends}.
 \end{itemize}
 
 \subsubsection{S\&P500}
-\label{subsub:sp5000}
+\label{subsub:sp500}
 The second dataset from \textit{kaggle} has also information about the daily stock prices from the S\&P 500. \cite{SP500} ordered the prices by stock and are therefore much more useful for us. Each entry consists of the date, four prices, the volume and its ticker symbol. The dataset has the prices for the last five years starting at 2012-08-13 until 2017-08-11. For the weekends there are no entries because the stock market is closed and no trading happens. For our task we use the opening and closing price to calculate if the stock went up or down on one day.
 
 
@@ -37,4 +37,12 @@ google trends data
 
 \subsection{Merged dataset}
 \label{subsec:merged}
-merging...
+From the three previously described datasets we used only two directly. The NYSE dataset (see \ref{subsub:nyse}) was only used to collect data from \textit{Google Trends} (see \ref{subsec:gtdata}). We combine the data of 14 search terms with the data from S\&P500 (see \ref{subsub:sp500}). We integrated the label in our dataset. The label is calculated from the opening and closing price.
+\begin{equation}
+y = sign(p_{close} - p_{open})
+\end{equation}
+The label can be found in the first column so that we can easily extract it in our algorithm. We separate our data in two classes. A label of $1$ means that the stock went up on this day. The other class is labeled with $-1$ and says that the price went down. If the value did not change during the day the label will be $0$. We interpret it the same as the label $-1$ because only up going prices are good if you invested in this stock.\\
+The second column contains the opening price we already used to calculate the label. We did not include the closing value because it is the same as the opening price of the following day and could be computed. We include one price so that out network can use it to compare the trend of the stock price with the trends of the search terms. The value may be used to not only predict if the stock goes up or down, but to predict the exact next value.\\
+The columns 3 to 16 contain the values of the search terms. It is important that there are only a few values of zeros. One problem is to find good search terms which are really correlated to the trend of the stock price. It is easily possible to replace them and test the network with other search terms. This may improve the prediction. We always include the search terms for the ticker symbol and the company name. The remaining twelve search terms depend on them.\\
+Unfortunately it was not possible to collect data from \textit{Google Trends} for all search terms for the last five years. Therefore, we had to discard some of the stock prices and start including them in our dataset as soon as there are enough search terms with a different value than $0$. That is why the trends are starting at a different date.
+The dataset can be preprocessed. Our preprocessing is described in the following chapter.
