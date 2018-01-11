@@ -1,3 +1,24 @@
 \section{Background}
 \label{sec:background}
-lstm, rnn
+
+\subsection{Recurrent Neural Network}
+\label{sec:rnn}
+There are many architectures specialized on different tasks. Convolutional networks are used for processing data that is organized as grid, like images. This kind of nets can also be used for time-series data, which are a 1-D grid. But often the data can not be interpreted as a 1-D grid and then another architecture is better suited. Recurrent neural networks (RNN) are specialized on processing sequential data.\\
+TODO: find good image
+The hidden units of a RNN have recurrent connections. So the result of a hidden unit at time step $t$ is used in the following time step $t+1$. It is important to notice that it is the same unit, which uses the result. As a consequence the parameters are shared during time. This is a key benefit, because it enables us to process sequences of different length. The update rule is also the same as it is the same unit.\\
+There are different patterns, which combine the units in a different way. A RNN with connections between hidden units and a output at each time step can compute the same as a turing machine. In this sense the network is universal. It produces a sequence of outputs of the same length as the input. It is also possible to only produce a single output after the last hidden unit.\\
+Like in any other neural network different output and loss functions are possible. Normally the softmax is used for the output. One common activation function is the hyperbolic tangent. The following equations show the update process of the forward propagation.
+\begin{align}
+a^{(t)} &= b + Wh^{(t-1)} + Ux^{(t)} \\
+h^{(t)} &= tanh(a^{(t)}) \\
+o^{(t)} &= c + Vh^{(t)} \\
+y^{(t)} &= softmax(o^{(t)})
+\end{align}
+"where the parameters are the bias vectors b and c along with the weight matrices U, V and W, respectively, for input-to-hidden, hidden-to-output and hidden-to-hidden connections."\cite[p.371]{DeepLearning}\\
+The generalized back-propagation algorithm can be applied to the unrolled computational graph. It is called back propagation through time (BPTT). Therefore, we need to store all the sequential states because they are used in the computation of the gradient. If we increase the number of recurrent layers the computational and memory cost increases as well. So for deep recurrent neural networks we have to meet the challenge of problems during training.
+
+\subsection{Long-Term Dependencies}
+\label{sec:ltd}
+
+\subsection{Long Short-Term Memory}
+\label{sec:lstm}
