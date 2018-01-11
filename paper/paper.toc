@@ -1,0 +1,20 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {I}Introduction}{1}{section.1}
+\contentsline {section}{\numberline {II}Related Work}{1}{section.2}
+\contentsline {section}{\numberline {III}Basic Idea}{1}{section.3}
+\contentsline {section}{\numberline {IV}Background}{1}{section.4}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Recurrent Neural Network}{1}{subsection.4.1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Long-Term Dependencies}{2}{subsection.4.2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Long Short-Term Memory}{2}{subsection.4.3}
+\contentsline {section}{\numberline {V}Datasets}{2}{section.5}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-A}}Stock data}{2}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-A}1}NYSE}{2}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-A}2}S\&P500}{2}{subsubsection.5.1.2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Google Trends data}{2}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-B}1}Hacking Google Trends}{2}{subsubsection.5.2.1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-C}}Merged dataset}{2}{subsection.5.3}
+\contentsline {section}{\numberline {VI}Preprocessing}{3}{section.6}
+\contentsline {section}{\numberline {VII}Model definition}{3}{section.7}
+\contentsline {section}{\numberline {VIII}Implementation details}{3}{section.8}
+\contentsline {section}{\numberline {IX}Evaluation}{3}{section.9}
+\contentsline {section}{\numberline {X}Conclusion}{3}{section.10}
