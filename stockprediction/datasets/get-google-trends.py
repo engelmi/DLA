@@ -8,7 +8,7 @@ import shutil
 import logging
 from datetime import date
 
-from stockprediciton.datasets.trendcollector import TrendCollector
+from trendcollector import TrendCollector
 
 """
 Method for collecting the google trends data for the stocks with indexes between 
