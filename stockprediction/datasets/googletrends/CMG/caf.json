@@ -1,0 +1,4011 @@
+{
+  "default": {
+    "timelineData": [
+      {
+        "time": "1470960000",
+        "formattedTime": "12.08.2016",
+        "formattedAxisTime": "12.08.2016",
+        "value": [
+          59
+        ],
+        "formattedValue": [
+          "59"
+        ]
+      },
+      {
+        "time": "1471046400",
+        "formattedTime": "13.08.2016",
+        "formattedAxisTime": "13.08.2016",
+        "value": [
+          37
+        ],
+        "formattedValue": [
+          "37"
+        ]
+      },
+      {
+        "time": "1471132800",
+        "formattedTime": "14.08.2016",
+        "formattedAxisTime": "14.08.2016",
+        "value": [
+          32
+        ],
+        "formattedValue": [
+          "32"
+        ]
+      },
+      {
+        "time": "1471219200",
+        "formattedTime": "15.08.2016",
+        "formattedAxisTime": "15.08.2016",
+        "value": [
+          38
+        ],
+        "formattedValue": [
+          "38"
+        ]
+      },
+      {
+        "time": "1471305600",
+        "formattedTime": "16.08.2016",
+        "formattedAxisTime": "16.08.2016",
+        "value": [
+          70
+        ],
+        "formattedValue": [
+          "70"
+        ]
+      },
+      {
+        "time": "1471392000",
+        "formattedTime": "17.08.2016",
+        "formattedAxisTime": "17.08.2016",
+        "value": [
+          72
+        ],
+        "formattedValue": [
+          "72"
+        ]
+      },
+      {
+        "time": "1471478400",
+        "formattedTime": "18.08.2016",
+        "formattedAxisTime": "18.08.2016",
+        "value": [
+          80
+        ],
+        "formattedValue": [
+          "80"
+        ]
+      },
+      {
+        "time": "1471564800",
+        "formattedTime": "19.08.2016",
+        "formattedAxisTime": "19.08.2016",
+        "value": [
+          58
+        ],
+        "formattedValue": [
+          "58"
+        ]
+      },
+      {
+        "time": "1471651200",
+        "formattedTime": "20.08.2016",
+        "formattedAxisTime": "20.08.2016",
+        "value": [
+          36
+        ],
+        "formattedValue": [
+          "36"
+        ]
+      },
+      {
+        "time": "1471737600",
+        "formattedTime": "21.08.2016",
+        "formattedAxisTime": "21.08.2016",
+        "value": [
+          34
+        ],
+        "formattedValue": [
+          "34"
+        ]
+      },
+      {
+        "time": "1471824000",
+        "formattedTime": "22.08.2016",
+        "formattedAxisTime": "22.08.2016",
+        "value": [
+          64
+        ],
+        "formattedValue": [
+          "64"
+        ]
+      },
+      {
+        "time": "1471910400",
+        "formattedTime": "23.08.2016",
+        "formattedAxisTime": "23.08.2016",
+        "value": [
+          66
+        ],
+        "formattedValue": [
+          "66"
+        ]
+      },
+      {
+        "time": "1471996800",
+        "formattedTime": "24.08.2016",
+        "formattedAxisTime": "24.08.2016",
+        "value": [
+          63
+        ],
+        "formattedValue": [
+          "63"
+        ]
+      },
+      {
+        "time": "1472083200",
+        "formattedTime": "25.08.2016",
+        "formattedAxisTime": "25.08.2016",
+        "value": [
+          61
+        ],
+        "formattedValue": [
+          "61"
+        ]
+      },
+      {
+        "time": "1472169600",
+        "formattedTime": "26.08.2016",
+        "formattedAxisTime": "26.08.2016",
+        "value": [
+          58
+        ],
+        "formattedValue": [
+          "58"
+        ]
+      },
+      {
+        "time": "1472256000",
+        "formattedTime": "27.08.2016",
+        "formattedAxisTime": "27.08.2016",
+        "value": [
+          40
+        ],
+        "formattedValue": [
+          "40"
+        ]
+      },
+      {
+        "time": "1472342400",
+        "formattedTime": "28.08.2016",
+        "formattedAxisTime": "28.08.2016",
+        "value": [
+          44
+        ],
+        "formattedValue": [
+          "44"
+        ]
+      },
+      {
+        "time": "1472428800",
+        "formattedTime": "29.08.2016",
+        "formattedAxisTime": "29.08.2016",
+        "value": [
+          86
+        ],
+        "formattedValue": [
+          "86"
+        ]
+      },
+      {
+        "time": "1472515200",
+        "formattedTime": "30.08.2016",
+        "formattedAxisTime": "30.08.2016",
+        "value": [
+          89
+        ],
+        "formattedValue": [
+          "89"
+        ]
+      },
+      {
+        "time": "1472601600",
+        "formattedTime": "31.08.2016",
+        "formattedAxisTime": "31.08.2016",
+        "value": [
+          87
+        ],
+        "formattedValue": [
+          "87"
+        ]
+      },
+      {
+        "time": "1472688000",
+        "formattedTime": "01.09.2016",
+        "formattedAxisTime": "01.09.2016",
+        "value": [
+          86
+        ],
+        "formattedValue": [
+          "86"
+        ]
+      },
+      {
+        "time": "1472774400",
+        "formattedTime": "02.09.2016",
+        "formattedAxisTime": "02.09.2016",
+        "value": [
+          78
+        ],
+        "formattedValue": [
+          "78"
+        ]
+      },
+      {
+        "time": "1472860800",
+        "formattedTime": "03.09.2016",
+        "formattedAxisTime": "03.09.2016",
+        "value": [
+          49
+        ],
+        "formattedValue": [
+          "49"
+        ]
+      },
+      {
+        "time": "1472947200",
+        "formattedTime": "04.09.2016",
+        "formattedAxisTime": "04.09.2016",
+        "value": [
+          53
+        ],
+        "formattedValue": [
+          "53"
+        ]
+      },
+      {
+        "time": "1473033600",
+        "formattedTime": "05.09.2016",
+        "formattedAxisTime": "05.09.2016",
+        "value": [
+          95
+        ],
+        "formattedValue": [
+          "95"
+        ]
+      },
+      {
+        "time": "1473120000",
+        "formattedTime": "06.09.2016",
+        "formattedAxisTime": "06.09.2016",
+        "value": [
+          81
+        ],
+        "formattedValue": [
+          "81"
+        ]
+      },
+      {
+        "time": "1473206400",
+        "formattedTime": "07.09.2016",
+        "formattedAxisTime": "07.09.2016",
+        "value": [
+          72
+        ],
+        "formattedValue": [
+          "72"
+        ]
+      },
+      {
+        "time": "1473292800",
+        "formattedTime": "08.09.2016",
+        "formattedAxisTime": "08.09.2016",
+        "value": [
+          67
+        ],
+        "formattedValue": [
+          "67"
+        ]
+      },
+      {
+        "time": "1473379200",
+        "formattedTime": "09.09.2016",
+        "formattedAxisTime": "09.09.2016",
+        "value": [
+          61
+        ],
+        "formattedValue": [
+          "61"
+        ]
+      },
+      {
+        "time": "1473465600",
+        "formattedTime": "10.09.2016",
+        "formattedAxisTime": "10.09.2016",
+        "value": [
+          42
+        ],
+        "formattedValue": [
+          "42"
+        ]
+      },
+      {
+        "time": "1473552000",
+        "formattedTime": "11.09.2016",
+        "formattedAxisTime": "11.09.2016",
+        "value": [
+          39
+        ],
+        "formattedValue": [
+          "39"
+        ]
+      },
+      {
+        "time": "1473638400",
+        "formattedTime": "12.09.2016",
+        "formattedAxisTime": "12.09.2016",
+        "value": [
+          69
+        ],
+        "formattedValue": [
+          "69"
+        ]
+      },
+      {
+        "time": "1473724800",
+        "formattedTime": "13.09.2016",
+        "formattedAxisTime": "13.09.2016",
+        "value": [
+          69
+        ],
+        "formattedValue": [
+          "69"
+        ]
+      },
+      {
+        "time": "1473811200",
+        "formattedTime": "14.09.2016",
+        "formattedAxisTime": "14.09.2016",
+        "value": [
+          70
+        ],
+        "formattedValue": [
+          "70"
+        ]
+      },
+      {
+        "time": "1473897600",
+        "formattedTime": "15.09.2016",
+        "formattedAxisTime": "15.09.2016",
+        "value": [
+          66
+        ],
+        "formattedValue": [
+          "66"
+        ]
+      },
+      {
+        "time": "1473984000",
+        "formattedTime": "16.09.2016",
+        "formattedAxisTime": "16.09.2016",
+        "value": [
+          59
+        ],
+        "formattedValue": [
+          "59"
+        ]
+      },
+      {
+        "time": "1474070400",
+        "formattedTime": "17.09.2016",
+        "formattedAxisTime": "17.09.2016",
+        "value": [
+          40
+        ],
+        "formattedValue": [
+          "40"
+        ]
+      },
+      {
+        "time": "1474156800",
+        "formattedTime": "18.09.2016",
+        "formattedAxisTime": "18.09.2016",
+        "value": [
+          38
+        ],
+        "formattedValue": [
+          "38"
+        ]
+      },
+      {
+        "time": "1474243200",
+        "formattedTime": "19.09.2016",
+        "formattedAxisTime": "19.09.2016",
+        "value": [
+          67
+        ],
+        "formattedValue": [
+          "67"
+        ]
+      },
+      {
+        "time": "1474329600",
+        "formattedTime": "20.09.2016",
+        "formattedAxisTime": "20.09.2016",
+        "value": [
+          67
+        ],
+        "formattedValue": [
+          "67"
+        ]
+      },
+      {
+        "time": "1474416000",
+        "formattedTime": "21.09.2016",
+        "formattedAxisTime": "21.09.2016",
+        "value": [
+          64
+        ],
+        "formattedValue": [
+          "64"
+        ]
+      },
+      {
+        "time": "1474502400",
+        "formattedTime": "22.09.2016",
+        "formattedAxisTime": "22.09.2016",
+        "value": [
+          62
+        ],
+        "formattedValue": [
+          "62"
+        ]
+      },
+      {
+        "time": "1474588800",
+        "formattedTime": "23.09.2016",
+        "formattedAxisTime": "23.09.2016",
+        "value": [
+          57
+        ],
+        "formattedValue": [
+          "57"
+        ]
+      },
+      {
+        "time": "1474675200",
+        "formattedTime": "24.09.2016",
+        "formattedAxisTime": "24.09.2016",
+        "value": [
+          36
+        ],
+        "formattedValue": [
+          "36"
+        ]
+      },
+      {
+        "time": "1474761600",
+        "formattedTime": "25.09.2016",
+        "formattedAxisTime": "25.09.2016",
+        "value": [
+          52
+        ],
+        "formattedValue": [
+          "52"
+        ]
+      },
+      {
+        "time": "1474848000",
+        "formattedTime": "26.09.2016",
+        "formattedAxisTime": "26.09.2016",
+        "value": [
+          100
+        ],
+        "formattedValue": [
+          "100"
+        ]
+      },
+      {
+        "time": "1474934400",
+        "formattedTime": "27.09.2016",
+        "formattedAxisTime": "27.09.2016",
+        "value": [
+          80
+        ],
+        "formattedValue": [
+          "80"
+        ]
+      },
+      {
+        "time": "1475020800",
+        "formattedTime": "28.09.2016",
+        "formattedAxisTime": "28.09.2016",
+        "value": [
+          77
+        ],
+        "formattedValue": [
+          "77"
+        ]
+      },
+      {
+        "time": "1475107200",
+        "formattedTime": "29.09.2016",
+        "formattedAxisTime": "29.09.2016",
+        "value": [
+          77
+        ],
+        "formattedValue": [
+          "77"
+        ]
+      },
+      {
+        "time": "1475193600",
+        "formattedTime": "30.09.2016",
+        "formattedAxisTime": "30.09.2016",
+        "value": [
+          75
+        ],
+        "formattedValue": [
+          "75"
+        ]
+      },
+      {
+        "time": "1475280000",
+        "formattedTime": "01.10.2016",
+        "formattedAxisTime": "01.10.2016",
+        "value": [
+          58
+        ],
+        "formattedValue": [
+          "58"
+        ]
+      },
+      {
+        "time": "1475366400",
+        "formattedTime": "02.10.2016",
+        "formattedAxisTime": "02.10.2016",
+        "value": [
+          62
+        ],
+        "formattedValue": [
+          "62"
+        ]
+      },
+      {
+        "time": "1475452800",
+        "formattedTime": "03.10.2016",
+        "formattedAxisTime": "03.10.2016",
+        "value": [
+          96
+        ],
+        "formattedValue": [
+          "96"
+        ]
+      },
+      {
+        "time": "1475539200",
+        "formattedTime": "04.10.2016",
+        "formattedAxisTime": "04.10.2016",
+        "value": [
+          92
+        ],
+        "formattedValue": [
+          "92"
+        ]
+      },
+      {
+        "time": "1475625600",
+        "formattedTime": "05.10.2016",
+        "formattedAxisTime": "05.10.2016",
+        "value": [
+          87
+        ],
+        "formattedValue": [
+          "87"
+        ]
+      },
+      {
+        "time": "1475712000",
+        "formattedTime": "06.10.2016",
+        "formattedAxisTime": "06.10.2016",
+        "value": [
+          73
+        ],
+        "formattedValue": [
+          "73"
+        ]
+      },
+      {
+        "time": "1475798400",
+        "formattedTime": "07.10.2016",
+        "formattedAxisTime": "07.10.2016",
+        "value": [
+          62
+        ],
+        "formattedValue": [
+          "62"
+        ]
+      },
+      {
+        "time": "1475884800",
+        "formattedTime": "08.10.2016",
+        "formattedAxisTime": "08.10.2016",
+        "value": [
+          36
+        ],
+        "formattedValue": [
+          "36"
+        ]
+      },
+      {
+        "time": "1475971200",
+        "formattedTime": "09.10.2016",
+        "formattedAxisTime": "09.10.2016",
+        "value": [
+          40
+        ],
+        "formattedValue": [
+          "40"
+        ]
+      },
+      {
+        "time": "1476057600",
+        "formattedTime": "10.10.2016",
+        "formattedAxisTime": "10.10.2016",
+        "value": [
+          76
+        ],
+        "formattedValue": [
+          "76"
+        ]
+      },
+      {
+        "time": "1476144000",
+        "formattedTime": "11.10.2016",
+        "formattedAxisTime": "11.10.2016",
+        "value": [
+          71
+        ],
+        "formattedValue": [
+          "71"
+        ]
+      },
+      {
+        "time": "1476230400",
+        "formattedTime": "12.10.2016",
+        "formattedAxisTime": "12.10.2016",
+        "value": [
+          69
+        ],
+        "formattedValue": [
+          "69"
+        ]
+      },
+      {
+        "time": "1476316800",
+        "formattedTime": "13.10.2016",
+        "formattedAxisTime": "13.10.2016",
+        "value": [
+          66
+        ],
+        "formattedValue": [
+          "66"
+        ]
+      },
+      {
+        "time": "1476403200",
+        "formattedTime": "14.10.2016",
+        "formattedAxisTime": "14.10.2016",
+        "value": [
+          62
+        ],
+        "formattedValue": [
+          "62"
+        ]
+      },
+      {
+        "time": "1476489600",
+        "formattedTime": "15.10.2016",
+        "formattedAxisTime": "15.10.2016",
+        "value": [
+          36
+        ],
+        "formattedValue": [
+          "36"
+        ]
+      },
+      {
+        "time": "1476576000",
+        "formattedTime": "16.10.2016",
+        "formattedAxisTime": "16.10.2016",
+        "value": [
+          38
+        ],
+        "formattedValue": [
+          "38"
+        ]
+      },
+      {
+        "time": "1476662400",
+        "formattedTime": "17.10.2016",
+        "formattedAxisTime": "17.10.2016",
+        "value": [
+          70
+        ],
+        "formattedValue": [
+          "70"
+        ]
+      },
+      {
+        "time": "1476748800",
+        "formattedTime": "18.10.2016",
+        "formattedAxisTime": "18.10.2016",
+        "value": [
+          68
+        ],
+        "formattedValue": [
+          "68"
+        ]
+      },
+      {
+        "time": "1476835200",
+        "formattedTime": "19.10.2016",
+        "formattedAxisTime": "19.10.2016",
+        "value": [
+          66
+        ],
+        "formattedValue": [
+          "66"
+        ]
+      },
+      {
+        "time": "1476921600",
+        "formattedTime": "20.10.2016",
+        "formattedAxisTime": "20.10.2016",
+        "value": [
+          61
+        ],
+        "formattedValue": [
+          "61"
+        ]
+      },
+      {
+        "time": "1477008000",
+        "formattedTime": "21.10.2016",
+        "formattedAxisTime": "21.10.2016",
+        "value": [
+          52
+        ],
+        "formattedValue": [
+          "52"
+        ]
+      },
+      {
+        "time": "1477094400",
+        "formattedTime": "22.10.2016",
+        "formattedAxisTime": "22.10.2016",
+        "value": [
+          34
+        ],
+        "formattedValue": [
+          "34"
+        ]
+      },
+      {
+        "time": "1477180800",
+        "formattedTime": "23.10.2016",
+        "formattedAxisTime": "23.10.2016",
+        "value": [
+          38
+        ],
+        "formattedValue": [
+          "38"
+        ]
+      },
+      {
+        "time": "1477267200",
+        "formattedTime": "24.10.2016",
+        "formattedAxisTime": "24.10.2016",
+        "value": [
+          69
+        ],
+        "formattedValue": [
+          "69"
+        ]
+      },
+      {
+        "time": "1477353600",
+        "formattedTime": "25.10.2016",
+        "formattedAxisTime": "25.10.2016",
+        "value": [
+          65
+        ],
+        "formattedValue": [
+          "65"
+        ]
+      },
+      {
+        "time": "1477440000",
+        "formattedTime": "26.10.2016",
+        "formattedAxisTime": "26.10.2016",
+        "value": [
+          66
+        ],
+        "formattedValue": [
+          "66"
+        ]
+      },
+      {
+        "time": "1477526400",
+        "formattedTime": "27.10.2016",
+        "formattedAxisTime": "27.10.2016",
+        "value": [
+          64
+        ],
+        "formattedValue": [
+          "64"
+        ]
+      },
+      {
+        "time": "1477612800",
+        "formattedTime": "28.10.2016",
+        "formattedAxisTime": "28.10.2016",
+        "value": [
+          66
+        ],
+        "formattedValue": [
+          "66"
+        ]
+      },
+      {
+        "time": "1477699200",
+        "formattedTime": "29.10.2016",
+        "formattedAxisTime": "29.10.2016",
+        "value": [
+          46
+        ],
+        "formattedValue": [
+          "46"
+        ]
+      },
+      {
+        "time": "1477785600",
+        "formattedTime": "30.10.2016",
+        "formattedAxisTime": "30.10.2016",
+        "value": [
+          39
+        ],
+        "formattedValue": [
+          "39"
+        ]
+      },
+      {
+        "time": "1477872000",
+        "formattedTime": "31.10.2016",
+        "formattedAxisTime": "31.10.2016",
+        "value": [
+          58
+        ],
+        "formattedValue": [
+          "58"
+        ]
+      },
+      {
+        "time": "1477958400",
+        "formattedTime": "01.11.2016",
+        "formattedAxisTime": "01.11.2016",
+        "value": [
+          53
+        ],
+        "formattedValue": [
+          "53"
+        ]
+      },
+      {
+        "time": "1478044800",
+        "formattedTime": "02.11.2016",
+        "formattedAxisTime": "02.11.2016",
+        "value": [
+          82
+        ],
+        "formattedValue": [
+          "82"
+        ]
+      },
+      {
+        "time": "1478131200",
+        "formattedTime": "03.11.2016",
+        "formattedAxisTime": "03.11.2016",
+        "value": [
+          83
+        ],
+        "formattedValue": [
+          "83"
+        ]
+      },
+      {
+        "time": "1478217600",
+        "formattedTime": "04.11.2016",
+        "formattedAxisTime": "04.11.2016",
+        "value": [
+          75
+        ],
+        "formattedValue": [
+          "75"
+        ]
+      },
+      {
+        "time": "1478304000",
+        "formattedTime": "05.11.2016",
+        "formattedAxisTime": "05.11.2016",
+        "value": [
+          46
+        ],
+        "formattedValue": [
+          "46"
+        ]
+      },
+      {
+        "time": "1478390400",
+        "formattedTime": "06.11.2016",
+        "formattedAxisTime": "06.11.2016",
+        "value": [
+          39
+        ],
+        "formattedValue": [
+          "39"
+        ]
+      },
+      {
+        "time": "1478476800",
+        "formattedTime": "07.11.2016",
+        "formattedAxisTime": "07.11.2016",
+        "value": [
+          69
+        ],
+        "formattedValue": [
+          "69"
+        ]
+      },
+      {
+        "time": "1478563200",
+        "formattedTime": "08.11.2016",
+        "formattedAxisTime": "08.11.2016",
+        "value": [
+          64
+        ],
+        "formattedValue": [
+          "64"
+        ]
+      },
+      {
+        "time": "1478649600",
+        "formattedTime": "09.11.2016",
+        "formattedAxisTime": "09.11.2016",
+        "value": [
+          54
+        ],
+        "formattedValue": [
+          "54"
+        ]
+      },
+      {
+        "time": "1478736000",
+        "formattedTime": "10.11.2016",
+        "formattedAxisTime": "10.11.2016",
+        "value": [
+          56
+        ],
+        "formattedValue": [
+          "56"
+        ]
+      },
+      {
+        "time": "1478822400",
+        "formattedTime": "11.11.2016",
+        "formattedAxisTime": "11.11.2016",
+        "value": [
+          33
+        ],
+        "formattedValue": [
+          "33"
+        ]
+      },
+      {
+        "time": "1478908800",
+        "formattedTime": "12.11.2016",
+        "formattedAxisTime": "12.11.2016",
+        "value": [
+          40
+        ],
+        "formattedValue": [
+          "40"
+        ]
+      },
+      {
+        "time": "1478995200",
+        "formattedTime": "13.11.2016",
+        "formattedAxisTime": "13.11.2016",
+        "value": [
+          49
+        ],
+        "formattedValue": [
+          "49"
+        ]
+      },
+      {
+        "time": "1479081600",
+        "formattedTime": "14.11.2016",
+        "formattedAxisTime": "14.11.2016",
+        "value": [
+          73
+        ],
+        "formattedValue": [
+          "73"
+        ]
+      },
+      {
+        "time": "1479168000",
+        "formattedTime": "15.11.2016",
+        "formattedAxisTime": "15.11.2016",
+        "value": [
+          62
+        ],
+        "formattedValue": [
+          "62"
+        ]
+      },
+      {
+        "time": "1479254400",
+        "formattedTime": "16.11.2016",
+        "formattedAxisTime": "16.11.2016",
+        "value": [
+          62
+        ],
+        "formattedValue": [
+          "62"
+        ]
+      },
+      {
+        "time": "1479340800",
+        "formattedTime": "17.11.2016",
+        "formattedAxisTime": "17.11.2016",
+        "value": [
+          56
+        ],
+        "formattedValue": [
+          "56"
+        ]
+      },
+      {
+        "time": "1479427200",
+        "formattedTime": "18.11.2016",
+        "formattedAxisTime": "18.11.2016",
+        "value": [
+          50
+        ],
+        "formattedValue": [
+          "50"
+        ]
+      },
+      {
+        "time": "1479513600",
+        "formattedTime": "19.11.2016",
+        "formattedAxisTime": "19.11.2016",
+        "value": [
+          31
+        ],
+        "formattedValue": [
+          "31"
+        ]
+      },
+      {
+        "time": "1479600000",
+        "formattedTime": "20.11.2016",
+        "formattedAxisTime": "20.11.2016",
+        "value": [
+          31
+        ],
+        "formattedValue": [
+          "31"
+        ]
+      },
+      {
+        "time": "1479686400",
+        "formattedTime": "21.11.2016",
+        "formattedAxisTime": "21.11.2016",
+        "value": [
+          59
+        ],
+        "formattedValue": [
+          "59"
+        ]
+      },
+      {
+        "time": "1479772800",
+        "formattedTime": "22.11.2016",
+        "formattedAxisTime": "22.11.2016",
+        "value": [
+          64
+        ],
+        "formattedValue": [
+          "64"
+        ]
+      },
+      {
+        "time": "1479859200",
+        "formattedTime": "23.11.2016",
+        "formattedAxisTime": "23.11.2016",
+        "value": [
+          60
+        ],
+        "formattedValue": [
+          "60"
+        ]
+      },
+      {
+        "time": "1479945600",
+        "formattedTime": "24.11.2016",
+        "formattedAxisTime": "24.11.2016",
+        "value": [
+          58
+        ],
+        "formattedValue": [
+          "58"
+        ]
+      },
+      {
+        "time": "1480032000",
+        "formattedTime": "25.11.2016",
+        "formattedAxisTime": "25.11.2016",
+        "value": [
+          52
+        ],
+        "formattedValue": [
+          "52"
+        ]
+      },
+      {
+        "time": "1480118400",
+        "formattedTime": "26.11.2016",
+        "formattedAxisTime": "26.11.2016",
+        "value": [
+          34
+        ],
+        "formattedValue": [
+          "34"
+        ]
+      },
+      {
+        "time": "1480204800",
+        "formattedTime": "27.11.2016",
+        "formattedAxisTime": "27.11.2016",
+        "value": [
+          35
+        ],
+        "formattedValue": [
+          "35"
+        ]
+      },
+      {
+        "time": "1480291200",
+        "formattedTime": "28.11.2016",
+        "formattedAxisTime": "28.11.2016",
+        "value": [
+          72
+        ],
+        "formattedValue": [
+          "72"
+        ]
+      },
+      {
+        "time": "1480377600",
+        "formattedTime": "29.11.2016",
+        "formattedAxisTime": "29.11.2016",
+        "value": [
+          80
+        ],
+        "formattedValue": [
+          "80"
+        ]
+      },
+      {
+        "time": "1480464000",
+        "formattedTime": "30.11.2016",
+        "formattedAxisTime": "30.11.2016",
+        "value": [
+          79
+        ],
+        "formattedValue": [
+          "79"
+        ]
+      },
+      {
+        "time": "1480550400",
+        "formattedTime": "01.12.2016",
+        "formattedAxisTime": "01.12.2016",
+        "value": [
+          76
+        ],
+        "formattedValue": [
+          "76"
+        ]
+      },
+      {
+        "time": "1480636800",
+        "formattedTime": "02.12.2016",
+        "formattedAxisTime": "02.12.2016",
+        "value": [
+          67
+        ],
+        "formattedValue": [
+          "67"
+        ]
+      },
+      {
+        "time": "1480723200",
+        "formattedTime": "03.12.2016",
+        "formattedAxisTime": "03.12.2016",
+        "value": [
+          46
+        ],
+        "formattedValue": [
+          "46"
+        ]
+      },
+      {
+        "time": "1480809600",
+        "formattedTime": "04.12.2016",
+        "formattedAxisTime": "04.12.2016",
+        "value": [
+          47
+        ],
+        "formattedValue": [
+          "47"
+        ]
+      },
+      {
+        "time": "1480896000",
+        "formattedTime": "05.12.2016",
+        "formattedAxisTime": "05.12.2016",
+        "value": [
+          82
+        ],
+        "formattedValue": [
+          "82"
+        ]
+      },
+      {
+        "time": "1480982400",
+        "formattedTime": "06.12.2016",
+        "formattedAxisTime": "06.12.2016",
+        "value": [
+          72
+        ],
+        "formattedValue": [
+          "72"
+        ]
+      },
+      {
+        "time": "1481068800",
+        "formattedTime": "07.12.2016",
+        "formattedAxisTime": "07.12.2016",
+        "value": [
+          71
+        ],
+        "formattedValue": [
+          "71"
+        ]
+      },
+      {
+        "time": "1481155200",
+        "formattedTime": "08.12.2016",
+        "formattedAxisTime": "08.12.2016",
+        "value": [
+          67
+        ],
+        "formattedValue": [
+          "67"
+        ]
+      },
+      {
+        "time": "1481241600",
+        "formattedTime": "09.12.2016",
+        "formattedAxisTime": "09.12.2016",
+        "value": [
+          62
+        ],
+        "formattedValue": [
+          "62"
+        ]
+      },
+      {
+        "time": "1481328000",
+        "formattedTime": "10.12.2016",
+        "formattedAxisTime": "10.12.2016",
+        "value": [
+          39
+        ],
+        "formattedValue": [
+          "39"
+        ]
+      },
+      {
+        "time": "1481414400",
+        "formattedTime": "11.12.2016",
+        "formattedAxisTime": "11.12.2016",
+        "value": [
+          43
+        ],
+        "formattedValue": [
+          "43"
+        ]
+      },
+      {
+        "time": "1481500800",
+        "formattedTime": "12.12.2016",
+        "formattedAxisTime": "12.12.2016",
+        "value": [
+          83
+        ],
+        "formattedValue": [
+          "83"
+        ]
+      },
+      {
+        "time": "1481587200",
+        "formattedTime": "13.12.2016",
+        "formattedAxisTime": "13.12.2016",
+        "value": [
+          100
+        ],
+        "formattedValue": [
+          "100"
+        ]
+      },
+      {
+        "time": "1481673600",
+        "formattedTime": "14.12.2016",
+        "formattedAxisTime": "14.12.2016",
+        "value": [
+          79
+        ],
+        "formattedValue": [
+          "79"
+        ]
+      },
+      {
+        "time": "1481760000",
+        "formattedTime": "15.12.2016",
+        "formattedAxisTime": "15.12.2016",
+        "value": [
+          71
+        ],
+        "formattedValue": [
+          "71"
+        ]
+      },
+      {
+        "time": "1481846400",
+        "formattedTime": "16.12.2016",
+        "formattedAxisTime": "16.12.2016",
+        "value": [
+          56
+        ],
+        "formattedValue": [
+          "56"
+        ]
+      },
+      {
+        "time": "1481932800",
+        "formattedTime": "17.12.2016",
+        "formattedAxisTime": "17.12.2016",
+        "value": [
+          34
+        ],
+        "formattedValue": [
+          "34"
+        ]
+      },
+      {
+        "time": "1482019200",
+        "formattedTime": "18.12.2016",
+        "formattedAxisTime": "18.12.2016",
+        "value": [
+          29
+        ],
+        "formattedValue": [
+          "29"
+        ]
+      },
+      {
+        "time": "1482105600",
+        "formattedTime": "19.12.2016",
+        "formattedAxisTime": "19.12.2016",
+        "value": [
+          57
+        ],
+        "formattedValue": [
+          "57"
+        ]
+      },
+      {
+        "time": "1482192000",
+        "formattedTime": "20.12.2016",
+        "formattedAxisTime": "20.12.2016",
+        "value": [
+          54
+        ],
+        "formattedValue": [
+          "54"
+        ]
+      },
+      {
+        "time": "1482278400",
+        "formattedTime": "21.12.2016",
+        "formattedAxisTime": "21.12.2016",
+        "value": [
+          52
+        ],
+        "formattedValue": [
+          "52"
+        ]
+      },
+      {
+        "time": "1482364800",
+        "formattedTime": "22.12.2016",
+        "formattedAxisTime": "22.12.2016",
+        "value": [
+          49
+        ],
+        "formattedValue": [
+          "49"
+        ]
+      },
+      {
+        "time": "1482451200",
+        "formattedTime": "23.12.2016",
+        "formattedAxisTime": "23.12.2016",
+        "value": [
+          41
+        ],
+        "formattedValue": [
+          "41"
+        ]
+      },
+      {
+        "time": "1482537600",
+        "formattedTime": "24.12.2016",
+        "formattedAxisTime": "24.12.2016",
+        "value": [
+          21
+        ],
+        "formattedValue": [
+          "21"
+        ]
+      },
+      {
+        "time": "1482624000",
+        "formattedTime": "25.12.2016",
+        "formattedAxisTime": "25.12.2016",
+        "value": [
+          22
+        ],
+        "formattedValue": [
+          "22"
+        ]
+      },
+      {
+        "time": "1482710400",
+        "formattedTime": "26.12.2016",
+        "formattedAxisTime": "26.12.2016",
+        "value": [
+          47
+        ],
+        "formattedValue": [
+          "47"
+        ]
+      },
+      {
+        "time": "1482796800",
+        "formattedTime": "27.12.2016",
+        "formattedAxisTime": "27.12.2016",
+        "value": [
+          56
+        ],
+        "formattedValue": [
+          "56"
+        ]
+      },
+      {
+        "time": "1482883200",
+        "formattedTime": "28.12.2016",
+        "formattedAxisTime": "28.12.2016",
+        "value": [
+          59
+        ],
+        "formattedValue": [
+          "59"
+        ]
+      },
+      {
+        "time": "1482969600",
+        "formattedTime": "29.12.2016",
+        "formattedAxisTime": "29.12.2016",
+        "value": [
+          61
+        ],
+        "formattedValue": [
+          "61"
+        ]
+      },
+      {
+        "time": "1483056000",
+        "formattedTime": "30.12.2016",
+        "formattedAxisTime": "30.12.2016",
+        "value": [
+          58
+        ],
+        "formattedValue": [
+          "58"
+        ]
+      },
+      {
+        "time": "1483142400",
+        "formattedTime": "31.12.2016",
+        "formattedAxisTime": "31.12.2016",
+        "value": [
+          31
+        ],
+        "formattedValue": [
+          "31"
+        ]
+      },
+      {
+        "time": "1483228800",
+        "formattedTime": "01.01.2017",
+        "formattedAxisTime": "01.01.2017",
+        "value": [
+          44
+        ],
+        "formattedValue": [
+          "44"
+        ]
+      },
+      {
+        "time": "1483315200",
+        "formattedTime": "02.01.2017",
+        "formattedAxisTime": "02.01.2017",
+        "value": [
+          87
+        ],
+        "formattedValue": [
+          "87"
+        ]
+      },
+      {
+        "time": "1483401600",
+        "formattedTime": "03.01.2017",
+        "formattedAxisTime": "03.01.2017",
+        "value": [
+          90
+        ],
+        "formattedValue": [
+          "90"
+        ]
+      },
+      {
+        "time": "1483488000",
+        "formattedTime": "04.01.2017",
+        "formattedAxisTime": "04.01.2017",
+        "value": [
+          91
+        ],
+        "formattedValue": [
+          "91"
+        ]
+      },
+      {
+        "time": "1483574400",
+        "formattedTime": "05.01.2017",
+        "formattedAxisTime": "05.01.2017",
+        "value": [
+          92
+        ],
+        "formattedValue": [
+          "92"
+        ]
+      },
+      {
+        "time": "1483660800",
+        "formattedTime": "06.01.2017",
+        "formattedAxisTime": "06.01.2017",
+        "value": [
+          70
+        ],
+        "formattedValue": [
+          "70"
+        ]
+      },
+      {
+        "time": "1483747200",
+        "formattedTime": "07.01.2017",
+        "formattedAxisTime": "07.01.2017",
+        "value": [
+          40
+        ],
+        "formattedValue": [
+          "40"
+        ]
+      },
+      {
+        "time": "1483833600",
+        "formattedTime": "08.01.2017",
+        "formattedAxisTime": "08.01.2017",
+        "value": [
+          39
+        ],
+        "formattedValue": [
+          "39"
+        ]
+      },
+      {
+        "time": "1483920000",
+        "formattedTime": "09.01.2017",
+        "formattedAxisTime": "09.01.2017",
+        "value": [
+          71
+        ],
+        "formattedValue": [
+          "71"
+        ]
+      },
+      {
+        "time": "1484006400",
+        "formattedTime": "10.01.2017",
+        "formattedAxisTime": "10.01.2017",
+        "value": [
+          68
+        ],
+        "formattedValue": [
+          "68"
+        ]
+      },
+      {
+        "time": "1484092800",
+        "formattedTime": "11.01.2017",
+        "formattedAxisTime": "11.01.2017",
+        "value": [
+          64
+        ],
+        "formattedValue": [
+          "64"
+        ]
+      },
+      {
+        "time": "1484179200",
+        "formattedTime": "12.01.2017",
+        "formattedAxisTime": "12.01.2017",
+        "value": [
+          63
+        ],
+        "formattedValue": [
+          "63"
+        ]
+      },
+      {
+        "time": "1484265600",
+        "formattedTime": "13.01.2017",
+        "formattedAxisTime": "13.01.2017",
+        "value": [
+          55
+        ],
+        "formattedValue": [
+          "55"
+        ]
+      },
+      {
+        "time": "1484352000",
+        "formattedTime": "14.01.2017",
+        "formattedAxisTime": "14.01.2017",
+        "value": [
+          39
+        ],
+        "formattedValue": [
+          "39"
+        ]
+      },
+      {
+        "time": "1484438400",
+        "formattedTime": "15.01.2017",
+        "formattedAxisTime": "15.01.2017",
+        "value": [
+          40
+        ],
+        "formattedValue": [
+          "40"
+        ]
+      },
+      {
+        "time": "1484524800",
+        "formattedTime": "16.01.2017",
+        "formattedAxisTime": "16.01.2017",
+        "value": [
+          69
+        ],
+        "formattedValue": [
+          "69"
+        ]
+      },
+      {
+        "time": "1484611200",
+        "formattedTime": "17.01.2017",
+        "formattedAxisTime": "17.01.2017",
+        "value": [
+          67
+        ],
+        "formattedValue": [
+          "67"
+        ]
+      },
+      {
+        "time": "1484697600",
+        "formattedTime": "18.01.2017",
+        "formattedAxisTime": "18.01.2017",
+        "value": [
+          60
+        ],
+        "formattedValue": [
+          "60"
+        ]
+      },
+      {
+        "time": "1484784000",
+        "formattedTime": "19.01.2017",
+        "formattedAxisTime": "19.01.2017",
+        "value": [
+          66
+        ],
+        "formattedValue": [
+          "66"
+        ]
+      },
+      {
+        "time": "1484870400",
+        "formattedTime": "20.01.2017",
+        "formattedAxisTime": "20.01.2017",
+        "value": [
+          57
+        ],
+        "formattedValue": [
+          "57"
+        ]
+      },
+      {
+        "time": "1484956800",
+        "formattedTime": "21.01.2017",
+        "formattedAxisTime": "21.01.2017",
+        "value": [
+          38
+        ],
+        "formattedValue": [
+          "38"
+        ]
+      },
+      {
+        "time": "1485043200",
+        "formattedTime": "22.01.2017",
+        "formattedAxisTime": "22.01.2017",
+        "value": [
+          37
+        ],
+        "formattedValue": [
+          "37"
+        ]
+      },
+      {
+        "time": "1485129600",
+        "formattedTime": "23.01.2017",
+        "formattedAxisTime": "23.01.2017",
+        "value": [
+          67
+        ],
+        "formattedValue": [
+          "67"
+        ]
+      },
+      {
+        "time": "1485216000",
+        "formattedTime": "24.01.2017",
+        "formattedAxisTime": "24.01.2017",
+        "value": [
+          69
+        ],
+        "formattedValue": [
+          "69"
+        ]
+      },
+      {
+        "time": "1485302400",
+        "formattedTime": "25.01.2017",
+        "formattedAxisTime": "25.01.2017",
+        "value": [
+          65
+        ],
+        "formattedValue": [
+          "65"
+        ]
+      },
+      {
+        "time": "1485388800",
+        "formattedTime": "26.01.2017",
+        "formattedAxisTime": "26.01.2017",
+        "value": [
+          65
+        ],
+        "formattedValue": [
+          "65"
+        ]
+      },
+      {
+        "time": "1485475200",
+        "formattedTime": "27.01.2017",
+        "formattedAxisTime": "27.01.2017",
+        "value": [
+          61
+        ],
+        "formattedValue": [
+          "61"
+        ]
+      },
+      {
+        "time": "1485561600",
+        "formattedTime": "28.01.2017",
+        "formattedAxisTime": "28.01.2017",
+        "value": [
+          49
+        ],
+        "formattedValue": [
+          "49"
+        ]
+      },
+      {
+        "time": "1485648000",
+        "formattedTime": "29.01.2017",
+        "formattedAxisTime": "29.01.2017",
+        "value": [
+          47
+        ],
+        "formattedValue": [
+          "47"
+        ]
+      },
+      {
+        "time": "1485734400",
+        "formattedTime": "30.01.2017",
+        "formattedAxisTime": "30.01.2017",
+        "value": [
+          76
+        ],
+        "formattedValue": [
+          "76"
+        ]
+      },
+      {
+        "time": "1485820800",
+        "formattedTime": "31.01.2017",
+        "formattedAxisTime": "31.01.2017",
+        "value": [
+          76
+        ],
+        "formattedValue": [
+          "76"
+        ]
+      },
+      {
+        "time": "1485907200",
+        "formattedTime": "01.02.2017",
+        "formattedAxisTime": "01.02.2017",
+        "value": [
+          79
+        ],
+        "formattedValue": [
+          "79"
+        ]
+      },
+      {
+        "time": "1485993600",
+        "formattedTime": "02.02.2017",
+        "formattedAxisTime": "02.02.2017",
+        "value": [
+          81
+        ],
+        "formattedValue": [
+          "81"
+        ]
+      },
+      {
+        "time": "1486080000",
+        "formattedTime": "03.02.2017",
+        "formattedAxisTime": "03.02.2017",
+        "value": [
+          69
+        ],
+        "formattedValue": [
+          "69"
+        ]
+      },
+      {
+        "time": "1486166400",
+        "formattedTime": "04.02.2017",
+        "formattedAxisTime": "04.02.2017",
+        "value": [
+          46
+        ],
+        "formattedValue": [
+          "46"
+        ]
+      },
+      {
+        "time": "1486252800",
+        "formattedTime": "05.02.2017",
+        "formattedAxisTime": "05.02.2017",
+        "value": [
+          48
+        ],
+        "formattedValue": [
+          "48"
+        ]
+      },
+      {
+        "time": "1486339200",
+        "formattedTime": "06.02.2017",
+        "formattedAxisTime": "06.02.2017",
+        "value": [
+          87
+        ],
+        "formattedValue": [
+          "87"
+        ]
+      },
+      {
+        "time": "1486425600",
+        "formattedTime": "07.02.2017",
+        "formattedAxisTime": "07.02.2017",
+        "value": [
+          75
+        ],
+        "formattedValue": [
+          "75"
+        ]
+      },
+      {
+        "time": "1486512000",
+        "formattedTime": "08.02.2017",
+        "formattedAxisTime": "08.02.2017",
+        "value": [
+          66
+        ],
+        "formattedValue": [
+          "66"
+        ]
+      },
+      {
+        "time": "1486598400",
+        "formattedTime": "09.02.2017",
+        "formattedAxisTime": "09.02.2017",
+        "value": [
+          63
+        ],
+        "formattedValue": [
+          "63"
+        ]
+      },
+      {
+        "time": "1486684800",
+        "formattedTime": "10.02.2017",
+        "formattedAxisTime": "10.02.2017",
+        "value": [
+          67
+        ],
+        "formattedValue": [
+          "67"
+        ]
+      },
+      {
+        "time": "1486771200",
+        "formattedTime": "11.02.2017",
+        "formattedAxisTime": "11.02.2017",
+        "value": [
+          41
+        ],
+        "formattedValue": [
+          "41"
+        ]
+      },
+      {
+        "time": "1486857600",
+        "formattedTime": "12.02.2017",
+        "formattedAxisTime": "12.02.2017",
+        "value": [
+          40
+        ],
+        "formattedValue": [
+          "40"
+        ]
+      },
+      {
+        "time": "1486944000",
+        "formattedTime": "13.02.2017",
+        "formattedAxisTime": "13.02.2017",
+        "value": [
+          73
+        ],
+        "formattedValue": [
+          "73"
+        ]
+      },
+      {
+        "time": "1487030400",
+        "formattedTime": "14.02.2017",
+        "formattedAxisTime": "14.02.2017",
+        "value": [
+          67
+        ],
+        "formattedValue": [
+          "67"
+        ]
+      },
+      {
+        "time": "1487116800",
+        "formattedTime": "15.02.2017",
+        "formattedAxisTime": "15.02.2017",
+        "value": [
+          68
+        ],
+        "formattedValue": [
+          "68"
+        ]
+      },
+      {
+        "time": "1487203200",
+        "formattedTime": "16.02.2017",
+        "formattedAxisTime": "16.02.2017",
+        "value": [
+          69
+        ],
+        "formattedValue": [
+          "69"
+        ]
+      },
+      {
+        "time": "1487289600",
+        "formattedTime": "17.02.2017",
+        "formattedAxisTime": "17.02.2017",
+        "value": [
+          61
+        ],
+        "formattedValue": [
+          "61"
+        ]
+      },
+      {
+        "time": "1487376000",
+        "formattedTime": "18.02.2017",
+        "formattedAxisTime": "18.02.2017",
+        "value": [
+          38
+        ],
+        "formattedValue": [
+          "38"
+        ]
+      },
+      {
+        "time": "1487462400",
+        "formattedTime": "19.02.2017",
+        "formattedAxisTime": "19.02.2017",
+        "value": [
+          40
+        ],
+        "formattedValue": [
+          "40"
+        ]
+      },
+      {
+        "time": "1487548800",
+        "formattedTime": "20.02.2017",
+        "formattedAxisTime": "20.02.2017",
+        "value": [
+          73
+        ],
+        "formattedValue": [
+          "73"
+        ]
+      },
+      {
+        "time": "1487635200",
+        "formattedTime": "21.02.2017",
+        "formattedAxisTime": "21.02.2017",
+        "value": [
+          74
+        ],
+        "formattedValue": [
+          "74"
+        ]
+      },
+      {
+        "time": "1487721600",
+        "formattedTime": "22.02.2017",
+        "formattedAxisTime": "22.02.2017",
+        "value": [
+          71
+        ],
+        "formattedValue": [
+          "71"
+        ]
+      },
+      {
+        "time": "1487808000",
+        "formattedTime": "23.02.2017",
+        "formattedAxisTime": "23.02.2017",
+        "value": [
+          69
+        ],
+        "formattedValue": [
+          "69"
+        ]
+      },
+      {
+        "time": "1487894400",
+        "formattedTime": "24.02.2017",
+        "formattedAxisTime": "24.02.2017",
+        "value": [
+          67
+        ],
+        "formattedValue": [
+          "67"
+        ]
+      },
+      {
+        "time": "1487980800",
+        "formattedTime": "25.02.2017",
+        "formattedAxisTime": "25.02.2017",
+        "value": [
+          45
+        ],
+        "formattedValue": [
+          "45"
+        ]
+      },
+      {
+        "time": "1488067200",
+        "formattedTime": "26.02.2017",
+        "formattedAxisTime": "26.02.2017",
+        "value": [
+          45
+        ],
+        "formattedValue": [
+          "45"
+        ]
+      },
+      {
+        "time": "1488153600",
+        "formattedTime": "27.02.2017",
+        "formattedAxisTime": "27.02.2017",
+        "value": [
+          85
+        ],
+        "formattedValue": [
+          "85"
+        ]
+      },
+      {
+        "time": "1488240000",
+        "formattedTime": "28.02.2017",
+        "formattedAxisTime": "28.02.2017",
+        "value": [
+          85
+        ],
+        "formattedValue": [
+          "85"
+        ]
+      },
+      {
+        "time": "1488326400",
+        "formattedTime": "01.03.2017",
+        "formattedAxisTime": "01.03.2017",
+        "value": [
+          89
+        ],
+        "formattedValue": [
+          "89"
+        ]
+      },
+      {
+        "time": "1488412800",
+        "formattedTime": "02.03.2017",
+        "formattedAxisTime": "02.03.2017",
+        "value": [
+          94
+        ],
+        "formattedValue": [
+          "94"
+        ]
+      },
+      {
+        "time": "1488499200",
+        "formattedTime": "03.03.2017",
+        "formattedAxisTime": "03.03.2017",
+        "value": [
+          86
+        ],
+        "formattedValue": [
+          "86"
+        ]
+      },
+      {
+        "time": "1488585600",
+        "formattedTime": "04.03.2017",
+        "formattedAxisTime": "04.03.2017",
+        "value": [
+          53
+        ],
+        "formattedValue": [
+          "53"
+        ]
+      },
+      {
+        "time": "1488672000",
+        "formattedTime": "05.03.2017",
+        "formattedAxisTime": "05.03.2017",
+        "value": [
+          52
+        ],
+        "formattedValue": [
+          "52"
+        ]
+      },
+      {
+        "time": "1488758400",
+        "formattedTime": "06.03.2017",
+        "formattedAxisTime": "06.03.2017",
+        "value": [
+          97
+        ],
+        "formattedValue": [
+          "97"
+        ]
+      },
+      {
+        "time": "1488844800",
+        "formattedTime": "07.03.2017",
+        "formattedAxisTime": "07.03.2017",
+        "value": [
+          81
+        ],
+        "formattedValue": [
+          "81"
+        ]
+      },
+      {
+        "time": "1488931200",
+        "formattedTime": "08.03.2017",
+        "formattedAxisTime": "08.03.2017",
+        "value": [
+          76
+        ],
+        "formattedValue": [
+          "76"
+        ]
+      },
+      {
+        "time": "1489017600",
+        "formattedTime": "09.03.2017",
+        "formattedAxisTime": "09.03.2017",
+        "value": [
+          71
+        ],
+        "formattedValue": [
+          "71"
+        ]
+      },
+      {
+        "time": "1489104000",
+        "formattedTime": "10.03.2017",
+        "formattedAxisTime": "10.03.2017",
+        "value": [
+          66
+        ],
+        "formattedValue": [
+          "66"
+        ]
+      },
+      {
+        "time": "1489190400",
+        "formattedTime": "11.03.2017",
+        "formattedAxisTime": "11.03.2017",
+        "value": [
+          38
+        ],
+        "formattedValue": [
+          "38"
+        ]
+      },
+      {
+        "time": "1489276800",
+        "formattedTime": "12.03.2017",
+        "formattedAxisTime": "12.03.2017",
+        "value": [
+          40
+        ],
+        "formattedValue": [
+          "40"
+        ]
+      },
+      {
+        "time": "1489363200",
+        "formattedTime": "13.03.2017",
+        "formattedAxisTime": "13.03.2017",
+        "value": [
+          75
+        ],
+        "formattedValue": [
+          "75"
+        ]
+      },
+      {
+        "time": "1489449600",
+        "formattedTime": "14.03.2017",
+        "formattedAxisTime": "14.03.2017",
+        "value": [
+          71
+        ],
+        "formattedValue": [
+          "71"
+        ]
+      },
+      {
+        "time": "1489536000",
+        "formattedTime": "15.03.2017",
+        "formattedAxisTime": "15.03.2017",
+        "value": [
+          71
+        ],
+        "formattedValue": [
+          "71"
+        ]
+      },
+      {
+        "time": "1489622400",
+        "formattedTime": "16.03.2017",
+        "formattedAxisTime": "16.03.2017",
+        "value": [
+          83
+        ],
+        "formattedValue": [
+          "83"
+        ]
+      },
+      {
+        "time": "1489708800",
+        "formattedTime": "17.03.2017",
+        "formattedAxisTime": "17.03.2017",
+        "value": [
+          66
+        ],
+        "formattedValue": [
+          "66"
+        ]
+      },
+      {
+        "time": "1489795200",
+        "formattedTime": "18.03.2017",
+        "formattedAxisTime": "18.03.2017",
+        "value": [
+          48
+        ],
+        "formattedValue": [
+          "48"
+        ]
+      },
+      {
+        "time": "1489881600",
+        "formattedTime": "19.03.2017",
+        "formattedAxisTime": "19.03.2017",
+        "value": [
+          47
+        ],
+        "formattedValue": [
+          "47"
+        ]
+      },
+      {
+        "time": "1489968000",
+        "formattedTime": "20.03.2017",
+        "formattedAxisTime": "20.03.2017",
+        "value": [
+          79
+        ],
+        "formattedValue": [
+          "79"
+        ]
+      },
+      {
+        "time": "1490054400",
+        "formattedTime": "21.03.2017",
+        "formattedAxisTime": "21.03.2017",
+        "value": [
+          78
+        ],
+        "formattedValue": [
+          "78"
+        ]
+      },
+      {
+        "time": "1490140800",
+        "formattedTime": "22.03.2017",
+        "formattedAxisTime": "22.03.2017",
+        "value": [
+          74
+        ],
+        "formattedValue": [
+          "74"
+        ]
+      },
+      {
+        "time": "1490227200",
+        "formattedTime": "23.03.2017",
+        "formattedAxisTime": "23.03.2017",
+        "value": [
+          71
+        ],
+        "formattedValue": [
+          "71"
+        ]
+      },
+      {
+        "time": "1490313600",
+        "formattedTime": "24.03.2017",
+        "formattedAxisTime": "24.03.2017",
+        "value": [
+          66
+        ],
+        "formattedValue": [
+          "66"
+        ]
+      },
+      {
+        "time": "1490400000",
+        "formattedTime": "25.03.2017",
+        "formattedAxisTime": "25.03.2017",
+        "value": [
+          39
+        ],
+        "formattedValue": [
+          "39"
+        ]
+      },
+      {
+        "time": "1490486400",
+        "formattedTime": "26.03.2017",
+        "formattedAxisTime": "26.03.2017",
+        "value": [
+          45
+        ],
+        "formattedValue": [
+          "45"
+        ]
+      },
+      {
+        "time": "1490572800",
+        "formattedTime": "27.03.2017",
+        "formattedAxisTime": "27.03.2017",
+        "value": [
+          83
+        ],
+        "formattedValue": [
+          "83"
+        ]
+      },
+      {
+        "time": "1490659200",
+        "formattedTime": "28.03.2017",
+        "formattedAxisTime": "28.03.2017",
+        "value": [
+          85
+        ],
+        "formattedValue": [
+          "85"
+        ]
+      },
+      {
+        "time": "1490745600",
+        "formattedTime": "29.03.2017",
+        "formattedAxisTime": "29.03.2017",
+        "value": [
+          84
+        ],
+        "formattedValue": [
+          "84"
+        ]
+      },
+      {
+        "time": "1490832000",
+        "formattedTime": "30.03.2017",
+        "formattedAxisTime": "30.03.2017",
+        "value": [
+          83
+        ],
+        "formattedValue": [
+          "83"
+        ]
+      },
+      {
+        "time": "1490918400",
+        "formattedTime": "31.03.2017",
+        "formattedAxisTime": "31.03.2017",
+        "value": [
+          73
+        ],
+        "formattedValue": [
+          "73"
+        ]
+      },
+      {
+        "time": "1491004800",
+        "formattedTime": "01.04.2017",
+        "formattedAxisTime": "01.04.2017",
+        "value": [
+          55
+        ],
+        "formattedValue": [
+          "55"
+        ]
+      },
+      {
+        "time": "1491091200",
+        "formattedTime": "02.04.2017",
+        "formattedAxisTime": "02.04.2017",
+        "value": [
+          51
+        ],
+        "formattedValue": [
+          "51"
+        ]
+      },
+      {
+        "time": "1491177600",
+        "formattedTime": "03.04.2017",
+        "formattedAxisTime": "03.04.2017",
+        "value": [
+          98
+        ],
+        "formattedValue": [
+          "98"
+        ]
+      },
+      {
+        "time": "1491264000",
+        "formattedTime": "04.04.2017",
+        "formattedAxisTime": "04.04.2017",
+        "value": [
+          100
+        ],
+        "formattedValue": [
+          "100"
+        ]
+      },
+      {
+        "time": "1491350400",
+        "formattedTime": "05.04.2017",
+        "formattedAxisTime": "05.04.2017",
+        "value": [
+          91
+        ],
+        "formattedValue": [
+          "91"
+        ]
+      },
+      {
+        "time": "1491436800",
+        "formattedTime": "06.04.2017",
+        "formattedAxisTime": "06.04.2017",
+        "value": [
+          76
+        ],
+        "formattedValue": [
+          "76"
+        ]
+      },
+      {
+        "time": "1491523200",
+        "formattedTime": "07.04.2017",
+        "formattedAxisTime": "07.04.2017",
+        "value": [
+          67
+        ],
+        "formattedValue": [
+          "67"
+        ]
+      },
+      {
+        "time": "1491609600",
+        "formattedTime": "08.04.2017",
+        "formattedAxisTime": "08.04.2017",
+        "value": [
+          42
+        ],
+        "formattedValue": [
+          "42"
+        ]
+      },
+      {
+        "time": "1491696000",
+        "formattedTime": "09.04.2017",
+        "formattedAxisTime": "09.04.2017",
+        "value": [
+          37
+        ],
+        "formattedValue": [
+          "37"
+        ]
+      },
+      {
+        "time": "1491782400",
+        "formattedTime": "10.04.2017",
+        "formattedAxisTime": "10.04.2017",
+        "value": [
+          72
+        ],
+        "formattedValue": [
+          "72"
+        ]
+      },
+      {
+        "time": "1491868800",
+        "formattedTime": "11.04.2017",
+        "formattedAxisTime": "11.04.2017",
+        "value": [
+          74
+        ],
+        "formattedValue": [
+          "74"
+        ]
+      },
+      {
+        "time": "1491955200",
+        "formattedTime": "12.04.2017",
+        "formattedAxisTime": "12.04.2017",
+        "value": [
+          67
+        ],
+        "formattedValue": [
+          "67"
+        ]
+      },
+      {
+        "time": "1492041600",
+        "formattedTime": "13.04.2017",
+        "formattedAxisTime": "13.04.2017",
+        "value": [
+          66
+        ],
+        "formattedValue": [
+          "66"
+        ]
+      },
+      {
+        "time": "1492128000",
+        "formattedTime": "14.04.2017",
+        "formattedAxisTime": "14.04.2017",
+        "value": [
+          59
+        ],
+        "formattedValue": [
+          "59"
+        ]
+      },
+      {
+        "time": "1492214400",
+        "formattedTime": "15.04.2017",
+        "formattedAxisTime": "15.04.2017",
+        "value": [
+          36
+        ],
+        "formattedValue": [
+          "36"
+        ]
+      },
+      {
+        "time": "1492300800",
+        "formattedTime": "16.04.2017",
+        "formattedAxisTime": "16.04.2017",
+        "value": [
+          29
+        ],
+        "formattedValue": [
+          "29"
+        ]
+      },
+      {
+        "time": "1492387200",
+        "formattedTime": "17.04.2017",
+        "formattedAxisTime": "17.04.2017",
+        "value": [
+          37
+        ],
+        "formattedValue": [
+          "37"
+        ]
+      },
+      {
+        "time": "1492473600",
+        "formattedTime": "18.04.2017",
+        "formattedAxisTime": "18.04.2017",
+        "value": [
+          71
+        ],
+        "formattedValue": [
+          "71"
+        ]
+      },
+      {
+        "time": "1492560000",
+        "formattedTime": "19.04.2017",
+        "formattedAxisTime": "19.04.2017",
+        "value": [
+          69
+        ],
+        "formattedValue": [
+          "69"
+        ]
+      },
+      {
+        "time": "1492646400",
+        "formattedTime": "20.04.2017",
+        "formattedAxisTime": "20.04.2017",
+        "value": [
+          64
+        ],
+        "formattedValue": [
+          "64"
+        ]
+      },
+      {
+        "time": "1492732800",
+        "formattedTime": "21.04.2017",
+        "formattedAxisTime": "21.04.2017",
+        "value": [
+          59
+        ],
+        "formattedValue": [
+          "59"
+        ]
+      },
+      {
+        "time": "1492819200",
+        "formattedTime": "22.04.2017",
+        "formattedAxisTime": "22.04.2017",
+        "value": [
+          37
+        ],
+        "formattedValue": [
+          "37"
+        ]
+      },
+      {
+        "time": "1492905600",
+        "formattedTime": "23.04.2017",
+        "formattedAxisTime": "23.04.2017",
+        "value": [
+          33
+        ],
+        "formattedValue": [
+          "33"
+        ]
+      },
+      {
+        "time": "1492992000",
+        "formattedTime": "24.04.2017",
+        "formattedAxisTime": "24.04.2017",
+        "value": [
+          80
+        ],
+        "formattedValue": [
+          "80"
+        ]
+      },
+      {
+        "time": "1493078400",
+        "formattedTime": "25.04.2017",
+        "formattedAxisTime": "25.04.2017",
+        "value": [
+          73
+        ],
+        "formattedValue": [
+          "73"
+        ]
+      },
+      {
+        "time": "1493164800",
+        "formattedTime": "26.04.2017",
+        "formattedAxisTime": "26.04.2017",
+        "value": [
+          93
+        ],
+        "formattedValue": [
+          "93"
+        ]
+      },
+      {
+        "time": "1493251200",
+        "formattedTime": "27.04.2017",
+        "formattedAxisTime": "27.04.2017",
+        "value": [
+          85
+        ],
+        "formattedValue": [
+          "85"
+        ]
+      },
+      {
+        "time": "1493337600",
+        "formattedTime": "28.04.2017",
+        "formattedAxisTime": "28.04.2017",
+        "value": [
+          72
+        ],
+        "formattedValue": [
+          "72"
+        ]
+      },
+      {
+        "time": "1493424000",
+        "formattedTime": "29.04.2017",
+        "formattedAxisTime": "29.04.2017",
+        "value": [
+          41
+        ],
+        "formattedValue": [
+          "41"
+        ]
+      },
+      {
+        "time": "1493510400",
+        "formattedTime": "30.04.2017",
+        "formattedAxisTime": "30.04.2017",
+        "value": [
+          36
+        ],
+        "formattedValue": [
+          "36"
+        ]
+      },
+      {
+        "time": "1493596800",
+        "formattedTime": "01.05.2017",
+        "formattedAxisTime": "01.05.2017",
+        "value": [
+          51
+        ],
+        "formattedValue": [
+          "51"
+        ]
+      },
+      {
+        "time": "1493683200",
+        "formattedTime": "02.05.2017",
+        "formattedAxisTime": "02.05.2017",
+        "value": [
+          97
+        ],
+        "formattedValue": [
+          "97"
+        ]
+      },
+      {
+        "time": "1493769600",
+        "formattedTime": "03.05.2017",
+        "formattedAxisTime": "03.05.2017",
+        "value": [
+          93
+        ],
+        "formattedValue": [
+          "93"
+        ]
+      },
+      {
+        "time": "1493856000",
+        "formattedTime": "04.05.2017",
+        "formattedAxisTime": "04.05.2017",
+        "value": [
+          90
+        ],
+        "formattedValue": [
+          "90"
+        ]
+      },
+      {
+        "time": "1493942400",
+        "formattedTime": "05.05.2017",
+        "formattedAxisTime": "05.05.2017",
+        "value": [
+          81
+        ],
+        "formattedValue": [
+          "81"
+        ]
+      },
+      {
+        "time": "1494028800",
+        "formattedTime": "06.05.2017",
+        "formattedAxisTime": "06.05.2017",
+        "value": [
+          44
+        ],
+        "formattedValue": [
+          "44"
+        ]
+      },
+      {
+        "time": "1494115200",
+        "formattedTime": "07.05.2017",
+        "formattedAxisTime": "07.05.2017",
+        "value": [
+          31
+        ],
+        "formattedValue": [
+          "31"
+        ]
+      },
+      {
+        "time": "1494201600",
+        "formattedTime": "08.05.2017",
+        "formattedAxisTime": "08.05.2017",
+        "value": [
+          44
+        ],
+        "formattedValue": [
+          "44"
+        ]
+      },
+      {
+        "time": "1494288000",
+        "formattedTime": "09.05.2017",
+        "formattedAxisTime": "09.05.2017",
+        "value": [
+          83
+        ],
+        "formattedValue": [
+          "83"
+        ]
+      },
+      {
+        "time": "1494374400",
+        "formattedTime": "10.05.2017",
+        "formattedAxisTime": "10.05.2017",
+        "value": [
+          76
+        ],
+        "formattedValue": [
+          "76"
+        ]
+      },
+      {
+        "time": "1494460800",
+        "formattedTime": "11.05.2017",
+        "formattedAxisTime": "11.05.2017",
+        "value": [
+          75
+        ],
+        "formattedValue": [
+          "75"
+        ]
+      },
+      {
+        "time": "1494547200",
+        "formattedTime": "12.05.2017",
+        "formattedAxisTime": "12.05.2017",
+        "value": [
+          55
+        ],
+        "formattedValue": [
+          "55"
+        ]
+      },
+      {
+        "time": "1494633600",
+        "formattedTime": "13.05.2017",
+        "formattedAxisTime": "13.05.2017",
+        "value": [
+          34
+        ],
+        "formattedValue": [
+          "34"
+        ]
+      },
+      {
+        "time": "1494720000",
+        "formattedTime": "14.05.2017",
+        "formattedAxisTime": "14.05.2017",
+        "value": [
+          32
+        ],
+        "formattedValue": [
+          "32"
+        ]
+      },
+      {
+        "time": "1494806400",
+        "formattedTime": "15.05.2017",
+        "formattedAxisTime": "15.05.2017",
+        "value": [
+          59
+        ],
+        "formattedValue": [
+          "59"
+        ]
+      },
+      {
+        "time": "1494892800",
+        "formattedTime": "16.05.2017",
+        "formattedAxisTime": "16.05.2017",
+        "value": [
+          57
+        ],
+        "formattedValue": [
+          "57"
+        ]
+      },
+      {
+        "time": "1494979200",
+        "formattedTime": "17.05.2017",
+        "formattedAxisTime": "17.05.2017",
+        "value": [
+          55
+        ],
+        "formattedValue": [
+          "55"
+        ]
+      },
+      {
+        "time": "1495065600",
+        "formattedTime": "18.05.2017",
+        "formattedAxisTime": "18.05.2017",
+        "value": [
+          54
+        ],
+        "formattedValue": [
+          "54"
+        ]
+      },
+      {
+        "time": "1495152000",
+        "formattedTime": "19.05.2017",
+        "formattedAxisTime": "19.05.2017",
+        "value": [
+          48
+        ],
+        "formattedValue": [
+          "48"
+        ]
+      },
+      {
+        "time": "1495238400",
+        "formattedTime": "20.05.2017",
+        "formattedAxisTime": "20.05.2017",
+        "value": [
+          29
+        ],
+        "formattedValue": [
+          "29"
+        ]
+      },
+      {
+        "time": "1495324800",
+        "formattedTime": "21.05.2017",
+        "formattedAxisTime": "21.05.2017",
+        "value": [
+          27
+        ],
+        "formattedValue": [
+          "27"
+        ]
+      },
+      {
+        "time": "1495411200",
+        "formattedTime": "22.05.2017",
+        "formattedAxisTime": "22.05.2017",
+        "value": [
+          59
+        ],
+        "formattedValue": [
+          "59"
+        ]
+      },
+      {
+        "time": "1495497600",
+        "formattedTime": "23.05.2017",
+        "formattedAxisTime": "23.05.2017",
+        "value": [
+          60
+        ],
+        "formattedValue": [
+          "60"
+        ]
+      },
+      {
+        "time": "1495584000",
+        "formattedTime": "24.05.2017",
+        "formattedAxisTime": "24.05.2017",
+        "value": [
+          55
+        ],
+        "formattedValue": [
+          "55"
+        ]
+      },
+      {
+        "time": "1495670400",
+        "formattedTime": "25.05.2017",
+        "formattedAxisTime": "25.05.2017",
+        "value": [
+          33
+        ],
+        "formattedValue": [
+          "33"
+        ]
+      },
+      {
+        "time": "1495756800",
+        "formattedTime": "26.05.2017",
+        "formattedAxisTime": "26.05.2017",
+        "value": [
+          41
+        ],
+        "formattedValue": [
+          "41"
+        ]
+      },
+      {
+        "time": "1495843200",
+        "formattedTime": "27.05.2017",
+        "formattedAxisTime": "27.05.2017",
+        "value": [
+          31
+        ],
+        "formattedValue": [
+          "31"
+        ]
+      },
+      {
+        "time": "1495929600",
+        "formattedTime": "28.05.2017",
+        "formattedAxisTime": "28.05.2017",
+        "value": [
+          37
+        ],
+        "formattedValue": [
+          "37"
+        ]
+      },
+      {
+        "time": "1496016000",
+        "formattedTime": "29.05.2017",
+        "formattedAxisTime": "29.05.2017",
+        "value": [
+          78
+        ],
+        "formattedValue": [
+          "78"
+        ]
+      },
+      {
+        "time": "1496102400",
+        "formattedTime": "30.05.2017",
+        "formattedAxisTime": "30.05.2017",
+        "value": [
+          76
+        ],
+        "formattedValue": [
+          "76"
+        ]
+      },
+      {
+        "time": "1496188800",
+        "formattedTime": "31.05.2017",
+        "formattedAxisTime": "31.05.2017",
+        "value": [
+          67
+        ],
+        "formattedValue": [
+          "67"
+        ]
+      },
+      {
+        "time": "1496275200",
+        "formattedTime": "01.06.2017",
+        "formattedAxisTime": "01.06.2017",
+        "value": [
+          71
+        ],
+        "formattedValue": [
+          "71"
+        ]
+      },
+      {
+        "time": "1496361600",
+        "formattedTime": "02.06.2017",
+        "formattedAxisTime": "02.06.2017",
+        "value": [
+          64
+        ],
+        "formattedValue": [
+          "64"
+        ]
+      },
+      {
+        "time": "1496448000",
+        "formattedTime": "03.06.2017",
+        "formattedAxisTime": "03.06.2017",
+        "value": [
+          44
+        ],
+        "formattedValue": [
+          "44"
+        ]
+      },
+      {
+        "time": "1496534400",
+        "formattedTime": "04.06.2017",
+        "formattedAxisTime": "04.06.2017",
+        "value": [
+          35
+        ],
+        "formattedValue": [
+          "35"
+        ]
+      },
+      {
+        "time": "1496620800",
+        "formattedTime": "05.06.2017",
+        "formattedAxisTime": "05.06.2017",
+        "value": [
+          54
+        ],
+        "formattedValue": [
+          "54"
+        ]
+      },
+      {
+        "time": "1496707200",
+        "formattedTime": "06.06.2017",
+        "formattedAxisTime": "06.06.2017",
+        "value": [
+          83
+        ],
+        "formattedValue": [
+          "83"
+        ]
+      },
+      {
+        "time": "1496793600",
+        "formattedTime": "07.06.2017",
+        "formattedAxisTime": "07.06.2017",
+        "value": [
+          69
+        ],
+        "formattedValue": [
+          "69"
+        ]
+      },
+      {
+        "time": "1496880000",
+        "formattedTime": "08.06.2017",
+        "formattedAxisTime": "08.06.2017",
+        "value": [
+          60
+        ],
+        "formattedValue": [
+          "60"
+        ]
+      },
+      {
+        "time": "1496966400",
+        "formattedTime": "09.06.2017",
+        "formattedAxisTime": "09.06.2017",
+        "value": [
+          53
+        ],
+        "formattedValue": [
+          "53"
+        ]
+      },
+      {
+        "time": "1497052800",
+        "formattedTime": "10.06.2017",
+        "formattedAxisTime": "10.06.2017",
+        "value": [
+          31
+        ],
+        "formattedValue": [
+          "31"
+        ]
+      },
+      {
+        "time": "1497139200",
+        "formattedTime": "11.06.2017",
+        "formattedAxisTime": "11.06.2017",
+        "value": [
+          34
+        ],
+        "formattedValue": [
+          "34"
+        ]
+      },
+      {
+        "time": "1497225600",
+        "formattedTime": "12.06.2017",
+        "formattedAxisTime": "12.06.2017",
+        "value": [
+          65
+        ],
+        "formattedValue": [
+          "65"
+        ]
+      },
+      {
+        "time": "1497312000",
+        "formattedTime": "13.06.2017",
+        "formattedAxisTime": "13.06.2017",
+        "value": [
+          58
+        ],
+        "formattedValue": [
+          "58"
+        ]
+      },
+      {
+        "time": "1497398400",
+        "formattedTime": "14.06.2017",
+        "formattedAxisTime": "14.06.2017",
+        "value": [
+          58
+        ],
+        "formattedValue": [
+          "58"
+        ]
+      },
+      {
+        "time": "1497484800",
+        "formattedTime": "15.06.2017",
+        "formattedAxisTime": "15.06.2017",
+        "value": [
+          54
+        ],
+        "formattedValue": [
+          "54"
+        ]
+      },
+      {
+        "time": "1497571200",
+        "formattedTime": "16.06.2017",
+        "formattedAxisTime": "16.06.2017",
+        "value": [
+          51
+        ],
+        "formattedValue": [
+          "51"
+        ]
+      },
+      {
+        "time": "1497657600",
+        "formattedTime": "17.06.2017",
+        "formattedAxisTime": "17.06.2017",
+        "value": [
+          28
+        ],
+        "formattedValue": [
+          "28"
+        ]
+      },
+      {
+        "time": "1497744000",
+        "formattedTime": "18.06.2017",
+        "formattedAxisTime": "18.06.2017",
+        "value": [
+          28
+        ],
+        "formattedValue": [
+          "28"
+        ]
+      },
+      {
+        "time": "1497830400",
+        "formattedTime": "19.06.2017",
+        "formattedAxisTime": "19.06.2017",
+        "value": [
+          59
+        ],
+        "formattedValue": [
+          "59"
+        ]
+      },
+      {
+        "time": "1497916800",
+        "formattedTime": "20.06.2017",
+        "formattedAxisTime": "20.06.2017",
+        "value": [
+          60
+        ],
+        "formattedValue": [
+          "60"
+        ]
+      },
+      {
+        "time": "1498003200",
+        "formattedTime": "21.06.2017",
+        "formattedAxisTime": "21.06.2017",
+        "value": [
+          59
+        ],
+        "formattedValue": [
+          "59"
+        ]
+      },
+      {
+        "time": "1498089600",
+        "formattedTime": "22.06.2017",
+        "formattedAxisTime": "22.06.2017",
+        "value": [
+          56
+        ],
+        "formattedValue": [
+          "56"
+        ]
+      },
+      {
+        "time": "1498176000",
+        "formattedTime": "23.06.2017",
+        "formattedAxisTime": "23.06.2017",
+        "value": [
+          49
+        ],
+        "formattedValue": [
+          "49"
+        ]
+      },
+      {
+        "time": "1498262400",
+        "formattedTime": "24.06.2017",
+        "formattedAxisTime": "24.06.2017",
+        "value": [
+          31
+        ],
+        "formattedValue": [
+          "31"
+        ]
+      },
+      {
+        "time": "1498348800",
+        "formattedTime": "25.06.2017",
+        "formattedAxisTime": "25.06.2017",
+        "value": [
+          30
+        ],
+        "formattedValue": [
+          "30"
+        ]
+      },
+      {
+        "time": "1498435200",
+        "formattedTime": "26.06.2017",
+        "formattedAxisTime": "26.06.2017",
+        "value": [
+          67
+        ],
+        "formattedValue": [
+          "67"
+        ]
+      },
+      {
+        "time": "1498521600",
+        "formattedTime": "27.06.2017",
+        "formattedAxisTime": "27.06.2017",
+        "value": [
+          66
+        ],
+        "formattedValue": [
+          "66"
+        ]
+      },
+      {
+        "time": "1498608000",
+        "formattedTime": "28.06.2017",
+        "formattedAxisTime": "28.06.2017",
+        "value": [
+          69
+        ],
+        "formattedValue": [
+          "69"
+        ]
+      },
+      {
+        "time": "1498694400",
+        "formattedTime": "29.06.2017",
+        "formattedAxisTime": "29.06.2017",
+        "value": [
+          68
+        ],
+        "formattedValue": [
+          "68"
+        ]
+      },
+      {
+        "time": "1498780800",
+        "formattedTime": "30.06.2017",
+        "formattedAxisTime": "30.06.2017",
+        "value": [
+          63
+        ],
+        "formattedValue": [
+          "63"
+        ]
+      },
+      {
+        "time": "1498867200",
+        "formattedTime": "01.07.2017",
+        "formattedAxisTime": "01.07.2017",
+        "value": [
+          50
+        ],
+        "formattedValue": [
+          "50"
+        ]
+      },
+      {
+        "time": "1498953600",
+        "formattedTime": "02.07.2017",
+        "formattedAxisTime": "02.07.2017",
+        "value": [
+          63
+        ],
+        "formattedValue": [
+          "63"
+        ]
+      },
+      {
+        "time": "1499040000",
+        "formattedTime": "03.07.2017",
+        "formattedAxisTime": "03.07.2017",
+        "value": [
+          100
+        ],
+        "formattedValue": [
+          "100"
+        ]
+      },
+      {
+        "time": "1499126400",
+        "formattedTime": "04.07.2017",
+        "formattedAxisTime": "04.07.2017",
+        "value": [
+          91
+        ],
+        "formattedValue": [
+          "91"
+        ]
+      },
+      {
+        "time": "1499212800",
+        "formattedTime": "05.07.2017",
+        "formattedAxisTime": "05.07.2017",
+        "value": [
+          77
+        ],
+        "formattedValue": [
+          "77"
+        ]
+      },
+      {
+        "time": "1499299200",
+        "formattedTime": "06.07.2017",
+        "formattedAxisTime": "06.07.2017",
+        "value": [
+          71
+        ],
+        "formattedValue": [
+          "71"
+        ]
+      },
+      {
+        "time": "1499385600",
+        "formattedTime": "07.07.2017",
+        "formattedAxisTime": "07.07.2017",
+        "value": [
+          58
+        ],
+        "formattedValue": [
+          "58"
+        ]
+      },
+      {
+        "time": "1499472000",
+        "formattedTime": "08.07.2017",
+        "formattedAxisTime": "08.07.2017",
+        "value": [
+          36
+        ],
+        "formattedValue": [
+          "36"
+        ]
+      },
+      {
+        "time": "1499558400",
+        "formattedTime": "09.07.2017",
+        "formattedAxisTime": "09.07.2017",
+        "value": [
+          38
+        ],
+        "formattedValue": [
+          "38"
+        ]
+      },
+      {
+        "time": "1499644800",
+        "formattedTime": "10.07.2017",
+        "formattedAxisTime": "10.07.2017",
+        "value": [
+          63
+        ],
+        "formattedValue": [
+          "63"
+        ]
+      },
+      {
+        "time": "1499731200",
+        "formattedTime": "11.07.2017",
+        "formattedAxisTime": "11.07.2017",
+        "value": [
+          60
+        ],
+        "formattedValue": [
+          "60"
+        ]
+      },
+      {
+        "time": "1499817600",
+        "formattedTime": "12.07.2017",
+        "formattedAxisTime": "12.07.2017",
+        "value": [
+          56
+        ],
+        "formattedValue": [
+          "56"
+        ]
+      },
+      {
+        "time": "1499904000",
+        "formattedTime": "13.07.2017",
+        "formattedAxisTime": "13.07.2017",
+        "value": [
+          47
+        ],
+        "formattedValue": [
+          "47"
+        ]
+      },
+      {
+        "time": "1499990400",
+        "formattedTime": "14.07.2017",
+        "formattedAxisTime": "14.07.2017",
+        "value": [
+          28
+        ],
+        "formattedValue": [
+          "28"
+        ]
+      },
+      {
+        "time": "1500076800",
+        "formattedTime": "15.07.2017",
+        "formattedAxisTime": "15.07.2017",
+        "value": [
+          25
+        ],
+        "formattedValue": [
+          "25"
+        ]
+      },
+      {
+        "time": "1500163200",
+        "formattedTime": "16.07.2017",
+        "formattedAxisTime": "16.07.2017",
+        "value": [
+          29
+        ],
+        "formattedValue": [
+          "29"
+        ]
+      },
+      {
+        "time": "1500249600",
+        "formattedTime": "17.07.2017",
+        "formattedAxisTime": "17.07.2017",
+        "value": [
+          62
+        ],
+        "formattedValue": [
+          "62"
+        ]
+      },
+      {
+        "time": "1500336000",
+        "formattedTime": "18.07.2017",
+        "formattedAxisTime": "18.07.2017",
+        "value": [
+          58
+        ],
+        "formattedValue": [
+          "58"
+        ]
+      },
+      {
+        "time": "1500422400",
+        "formattedTime": "19.07.2017",
+        "formattedAxisTime": "19.07.2017",
+        "value": [
+          58
+        ],
+        "formattedValue": [
+          "58"
+        ]
+      },
+      {
+        "time": "1500508800",
+        "formattedTime": "20.07.2017",
+        "formattedAxisTime": "20.07.2017",
+        "value": [
+          61
+        ],
+        "formattedValue": [
+          "61"
+        ]
+      },
+      {
+        "time": "1500595200",
+        "formattedTime": "21.07.2017",
+        "formattedAxisTime": "21.07.2017",
+        "value": [
+          53
+        ],
+        "formattedValue": [
+          "53"
+        ]
+      },
+      {
+        "time": "1500681600",
+        "formattedTime": "22.07.2017",
+        "formattedAxisTime": "22.07.2017",
+        "value": [
+          35
+        ],
+        "formattedValue": [
+          "35"
+        ]
+      },
+      {
+        "time": "1500768000",
+        "formattedTime": "23.07.2017",
+        "formattedAxisTime": "23.07.2017",
+        "value": [
+          34
+        ],
+        "formattedValue": [
+          "34"
+        ]
+      },
+      {
+        "time": "1500854400",
+        "formattedTime": "24.07.2017",
+        "formattedAxisTime": "24.07.2017",
+        "value": [
+          62
+        ],
+        "formattedValue": [
+          "62"
+        ]
+      },
+      {
+        "time": "1500940800",
+        "formattedTime": "25.07.2017",
+        "formattedAxisTime": "25.07.2017",
+        "value": [
+          64
+        ],
+        "formattedValue": [
+          "64"
+        ]
+      },
+      {
+        "time": "1501027200",
+        "formattedTime": "26.07.2017",
+        "formattedAxisTime": "26.07.2017",
+        "value": [
+          63
+        ],
+        "formattedValue": [
+          "63"
+        ]
+      },
+      {
+        "time": "1501113600",
+        "formattedTime": "27.07.2017",
+        "formattedAxisTime": "27.07.2017",
+        "value": [
+          63
+        ],
+        "formattedValue": [
+          "63"
+        ]
+      },
+      {
+        "time": "1501200000",
+        "formattedTime": "28.07.2017",
+        "formattedAxisTime": "28.07.2017",
+        "value": [
+          63
+        ],
+        "formattedValue": [
+          "63"
+        ]
+      },
+      {
+        "time": "1501286400",
+        "formattedTime": "29.07.2017",
+        "formattedAxisTime": "29.07.2017",
+        "value": [
+          41
+        ],
+        "formattedValue": [
+          "41"
+        ]
+      },
+      {
+        "time": "1501372800",
+        "formattedTime": "30.07.2017",
+        "formattedAxisTime": "30.07.2017",
+        "value": [
+          39
+        ],
+        "formattedValue": [
+          "39"
+        ]
+      },
+      {
+        "time": "1501459200",
+        "formattedTime": "31.07.2017",
+        "formattedAxisTime": "31.07.2017",
+        "value": [
+          76
+        ],
+        "formattedValue": [
+          "76"
+        ]
+      },
+      {
+        "time": "1501545600",
+        "formattedTime": "01.08.2017",
+        "formattedAxisTime": "01.08.2017",
+        "value": [
+          81
+        ],
+        "formattedValue": [
+          "81"
+        ]
+      },
+      {
+        "time": "1501632000",
+        "formattedTime": "02.08.2017",
+        "formattedAxisTime": "02.08.2017",
+        "value": [
+          79
+        ],
+        "formattedValue": [
+          "79"
+        ]
+      },
+      {
+        "time": "1501718400",
+        "formattedTime": "03.08.2017",
+        "formattedAxisTime": "03.08.2017",
+        "value": [
+          79
+        ],
+        "formattedValue": [
+          "79"
+        ]
+      },
+      {
+        "time": "1501804800",
+        "formattedTime": "04.08.2017",
+        "formattedAxisTime": "04.08.2017",
+        "value": [
+          69
+        ],
+        "formattedValue": [
+          "69"
+        ]
+      },
+      {
+        "time": "1501891200",
+        "formattedTime": "05.08.2017",
+        "formattedAxisTime": "05.08.2017",
+        "value": [
+          40
+        ],
+        "formattedValue": [
+          "40"
+        ]
+      },
+      {
+        "time": "1501977600",
+        "formattedTime": "06.08.2017",
+        "formattedAxisTime": "06.08.2017",
+        "value": [
+          34
+        ],
+        "formattedValue": [
+          "34"
+        ]
+      },
+      {
+        "time": "1502064000",
+        "formattedTime": "07.08.2017",
+        "formattedAxisTime": "07.08.2017",
+        "value": [
+          64
+        ],
+        "formattedValue": [
+          "64"
+        ]
+      },
+      {
+        "time": "1502150400",
+        "formattedTime": "08.08.2017",
+        "formattedAxisTime": "08.08.2017",
+        "value": [
+          62
+        ],
+        "formattedValue": [
+          "62"
+        ]
+      },
+      {
+        "time": "1502236800",
+        "formattedTime": "09.08.2017",
+        "formattedAxisTime": "09.08.2017",
+        "value": [
+          58
+        ],
+        "formattedValue": [
+          "58"
+        ]
+      },
+      {
+        "time": "1502323200",
+        "formattedTime": "10.08.2017",
+        "formattedAxisTime": "10.08.2017",
+        "value": [
+          59
+        ],
+        "formattedValue": [
+          "59"
+        ]
+      }
+    ],
+    "averages": []
+  }
+}
