@@ -13,7 +13,7 @@ import logging
 PY3 = sys.version_info[0] == 3
 
 
-def zeroCenter(filepath, shape):
+def zero_center(filepath, shape):
     """
     Zero centers the stock and google trends data for a given csv file.
     :param filepath: The path to the csv file to read and zero center the data.
@@ -21,7 +21,7 @@ def zeroCenter(filepath, shape):
     :return: A zero centered numpy array of shape (z, shape) containing the stock and google trends numbers. Where z is the
              number of sets. z=int(csvfilerows/shape[0])=int(csvfilerows/30)
     """
-    data = readMergedCSV(filepath)
+    data = read_merged_csv(filepath)
     # reshape and discard oldest values
     rows = data.shape[0]
     sets = int(data.shape[0] / shape[0])
@@ -32,7 +32,7 @@ def zeroCenter(filepath, shape):
     return data
 
 
-def readMergedCSV(filepath):
+def read_merged_csv(filepath):
     """
     Reads a csv file and returns a 2D array.
     :param filepath: The path to the csv file.
@@ -55,16 +55,16 @@ def preprocessing(folderPreprocessedData, folderMergedData, time_steps, values):
     Preprocessing of the merged data. Reads the merged data of stocks and google trends,
     applies preprocessing routines to it and writes the result out.
     """
-    deletePreprocessedData(folderPreprocessedData)
+    delete_preprocessed_data(folderPreprocessedData)
     mergedCSVFiles = [f for f in listdir(folderMergedData) if
                       isfile(join(folderMergedData, f)) and f[-3:] == "csv"]
     for csvfile in mergedCSVFiles:
         centeredData = zeroCenter(join(folderMergedData, csvfile), (time_steps, values+1))
         # maybe further preprocessing...
-        persistPreprocessedData(centeredData, folderPreprocessedData, csvfile[:len(csvfile) - 4])
+        persist_preprocessed_data(centeredData, folderPreprocessedData, csvfile[:len(csvfile) - 4])
 
 
-def persistPreprocessedData(matrix, filepath, filename):
+def persist_preprocessed_data(matrix, filepath, filename):
     """
     Persists a numpy matrix containing preprocessed data.
     :param matrix: The numpy matrix to persist.
@@ -76,7 +76,7 @@ def persistPreprocessedData(matrix, filepath, filename):
     np.save(join(filepath, filename), matrix)
 
 
-def loadPreprocessedData(filepath):
+def load_preprocessed_data(filepath):
     """
     Loads a persisted numpy matrix containing preprocessed data.
     :param filepath: The relative path including the filename and extension.
@@ -86,7 +86,7 @@ def loadPreprocessedData(filepath):
     return None
 
 
-def deletePreprocessedData(filepath):
+def delete_preprocessed_data(filepath):
     """
     Deletes the saved preprocessed data.
     :param filepath: The relative path.
@@ -98,5 +98,5 @@ def deletePreprocessedData(filepath):
 if __name__ == "__main__":
     time_steps = 30
     values = 16
-    d = zeroCenter("datasets/myDataset/MMM.csv", (time_steps, values))
-    print(d[0])
+    d = zero_center("datasets/myDataset/MMM.csv", (time_steps, values))
+    print(d.shape)

@@ -2,8 +2,10 @@
 
 import stockpredictorconfig as config
 import preprocessing as pp
+import simplelearningmodel as slm
 
 import sys
+import logging
 import tensorflow as tf
 import numpy as np
 from os.path import isfile, join
@@ -15,50 +17,37 @@ PY3 = sys.version_info[0] == 3
 
 class Stockpredictor(object):
     """
-    Model class.
+    Predictor class.
     Used to predict the development of stock courses.
     """
 
-    def __init__(self, config):
+    def __init__(self, spconfig, model):
         """
         Initialization.
         """
-        self.config = config
+        self.config = spconfig
+        self.learning_model = model
         self.folderMergedData = join("datasets", "myDataset")
         self.folderPreprocessedData = join("datasets", "preprocessed")
-        #self.modelSaver = tf.train.Saver()
-        self.folderModelSafe = join("model")
-        self.counter = 0
-        self.loadPreprocessedData()
-
-    def saveModel(self, session, filename):
-        """
-        Saves a trained model.
-        :param session: The session to be saved.
-        :param filename: The name of the file for the trained model.
-        :return: The location of the saved model.
-        """
-        #return saver.save(session, join(self.folderModelSafe, filename))
-        pass
-
-    def restoreModel(self, session, filename):
-        """
-        Restores a previously trained model.
-        :param session: The session where the model will be restored to.
-        :param filename: The name of the file of the pre-trained model to restore.  
-        """
-        #saver.restore(session, join(self.folderModelSafe, filename))
-        pass
+        self.load_preprocessed_data()
 
     def preprocess(self):
+        """
+        Preprocesses google trends and stock data.
+        :return:
+        """
         pp.preprocessing(self.folderPreprocessedData, self.folderMergedData, self.config.time_steps, self.config.values)
 
-    def loadPreprocessedData(self):
+    def load_preprocessed_data(self):
+        """
+        Loads preprocessed data.
+        :return:
+        """
         processedFiles = [f for f in listdir(self.folderPreprocessedData) if
                           isfile(join(self.folderPreprocessedData, f)) and f[-3:] == "npy"]
         first = True
         for pFile in processedFiles:
-            loadedMatrix = pp.loadPreprocessedData(join(self.folderPreprocessedData, pFile))
+            loadedMatrix = pp.load_preprocessed_data(join(self.folderPreprocessedData, pFile))
             if first:
                 self.data = loadedMatrix
                 first = False
@@ -66,6 +55,11 @@ class Stockpredictor(object):
                 self.data = np.concatenate((self.data, loadedMatrix))
 
     def classes(self, value):
+        """
+        TODO
+        :param value:
+        :return:
+        """
         if value == 1:
             return np.array([1, 0])
         elif value == -1 or value == 0:
@@ -74,6 +68,10 @@ class Stockpredictor(object):
             raise Exception("no valid classes")
 
     def next_batch(self):
+        """
+        TODO
+        :return:
+        """
         rands = np.random.randint(0, self.data.shape[0], self.config.batch_size)
         data_batch = self.data[rands]
         batch_x = data_batch[:, :, 1:]
@@ -90,8 +88,7 @@ class Stockpredictor(object):
         batch_y = batch_y.reshape((self.config.batch_size, 2))
         return batch_x, batch_y
 
-
-    def train_2(self, doPreprocessing):
+    def train(self, doPreprocessing):
         """
         Train the model.
         :param doPreprocessing: Boolean flag to indicate data is already preprocessed.
@@ -99,30 +96,14 @@ class Stockpredictor(object):
         if doPreprocessing:
             self.preprocess()
 
-        X = tf.placeholder("float", [None, self.config.time_steps, self.config.values])
-        Y = tf.placeholder("float", [None, self.config.num_classes])
-        weights = tf.Variable(tf.random_normal([self.config.hidden_size, self.config.num_classes]))
-        biases = tf.Variable(tf.random_normal([self.config.num_classes]))
-        x = tf.unstack(X, self.config.time_steps, 1)
-        lstm = tf.contrib.rnn.BasicLSTMCell(self.config.hidden_size, forget_bias=1.0)
-        outputs, states = tf.contrib.rnn.static_rnn(lstm, x, dtype=tf.float32)
-        logits = tf.matmul(outputs[-1], weights + biases)
-        prediction = tf.nn.softmax(logits)
-        loss_op = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(
-            logits=logits, labels=Y))
-        optimizer = tf.train.GradientDescentOptimizer(learning_rate=self.config.learning_rate)
-        train_op = optimizer.minimize(loss_op)
-
-        # Evaluate model (with test logits, for dropout to be disabled)
-        correct_pred = tf.equal(tf.argmax(prediction, 1), tf.argmax(Y, 1))
-        accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
-
-        # Initialize the variables (i.e. assign their default value)
-        init = tf.global_variables_initializer()
+        results = self.learning_model.create_model()
+        if results is None:
+            logging.error("Error creating learning model. Aborting...")
+            return
+        X, Y, outputs, states, prediction, loss_op, optimizer, train_op, correct_pred, accuracy, init = results
 
         with tf.Session() as sess:
             sess.run(init)
-            lower_index = 0
             for step in range(1, self.config.training_steps + 1):
                 batch_x, batch_y = self.next_batch()
                 sess.run([train_op], feed_dict={X: batch_x, Y: batch_y})
@@ -131,18 +112,34 @@ class Stockpredictor(object):
                     print("Step " + str(step))
                     print("Loss " + str(loss))
                     print("Accuracy " + str(acc))
+            self.learning_model.save_model(sess, "pretrained")
 
-        return
+    def predict(self, create_model = False):
+        """
+        Predicts the course for a given stock.
+        :param create_model: Flag to indicate if the model needs to be recreated.
+                             Not necessary if train() was called during execution of the stock predictor.
+        """
 
-    def predict(self, stock):
-        """
-        Predicts the course of a given stock.
-        :param stock: The stock whose development shall be predicted.
-        """
-        pass
+        if create_model:
+            results = self.learning_model.create_model()
+            if results is None:
+                logging.error("Error creating learning model. Aborting...")
+                return
+            X, Y, outputs, states, prediction, loss_op, optimizer, train_op, correct_pred, accuracy, init = results
+
+        with tf.Session() as sess:
+            result = self.learning_model.restore_model(sess)
+            if result:
+                print("restore successful")
+            else:
+                print("restore NOT successful")
+
 
 
 if __name__ == "__main__":
     config = config.StockpredictorConfig()
-    sp = Stockpredictor(config)
-    sp.train_2(False)
+    learning_model = slm.SimpleLearningModel(tf, config)
+    sp = Stockpredictor(config, learning_model)
+    sp.train(False)
+    sp.predict(False)

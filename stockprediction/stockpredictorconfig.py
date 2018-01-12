@@ -26,7 +26,7 @@ class StockpredictorConfig(object):
     hidden_size = 1        # The number of hidden layers within one ltsm cell
     # max_epoch = 14
     # max_max_epoch = 55
-    training_steps = 10000
+    training_steps = 1000
     # keep_prob = 0.35
     # lr_decay = 1 / 1.15
     batch_size = 5
