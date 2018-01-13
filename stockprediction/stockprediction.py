@@ -6,6 +6,7 @@ import simplelearningmodel as slm
 
 import sys
 import logging
+import random
 import tensorflow as tf
 import numpy as np
 from os.path import isfile, join
@@ -29,7 +30,6 @@ class Stockpredictor(object):
         self.learning_model = model
         self.folderMergedData = join("datasets", "myDataset")
         self.folderPreprocessedData = join("datasets", "preprocessed")
-        self.load_preprocessed_data()
 
     def preprocess(self):
         """
@@ -38,55 +38,20 @@ class Stockpredictor(object):
         """
         pp.preprocessing(self.folderPreprocessedData, self.folderMergedData, self.config.time_steps, self.config.values)
 
-    def load_preprocessed_data(self):
+    def load_preprocessed_data(self, file_list):
         """
         Loads preprocessed data.
-        :return:
+        :param file_list: List of files containing preprocessed data to be loaded.
+        :return: The loaded data.
         """
-        processedFiles = [f for f in listdir(self.folderPreprocessedData) if
-                          isfile(join(self.folderPreprocessedData, f)) and f[-3:] == "npy"]
-        first = True
-        for pFile in processedFiles:
+        data = None
+        for pFile in file_list:
             loadedMatrix = pp.load_preprocessed_data(join(self.folderPreprocessedData, pFile))
-            if first:
-                self.data = loadedMatrix
-                first = False
+            if data is None:
+                data = loadedMatrix
             else:
-                self.data = np.concatenate((self.data, loadedMatrix))
-
-    def classes(self, value):
-        """
-        TODO
-        :param value:
-        :return:
-        """
-        if value == 1:
-            return np.array([1, 0])
-        elif value == -1 or value == 0:
-            return np.array([0, 1])
-        else:
-            raise Exception("no valid classes")
-
-    def next_batch(self):
-        """
-        TODO
-        :return:
-        """
-        rands = np.random.randint(0, self.data.shape[0], self.config.batch_size)
-        data_batch = self.data[rands]
-        batch_x = data_batch[:, :, 1:]
-        batch_x = batch_x.reshape((self.config.batch_size, self.config.time_steps, self.config.values))
-        batch_y_tmp = data_batch[:, self.config.time_steps - 1, 0]
-        first = True
-        for i in range(0, self.config.batch_size):
-            if first:
-                batch_y = self.classes(batch_y_tmp[i])
-                first = False
-            else:
-                batch_y = np.concatenate((batch_y, self.classes(batch_y_tmp[i])))
-
-        batch_y = batch_y.reshape((self.config.batch_size, 2))
-        return batch_x, batch_y
+                data = np.concatenate((data, loadedMatrix))
+        return data
 
     def train(self, doPreprocessing):
         """
@@ -96,44 +61,67 @@ class Stockpredictor(object):
         if doPreprocessing:
             self.preprocess()
 
-        results = self.learning_model.create_model()
-        if results is None:
-            logging.error("Error creating learning model. Aborting...")
+        build_succeeded = self.learning_model.build_graph()
+        if not build_succeeded:
+            logging.error("Error building learning model. Aborting...")
             return
-        X, Y, outputs, states, prediction, loss_op, optimizer, train_op, correct_pred, accuracy, init = results
+
+        preProcessedFiles = [f for f in listdir(self.folderPreprocessedData) if
+                          isfile(join(self.folderPreprocessedData, f)) and f[-3:] == "npy"]
 
         with tf.Session() as sess:
-            sess.run(init)
-            for step in range(1, self.config.training_steps + 1):
-                batch_x, batch_y = self.next_batch()
-                sess.run([train_op], feed_dict={X: batch_x, Y: batch_y})
-                if step % 100 == 0 or step == 1 or step == self.config.training_steps:
-                    loss, acc = sess.run([loss_op, accuracy], feed_dict={X: batch_x, Y: batch_y})
-                    print("Step " + str(step))
-                    print("Loss " + str(loss))
-                    print("Accuracy " + str(acc))
-            self.learning_model.save_model(sess, "pretrained")
+            sess.run(self.learning_model.get_init())
 
-    def predict(self, create_model = False):
+            fileIndices = [i for i in range(len(preProcessedFiles))]
+            random.shuffle(fileIndices)
+            validate_file_indices = fileIndices[0:int(len(preProcessedFiles) * self.config.validate_ratio)]
+            train_and_test_indices = fileIndices[int(len(preProcessedFiles) * self.config.validate_ratio + 1) : len(preProcessedFiles)]
+
+            validate_set = [preProcessedFiles[i] for i in validate_file_indices]
+            train_and_test_set = [preProcessedFiles[i] for i in train_and_test_indices]
+
+            for epoch in range(self.config.num_epochs):
+                print("-------------------------" + str(epoch))
+                fileIndices = [i for i in range(len(train_and_test_set))]
+                random.shuffle(fileIndices)
+
+                train_size = int(len(train_and_test_set) * self.config.train_test_ratio)
+
+                training_files = [train_and_test_set[fileIndices[i]] for i in fileIndices[0:train_size]]
+                test_files = [train_and_test_set[fileIndices[i]] for i in fileIndices[train_size + 1:]]
+
+                training_file_data = self.load_preprocessed_data(training_files)
+                test_file_data = self.load_preprocessed_data(test_files)
+
+                self.learning_model.train(sess, training_file_data)
+                self.learning_model.predict(sess, test_file_data)
+
+            self.learning_model.save_model(sess, "trained")
+
+    def predict(self, pathToFile, create_model = False, load_trained_model=None):
         """
         Predicts the course for a given stock.
+        :param pathToFile: Path to the file which is used to predict the course development.
         :param create_model: Flag to indicate if the model needs to be recreated.
                              Not necessary if train() was called during execution of the stock predictor.
+        :param load_trained_model: Flag to indicate if a trained model should be loaded.
         """
-
         if create_model:
-            results = self.learning_model.create_model()
-            if results is None:
-                logging.error("Error creating learning model. Aborting...")
+            build_succeeded = self.learning_model.build_graph()
+            if not build_succeeded:
+                logging.error("Error building learning model. Aborting...")
                 return
-            X, Y, outputs, states, prediction, loss_op, optimizer, train_op, correct_pred, accuracy, init = results
 
         with tf.Session() as sess:
-            result = self.learning_model.restore_model(sess)
-            if result:
-                print("restore successful")
-            else:
-                print("restore NOT successful")
+            if load_trained_model:
+                result = self.learning_model.restore_model(sess)
+                if result:
+                    print("restore successful")
+                else:
+                    print("restore NOT successful")
+
+            data = self.load_preprocessed_data([pathToFile])
+            self.learning_model.predict(sess, data)
 
 
 
@@ -142,4 +130,4 @@ if __name__ == "__main__":
     learning_model = slm.SimpleLearningModel(tf, config)
     sp = Stockpredictor(config, learning_model)
     sp.train(False)
-    sp.predict(False)
+    #sp.predict(False)

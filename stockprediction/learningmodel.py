@@ -1,6 +1,8 @@
 import logging
 from os.path import join
 
+from LearningGraph import LearningGraph
+
 class LearningModel(object):
     """
     Abstract base class for learning models.
@@ -15,8 +17,12 @@ class LearningModel(object):
         :param save_folder: The folder that contains the saved model files.
         """
         self.tf = tf
+
         self.save_name = save_name
         self.save_folder = save_folder
+
+        self.graph = LearningGraph()
+        self.graph_built = False
 
     def get_save_name(self):
         """
@@ -39,13 +45,54 @@ class LearningModel(object):
         """
         return join(self.save_folder, self.save_name)
 
-    def create_model(self):
+    def build_graph(self):
         """
         Abstract method.
         Derived class must implement this method to create a learning model.
         :return:
         """
-        raise NotImplementedError("Subclass must override get_model()!")
+        raise NotImplementedError("Subclass must override build_graph()!")
+
+    def is_graph_built(self):
+        """
+        Method to check if the graph of the model has been built already.
+        :return: Boolean-Flag which indicates if the graph of the model has been built already.
+        """
+        return self.graph_built
+
+    def get_graph(self):
+        """
+        Getter for the Learning Graph.
+        :return: The currently used Learning Graph.
+        """
+        return self.graph
+
+    def train(self, session, data):
+        """
+        Abstract method.
+        Derived class must implement this method to train the learning model.
+        :param session: The session of the current training.
+        :param data: The data of the current epoch.
+        """
+        raise NotImplementedError("Subclass must override train()!")
+
+    def predict(self, session, data):
+        """
+        Abstract method.
+        Derived class must implement this method to make predictions based on the trained data.
+        :param session: The session of the current training.
+        :param data: The data of the current epoch.
+        """
+        raise NotImplementedError("Subclass must override train()!")
+
+    def next_batch(self, data):
+        """
+        Abstract method.
+        Derived class must implement this method to process the next batch during training.
+        :param data: The data of which the next batch is being extracted.
+        :return: Implementing subclass should return a tuple (batch_x,batch_y).
+        """
+        raise NotImplementedError("Subclass must override next_batch()!")
 
     def save_model(self, session, filename):
         """
