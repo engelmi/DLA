@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*-
 
 import stockpredictorconfig as config
 import preprocessing as pp
@@ -70,6 +70,7 @@ class Stockpredictor(object):
                           isfile(join(self.folderPreprocessedData, f)) and f[-3:] == "npy"]
 
         with tf.Session() as sess:
+            self.learning_model.setup_visualization(sess)
             sess.run(self.learning_model.get_init())
 
             fileIndices = [i for i in range(len(preProcessedFiles))]
@@ -94,7 +95,7 @@ class Stockpredictor(object):
                 test_file_data = self.load_preprocessed_data(test_files)
 
                 self.learning_model.train(sess, training_file_data)
-                self.learning_model.predict(sess, test_file_data)
+                self.learning_model.predict(sess, test_file_data, epoch)
 
             self.learning_model.save_model(sess, "trained")
 

@@ -9,17 +9,19 @@ class LearningModel(object):
     Facilitates the use of creating and saving models as well as restoring persisted models.
     """
 
-    def __init__(self, tf, save_folder, save_name):
+    def __init__(self, tf, save_folder, save_name, visualization_folder):
         """
         Initialization.
         :param tf: Tensorflow import. Used to create the model.
         :param save_name: The name of the file this model is being persisted to.
         :param save_folder: The folder that contains the saved model files.
+        :param visualization_folder: The folder to store the visualized information.
         """
         self.tf = tf
 
         self.save_name = save_name
         self.save_folder = save_folder
+        self.visualization_folder = visualization_folder
 
         self.graph = LearningGraph()
         self.graph_built = False
@@ -76,12 +78,13 @@ class LearningModel(object):
         """
         raise NotImplementedError("Subclass must override train()!")
 
-    def predict(self, session, data):
+    def predict(self, session, data, epoch):
         """
         Abstract method.
         Derived class must implement this method to make predictions based on the trained data.
         :param session: The session of the current training.
         :param data: The data of the current epoch.
+        :param epoch: The current epoch.
         """
         raise NotImplementedError("Subclass must override train()!")
 
@@ -93,6 +96,14 @@ class LearningModel(object):
         :return: Implementing subclass should return a tuple (batch_x,batch_y).
         """
         raise NotImplementedError("Subclass must override next_batch()!")
+
+    def setup_visualization(self, session):
+        """
+        Abstract method.
+        Method to set up the visualization for the Learning Model.
+        :param session: The session.
+        """
+        raise NotImplementedException("Subclass must override setup_visualization()!")
 
     def save_model(self, session, filename):
         """

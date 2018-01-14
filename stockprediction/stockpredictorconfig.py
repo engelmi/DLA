@@ -19,8 +19,8 @@ class StockpredictorConfig(object):
     }
 
     learning_rate = 1.0
-    hidden_size = 1
-    num_epochs = 200
+    hidden_size = 100
+    num_epochs = 2000
     train_test_ratio = 0.8
     validate_ratio = 0.1
     batch_size = 5

@@ -8,7 +8,7 @@ class SimpleLearningModel(LearningModel):
     Simple Learning Model class.
     """
 
-    def __init__(self, tf, config, save_name="model", save_folder="model"):
+    def __init__(self, tf, config, save_name="model", save_folder="model", visualization_folder="logs"):
         """
         Initialization.
         :param tf: Tensorflow import. Used to create the model.
@@ -16,8 +16,10 @@ class SimpleLearningModel(LearningModel):
         :param save_name: The name of the file this model is being persisted to.
         :param save_folder: The folder that contains the saved model files.
         """
-        super(SimpleLearningModel, self).__init__(tf, save_folder, save_name)
+        super(SimpleLearningModel, self).__init__(tf, save_folder, save_name, visualization_folder)
         self.config = config
+        self.merged_summary = None
+        self.train_writer = None
 
     def build_graph(self):
         """
@@ -68,11 +70,12 @@ class SimpleLearningModel(LearningModel):
             batch_x, batch_y = batch
             session.run([train_op], feed_dict={X: batch_x, Y: batch_y})
 
-    def predict(self, session, data):
+    def predict(self, session, data, epoch):
         """
         Predicts the course for a given stock.
         :param session: The session of the current training.
         :param data: The data of the current epoch.
+        :param epoch: The current epoch.
         """
         build_succeeded = self.build_graph()
         if not build_succeeded:
@@ -86,7 +89,8 @@ class SimpleLearningModel(LearningModel):
 
         for batch in self.next_batch(data):
             batch_x, batch_y = batch
-            loss, acc = session.run([loss_op, accuracy], feed_dict={X: batch_x, Y: batch_y})
+            summary, loss, acc = session.run([self.merged_summary, loss_op, accuracy], feed_dict={X: batch_x, Y: batch_y})
+            self.train_writer.add_summary(summary, epoch)
             print("Loss " + str(loss))
             print("Accuracy " + str(acc))
 
@@ -163,3 +167,20 @@ class SimpleLearningModel(LearningModel):
         :return: The initialized global variables of the graph.
         """
         return self.graph.get_graph_parameter("init")
+
+    def setup_visualization(self, session):
+        """
+        Method to set up the visualization for the Simple Learning Model.
+        :param session: The session.
+        """
+        with self.tf.name_scope('accuracy'):
+            accuracy = self.graph.get_graph_parameter("accuracy_op")
+        self.tf.summary.scalar('accuracy', accuracy)
+
+        with self.tf.name_scope('loss'):
+            loss = self.graph.get_graph_parameter("loss_op")
+        self.tf.summary.scalar('loss', loss)
+
+        self.merged_summary = self.tf.summary.merge_all()
+        self.train_writer = self.tf.summary.FileWriter(self.visualization_folder, session.graph)
+
