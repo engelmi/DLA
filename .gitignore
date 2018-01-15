@@ -1,10 +1,9 @@
-*.aux
-*.log
-*.out
-*.synctex.gz
+paper/*.bbl
+paper/*.blg
+paper/*.toc
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.synctex.gz
 .idea/
 **.pyc
-*.bbl
-*.blg
-*.toc
-log/

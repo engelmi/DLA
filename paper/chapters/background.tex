@@ -6,7 +6,7 @@
 There are many architectures specialized on different tasks. Convolutional networks are used for processing data that is organized as grid, like images. This kind of nets can also be used for time-series data, which are a 1-D grid. But often the data can not be interpreted as a 1-D grid and then another architecture is better suited. Recurrent neural networks (RNN) are specialized on processing sequential data.\\
 \begin{figure}[thb]
 	\caption{recurrent neural network with hidden-to-hidden connections \cite[p. 373]{DeepLearning}}
-	\includegraphics[width=0.95\linewidth]{rnn}
+	\includegraphics[width=0.95\linewidth]{images/rnn.PNG}
 	\label{fig:rnn}
 \end{figure}
 The hidden units of a RNN have recurrent connections. So the result of a hidden unit at time step $t$ is used in the following time step $t+1$. It is important to notice that it is the same unit, which uses the result. As a consequence the parameters are shared during time. This is a key benefit, because it enables us to process sequences of different length. The update rule is also the same as it is the same unit.\\
@@ -36,7 +36,7 @@ The Long Short-Term Memory (LSTM) is a gated recurrent neural network. Gated in 
 \label{sec:lstm}
 \begin{figure}[thb]
 	\caption{long short-term memory cell \cite[p. 405]{DeepLearning}}
-	\includegraphics[width=0.95\linewidth]{lstmCell}
+	\includegraphics[width=0.95\linewidth]{images/lstmCell.PNG}
 	\label{fig:lstm}
 \end{figure}
 In a LSTM network the hidden units consist of so called long short-term memory cells. A LSTM cell has three gating units (see figure \ref{fig:lstm}). The input gate is a sigmoid unit and controls the input feature. The input feature is a regular artificial neuron. The forget gate has the same task as the parameter $\alpha$ in a leaky unit. As there are only values between 0 and 1 are allowed, a sigmoid unit is used again. It controls how fast the information of the past is discarded. In other words it controls the weights of the state unit. The state unit has a self loop similar to the leaky units. With this self loop an internal recurrence is added to the outer recurrence of the LSTM cell. The output gate is also a sigmoid unit. It can shut off the output of the whole LSTM cell. So a Long Short-Term Memory network is far more complex than a simple recurrent neural network.
