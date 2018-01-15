@@ -1,3 +1,4 @@
+import datetime
 import logging
 import numpy as np
 
@@ -18,8 +19,8 @@ class SimpleLearningModel(LearningModel):
         """
         super(SimpleLearningModel, self).__init__(tf, save_folder, save_name, visualization_folder)
         self.config = config
-        self.merged_summary = None
-        self.train_writer = None
+        self.test_summary = None
+        self.test_writer = None
 
     def build_graph(self):
         """
@@ -35,7 +36,7 @@ class SimpleLearningModel(LearningModel):
                 x = self.tf.unstack(X, self.config.time_steps, 1)
                 lstm = self.tf.contrib.rnn.BasicLSTMCell(self.config.hidden_size, forget_bias=1.0)
                 outputs, states = self.tf.contrib.rnn.static_rnn(lstm, x, dtype=self.tf.float32)
-                logits = self.tf.matmul(outputs[-1], weights + biases)
+                logits = self.tf.matmul(outputs[-1], weights) + biases
                 prediction = self.tf.nn.softmax(logits)
                 loss_op = self.tf.reduce_mean(self.tf.nn.softmax_cross_entropy_with_logits(
                     logits=logits, labels=Y))
@@ -89,10 +90,10 @@ class SimpleLearningModel(LearningModel):
 
         for batch in self.next_batch(data):
             batch_x, batch_y = batch
-            summary, loss, acc = session.run([self.merged_summary, loss_op, accuracy], feed_dict={X: batch_x, Y: batch_y})
-            self.train_writer.add_summary(summary, epoch)
-            print("Loss " + str(loss))
-            print("Accuracy " + str(acc))
+            summary, loss, acc = session.run([self.test_summary, loss_op, accuracy], feed_dict={X: batch_x, Y: batch_y})
+            self.test_writer.add_summary(summary, epoch)
+            #print("Loss " + str(loss))
+            #print("Accuracy " + str(acc))
 
     def next_batch(self, data):
         """
@@ -173,14 +174,13 @@ class SimpleLearningModel(LearningModel):
         Method to set up the visualization for the Simple Learning Model.
         :param session: The session.
         """
-        with self.tf.name_scope('accuracy'):
-            accuracy = self.graph.get_graph_parameter("accuracy_op")
-        self.tf.summary.scalar('accuracy', accuracy)
+        with self.tf.name_scope(datetime.datetime.now().strftime("%Y-%m-%d--test")):
+            with self.tf.name_scope('accuracy'):
+                accuracy = self.graph.get_graph_parameter("accuracy_op")
+            self.tf.summary.scalar('accuracy', accuracy)
 
-        with self.tf.name_scope('loss'):
-            loss = self.graph.get_graph_parameter("loss_op")
-        self.tf.summary.scalar('loss', loss)
-
-        self.merged_summary = self.tf.summary.merge_all()
-        self.train_writer = self.tf.summary.FileWriter(self.visualization_folder, session.graph)
-
+            with self.tf.name_scope('loss'):
+                loss = self.graph.get_graph_parameter("loss_op")
+            self.tf.summary.scalar('loss', loss)
+        self.test_summary = self.tf.summary.merge_all()
+        self.test_writer = self.tf.summary.FileWriter(self.visualization_folder, session.graph)
