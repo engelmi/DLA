@@ -24,16 +24,23 @@ The second dataset from \textit{kaggle} has also information about the daily sto
 
 \subsection{Google Trends data}
 \label{subsec:gtdata}
-google trends data
+Google provides a public accessible service called Google Trends. It offers many different kinds of information about all search terms typed into the Google search engine. For example, for a given search term, like "Commerzbank", a graph is being displayed that shows the number of searches for this exact term over the course of time. The figure \ref{fig:gtexample} depicts a sample of this graph. 
+\begin{figure}[!ht]
+	\caption{Resulting graph of a google trends \cite{googletrends} search for the financial company "Commerzbank", which is tradeable at the stock market. }
+	\includegraphics[width=0.95\linewidth]{images/googletrends.png}
+	\label{fig:gtexample}
+\end{figure}
+Additionally, there is other data like the interest grouped by region, related topics and similar search terms available. Especially the similar search terms could be used to traverse all related Google Trends data starting from one single term like a stock course name. Therefore, the simple and automated extraction of Google Trend data is essential for the success of the proposed deep learning model for stock prediction. Unfortunately, there are some problems regarding the automated retrieval of it. This is explained in detail in the following subsection \ref{subsub:hackinggt}.
 
 \subsubsection{Hacking Google Trends}
 \label{subsub:hackinggt}
-\begin{itemize}
-	\item google trends has no api unlike many other google services
-	\item therefore, an analysis of the request url was done to send prepared requests for data collection
-	\item some additional problems like max. number of requests, request blockade etc.
-\end{itemize}
-
+The amount of available data from Google Trends is massive. Unfortunately, unlike many other services of Google, it does not provide a public API for retrieving the trend data. Due to the needed quantity of data, manual extraction is not a practicable option. Therefore, an initial analysis of the sent requests from the web browser was executed. 
+\\
+The Google Trends website sends an explore-request to collect a JSON-file containing several tokens and further information. These tokens are used by the Google Trends servers to validate a request from the requesting machine to a specific service. The multiline-request is used to retrieve the time line data of a search term. The data for related topics and similar search terms can be collected by the same URL, whereas the respective token needs to be put as value into the token-parameter to distinguish between those two types of information. Based on this analysis, a python script is developed that gathers automatically the needed Google Trends data starting from the stock names. If too many requests are send to the server, the HTML error 429 may occur. This is being take care of by simply waiting a short period of time between the requests. 
+\\
+However, even the working python script was limited in a way that the Google Trend server only allows a limited number of requests. If that upper bound is reached, the server blocks the requests and redirects to another web address. On this website the user needs to prove that he is not a robot by clicking the parts of a picture that contain a certain object. Although the use of selenium, a framework to automate software tests for web applications, could serve as a possible workaround of this problem, it would imply a huge overhead with uncertain results. Therefore, this option was not further investigated. 
+\\
+The implemented python script for the automated Google Trend data retrieval, as well as the other related work of this paper, is published in the github repository of \cite{githubrepo}. 
 
 \subsection{Merged dataset}
 \label{subsec:merged}
