@@ -1,25 +1,10 @@
 \section{Basic Idea}
 \label{sec:idea}
-
-google trends to stocks
-simplified approach: only predict if the stock will increase or decrease
-prediction of exact values are likely to have 0\% success rate
-
-However, one key characteristic of stocks is that they are strongly volatile. 
-Describe concept of volatility: (\url{https://de.wikipedia.org/wiki/Volatilit%C3%A4t})
-absolute volatility:
-\begin{equation}
-	change = Value_{t1} - Value_{t0}
-\end{equation}
-relative volatility:
-\begin{equation}
-change = \frac{Value_{t1} - Value_{t0}}{Value_{t0}}
-\end{equation}
-logarithmic volatility:
-\begin{equation}
-change = ln(Value_{t1}) - ln(Value_{t0}) = ln(\frac{Value_{t1}}{Value_{t0}})
-\end{equation}
-
-
-in conclusion -> simplified approach reached xx\% of accuracy, therefore it would be worthwhile to enhance the current model by predicting ranges of values, e.g. 50 up or down etc.
-as described in \ref{sec:architecture}, only minor changes would only be necessary
+As already stated in the Introduction \ref{sec:introduction}, this paper tries to implement a deep learning model to predict future stock courses by using Google Trend data. However, as the prediction of stock development is a challenging task, a simplified goal is being defined. 
+\\
+Usually price prediction focuses on forecasting the exact price for the following day. One key characteristic of stocks is that they are strongly volatile. In this context, volatility describes the amplitude of fluctuation for the price of a stock between one day and the following. According to \cite{volatility}, stock courses are stochastically often modeled as the relative and logarithmic volatility: 
+\begin{align}
+change_{rel} &= \frac{Value_{t1} - Value_{t0}}{Value_{t0}} \\ 
+change_{log} &= ln(Value_{t1}) - ln(Value_{t0})
+\end{align}
+Due to this feature and the overall complexity of predicting the exact stock price for the next day, a simplifying assumption is made. The stock development can be abstracted to an increase or decrease of the price for a given stock. The case of an unchanged stock price for one day is unlikely, wherefore only these two cases are relevant. In this paper the main goal is, therefore, to predict an increase or decrease for a given stock for the following day. Thereby, the task of predicting the exact price of a stock for the following day is transformed into a simple classification problem with only two classes. If the simplified model yields promising results, a more complex variation is worth investigating using the implemented model. 
