@@ -1,21 +1,9 @@
 \section{Related Work}
 \label{sec:relatedwork}
-+ stock market description: chaotic, volatile, complex and seemingly unpredictable
-+ result: few research teams try to find a way to predict stock development
-+ the hype of deep learning also triggered the research in the field of stock market prediction, as dl models find application in a huge variety of domains (so why not prediciton of stock prices)
-+ however: older research only hit about 5\% accuracy at best, even more discouraging for future work
-+ nevertheless: recent research work used the improving methods of dl by using RNN and RBFNN and therefore the accuracy was improved 
-
-As a result of the stock market being chaotic, complex and volatile, there are few published research papers to facilitate the work for this paper. 
-
-Nevertheless, the few scientific papers exists which try to predict stock market development. 
-
-
-There are few published research papers in the fields of deep learning and neural networks regarding the prediction of price development. 
-Additionally, most of the available research's results are discouraging. The accuracy of price prediction is quite low with about 5\%. 
-
-Although the number of publications are few, the
-
-In \cite{stockprediction01} the authors use a combination of (2D)2PCA + Deep Neural Network (DNN) and compare this model with the current state of the art (2D)2PCA + RBFNN. 
-
-In \cite{stockprediction02} the authors have done some shit. 
+The stock market is commonly described as chaotic, volatile, complex and, therefore, seemingly unpredictable. However, the ability to predict the development of stock prices promises to yield much profit. Because of this there were many efforts to forecast the seemingly unpredictable. As a result of the hype for deep learning and its versatility of application, the scientific research to apply machine learning in the domain of stock market prediction was triggered. However, older scientific work does not provide encouraging results. Although this is rather unpromising, recent research work used the ever improving methods of deep learning to increase the precision of the forecast for stock development. 
+\\
+In \cite{stockprediction01}, for example, the authors propose a combination of (2D)2PCA and Deep Neural Network and compare the results with other state of the art methods. Compared to the 2-Directional 2-Dimensional Principal Component Analysis (2D)2PCA and Radial Basis Function Neural Network (RBFNN) the proposed method achieved an improved accuracy of 4.8\%. Also, the accuracy of the proposed DNN combination is about 15.6\% higher than the achieved precision of a Recurrent Neural Network (RNN). This result encourages the use of modern deep learning methods to predict stock development.
+\\
+A more comprehensive assessment was done in \cite{stockprediction02}. The authors analyzed advantages as well as drawbacks of different deep learning algorithms for predicting the stock development. They examined the fitness of three feature extraction methods, like the principal component analysis, on overall ability of the network to predict the development of the stock market. 
+\\
+In this paper a special form of RNN, the Long short-term memory network, is used to predict the future development of stock prices. Although the results in \cite{stockprediction01} discourage the use of RNN, the suitability of a LSTM was not investigated in the reference paper. Additionally, as the LSTM "remembers" values over an arbitrary interval of times, it is well-suited for predicting time series. By using Google Trends data as input it may prove as a valid model for predicting stock prices. The basic idea is described in more detail in \ref{sec:idea}. 
