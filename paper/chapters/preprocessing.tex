@@ -1,8 +1,5 @@
 \section{Preprocessing}
 \label{sec:preprocessing}
-zero centering
-\begin{itemize}
-	\item csv format
-	\item zero centering
-	\item ...
-\end{itemize}
+Because we use our own data set (created by our self), we do not need much preprocessing. We write the preprocessed data back to the file storage as python arrays (.nyp-files), so we do not have to do the preprocessing for each new training configuration. The csv-files contain the data as a two-dimensional array but we actually need a three-dimensional array. So we split the original data in blocks of dimension $30 \times 16$. If the number of entries in a csv-file could not be divided by 30 without remainder, the remaining entries are skipped.\\
+For each block we apply zero-centering. Zero-centering is the method of subtracting the mean value of a column of each column entry. We do this only for the columns containing the data from \textit{Google Trends}. These values are all positive and therefore the gradient would also contain only positive or negative values, which makes training more difficult. We do not apply zero-centering to the opening price of the stock although we have the same problem with these values. But if we like to predict the new stock price and not only if the stock goes up or down, we need the original, unmodified price.\\
+We have another preprocessing step which is not stored in the python array. The labels $-1$, $0$ and $1$ have to be converted in a array of dimension $1 \times 2$ as we only have to classes. The labels $-1$ and $0$ are treated as the same class. If the first entry of the array is bigger than the second, the stock price will rise. If it is the other way round the stock price will fall.
