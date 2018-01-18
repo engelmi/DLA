@@ -3,6 +3,7 @@
 import stockpredictorconfig as config
 import preprocessing as pp
 import simplelearningmodel as slm
+import onlystocklearningmodel as oslm
 
 import sys
 import logging
@@ -128,7 +129,8 @@ class Stockpredictor(object):
 
 if __name__ == "__main__":
     config = config.StockpredictorConfig()
-    learning_model = slm.SimpleLearningModel(tf, config)
+    #learning_model = slm.SimpleLearningModel(tf, config)
+    learning_model = oslm.OnlyStockLearningModel(tf, config)
     sp = Stockpredictor(config, learning_model)
     sp.train(False)
     #sp.predict(False)
