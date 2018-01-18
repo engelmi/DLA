@@ -9,18 +9,21 @@ class SimpleLearningModel(LearningModel):
     Simple Learning Model class.
     """
 
-    def __init__(self, tf, config, save_name="model", save_folder="model", visualization_folder="logs"):
+    def __init__(self, tf, config, dropout_prob=None, save_name="model", save_folder="model", visualization_folder="logs"):
         """
         Initialization.
         :param tf: Tensorflow import. Used to create the model.
         :param config: The stock prediction config.
+        :param dropout_prob: Optional. If defined dropout is used with the given probability.
         :param save_name: The name of the file this model is being persisted to.
         :param save_folder: The folder that contains the saved model files.
+        :param visualization_folder: The folder that contains the tensorboard data.
         """
         super(SimpleLearningModel, self).__init__(tf, save_folder, save_name, visualization_folder)
         self.config = config
         self.test_summary = None
         self.test_writer = None
+        self.dropout_prob = dropout_prob
 
     def build_graph(self):
         """
@@ -35,6 +38,8 @@ class SimpleLearningModel(LearningModel):
                 biases = self.tf.Variable(self.tf.random_normal([self.config.num_classes]))
                 x = self.tf.unstack(X, self.config.time_steps, 1)
                 lstm = self.tf.contrib.rnn.BasicLSTMCell(self.config.hidden_size, forget_bias=1.0)
+                if self.dropout_prob is not None:
+                    lstm = self.tf.contrib.rnn.DropoutWrapper(lstm, output_keep_prob=self.dropout_prob)
                 outputs, states = self.tf.contrib.rnn.static_rnn(lstm, x, dtype=self.tf.float32)
                 logits = self.tf.matmul(outputs[-1], weights) + biases
                 prediction = self.tf.nn.softmax(logits)
@@ -91,7 +96,7 @@ class SimpleLearningModel(LearningModel):
         for batch in self.next_batch(data):
             batch_x, batch_y = batch
             summary, loss, acc = session.run([self.test_summary, loss_op, accuracy], feed_dict={X: batch_x, Y: batch_y})
-            self.test_writer.add_summary(summary, epoch)
+        self.test_writer.add_summary(summary, epoch)
             #print("Loss " + str(loss))
             #print("Accuracy " + str(acc))
 
