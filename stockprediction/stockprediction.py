@@ -74,29 +74,25 @@ class Stockpredictor(object):
             self.learning_model.setup_visualization(sess)
             sess.run(self.learning_model.get_init())
 
-            fileIndices = [i for i in range(len(preProcessedFiles))]
-            random.shuffle(fileIndices)
-            validate_file_indices = fileIndices[0:int(len(preProcessedFiles) * self.config.validate_ratio)]
-            train_and_test_indices = fileIndices[int(len(preProcessedFiles) * self.config.validate_ratio + 1) : len(preProcessedFiles)]
-
-            validate_set = [preProcessedFiles[i] for i in validate_file_indices]
-            train_and_test_set = [preProcessedFiles[i] for i in train_and_test_indices]
+            chunk_size = len(preProcessedFiles) // self.config.cross_validation_k
 
             for epoch in range(self.config.num_epochs):
                 print("-------------------------" + str(epoch))
-                fileIndices = [i for i in range(len(train_and_test_set))]
-                random.shuffle(fileIndices)
 
-                train_size = int(len(train_and_test_set) * self.config.train_test_ratio)
+                files = preProcessedFiles
 
-                training_files = [train_and_test_set[fileIndices[i]] for i in fileIndices[0:train_size]]
-                test_files = [train_and_test_set[fileIndices[i]] for i in fileIndices[train_size + 1:]]
+                for k in range(self.config.cross_validation_k):
+                    training_files = files[chunk_size:]
+                    test_files = files[:chunk_size]
 
-                training_file_data = self.load_preprocessed_data(training_files)
-                test_file_data = self.load_preprocessed_data(test_files)
+                    training_file_data = self.load_preprocessed_data(training_files)
+                    test_file_data = self.load_preprocessed_data(test_files)
 
-                self.learning_model.train(sess, training_file_data)
-                self.learning_model.predict(sess, test_file_data, epoch)
+                    self.learning_model.train(sess, training_file_data)
+                    self.learning_model.predict(sess, test_file_data, epoch)
+
+                    # rotate train/test files
+                    files = files[chunk_size:] + files[:chunk_size]
 
             self.learning_model.save_model(sess, "trained")
 
