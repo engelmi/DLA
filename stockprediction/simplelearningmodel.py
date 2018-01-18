@@ -21,9 +21,11 @@ class SimpleLearningModel(LearningModel):
         """
         super(SimpleLearningModel, self).__init__(tf, save_folder, save_name, visualization_folder)
         self.config = config
-        self.test_summary = None
-        self.test_writer = None
         self.dropout_prob = dropout_prob
+
+        self.manual_summary = None
+        self.test_summary = None
+        self.file_writer = None
 
     def build_graph(self):
         """
@@ -76,12 +78,13 @@ class SimpleLearningModel(LearningModel):
             batch_x, batch_y = batch
             session.run([train_op], feed_dict={X: batch_x, Y: batch_y})
 
-    def predict(self, session, data, epoch):
+    def evaluate_k_iteration(self, session, data, epoch):
         """
-        Predicts the course for a given stock.
+        Evaluates the current k-Iteration.
         :param session: The session of the current training.
         :param data: The data of the current epoch.
         :param epoch: The current epoch.
+        :return: A tuple (loss, accuracy) of the current evaluation.
         """
         build_succeeded = self.build_graph()
         if not build_succeeded:
@@ -93,12 +96,27 @@ class SimpleLearningModel(LearningModel):
         X = self.graph.get_graph_parameter("X")
         Y = self.graph.get_graph_parameter("Y")
 
+        losses = []
+        accuracies = []
         for batch in self.next_batch(data):
             batch_x, batch_y = batch
             summary, loss, acc = session.run([self.test_summary, loss_op, accuracy], feed_dict={X: batch_x, Y: batch_y})
-        self.test_writer.add_summary(summary, epoch)
-            #print("Loss " + str(loss))
-            #print("Accuracy " + str(acc))
+            losses.append(loss)
+            accuracies.append(acc)
+        self.file_writer.add_summary(summary, epoch)
+
+        return sum(losses)/len(losses), sum(accuracies)/len(accuracies)
+
+    def evaluate_k_mean(self, loss, accuracy, epoch):
+        """
+        Evaluates the summary of the current epoch (based on the mean of k iterations).
+        :param session: The session of the current training.
+        :param data: The data of the current epoch.
+        :param epoch: The current epoch.
+        """
+        self.manual_summary.value[0].simple_value = loss
+        self.manual_summary.value[1].simple_value = accuracy
+        self.file_writer.add_summary(self.manual_summary, epoch)
 
     def next_batch(self, data):
         """
@@ -179,7 +197,9 @@ class SimpleLearningModel(LearningModel):
         Method to set up the visualization for the Simple Learning Model.
         :param session: The session.
         """
+        # summary based on graph variables
         with self.tf.name_scope(datetime.datetime.now().strftime("%Y-%m-%d--test")):
+
             with self.tf.name_scope('accuracy'):
                 accuracy = self.graph.get_graph_parameter("accuracy_op")
             self.tf.summary.scalar('accuracy', accuracy)
@@ -187,5 +207,14 @@ class SimpleLearningModel(LearningModel):
             with self.tf.name_scope('loss'):
                 loss = self.graph.get_graph_parameter("loss_op")
             self.tf.summary.scalar('loss', loss)
+
         self.test_summary = self.tf.summary.merge_all()
-        self.test_writer = self.tf.summary.FileWriter(self.visualization_folder, session.graph)
+
+        # manual summary to visualize the k-mean for validation in tensorboard
+        loss = None
+        accuracy = None
+        self.manual_summary = self.tf.Summary()
+        self.manual_summary.value.add(tag='k-loss', simple_value=loss)
+        self.manual_summary.value.add(tag='k-accuracy', simple_value=accuracy)
+
+        self.file_writer = self.tf.summary.FileWriter(self.visualization_folder, session.graph)

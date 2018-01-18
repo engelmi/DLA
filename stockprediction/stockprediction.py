@@ -69,30 +69,36 @@ class Stockpredictor(object):
 
         preProcessedFiles = [f for f in listdir(self.folderPreprocessedData) if
                           isfile(join(self.folderPreprocessedData, f)) and f[-3:] == "npy"]
+        # load the file data only once...
+        file_data = self.load_preprocessed_data(preProcessedFiles)
+        chunk_size = file_data.shape[0] // self.config.cross_validation_k
 
         with tf.Session() as sess:
             self.learning_model.setup_visualization(sess)
             sess.run(self.learning_model.get_init())
 
-            chunk_size = len(preProcessedFiles) // self.config.cross_validation_k
-
             for epoch in range(self.config.num_epochs):
-                print("-------------------------" + str(epoch))
+                print("------------> Epoch: " + str(epoch))
 
-                files = preProcessedFiles
-
+                k_losses = []
+                k_accuracies = []
+                files = file_data
                 for k in range(self.config.cross_validation_k):
-                    training_files = files[chunk_size:]
-                    test_files = files[:chunk_size]
-
-                    training_file_data = self.load_preprocessed_data(training_files)
-                    test_file_data = self.load_preprocessed_data(test_files)
+                    print("------------>    k-Iteration: " + str(k))
+                    training_file_data = files[chunk_size:]
+                    test_file_data = files[:chunk_size]
 
                     self.learning_model.train(sess, training_file_data)
-                    self.learning_model.predict(sess, test_file_data, epoch)
+                    loss, acc = self.learning_model.evaluate(sess, test_file_data, epoch)
+                    k_losses.append(loss)
+                    k_accuracies.append(acc)
 
                     # rotate train/test files
-                    files = files[chunk_size:] + files[:chunk_size]
+                    files = np.concatenate((files[chunk_size:],files[:chunk_size]))
+                mean_k_loss = sum(k_losses)/len(k_losses)
+                mean_k_accuracy = sum(k_accuracies) / len(k_accuracies)
+                self.learning_model.some(mean_k_loss, mean_k_accuracy, epoch)
+
 
             self.learning_model.save_model(sess, "trained")
 
@@ -125,8 +131,8 @@ class Stockpredictor(object):
 
 if __name__ == "__main__":
     config = config.StockpredictorConfig()
-    #learning_model = slm.SimpleLearningModel(tf, config)
-    learning_model = oslm.OnlyStockLearningModel(tf, config)
+    learning_model = slm.SimpleLearningModel(tf, config, dropout_prob=0.3)
+    #learning_model = oslm.OnlyStockLearningModel(tf, config)
     sp = Stockpredictor(config, learning_model)
     sp.train(False)
     #sp.predict(False)

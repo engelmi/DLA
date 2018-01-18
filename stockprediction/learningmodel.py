@@ -78,15 +78,25 @@ class LearningModel(object):
         """
         raise NotImplementedError("Subclass must override train()!")
 
-    def predict(self, session, data, epoch):
+    def evaluate_k_iteration(self, session, data, epoch):
         """
         Abstract method.
         Derived class must implement this method to make predictions based on the trained data.
         :param session: The session of the current training.
         :param data: The data of the current epoch.
         :param epoch: The current epoch.
+        :return: A tuple (loss, accuracy) of the current evaluation.
         """
-        raise NotImplementedError("Subclass must override train()!")
+        raise NotImplementedError("Subclass must override evaluate_k_iteration()!")
+
+    def evaluate_k_mean(self, loss, accuracy, epoch):
+        """
+        Evaluates the summary of the current epoch (based on the mean of k iterations).
+        :param session: The session of the current training.
+        :param data: The data of the current epoch.
+        :param epoch: The current epoch.
+        """
+        raise NotImplementedError("Subclass must override evaluate_k_mean()!")
 
     def next_batch(self, data):
         """
