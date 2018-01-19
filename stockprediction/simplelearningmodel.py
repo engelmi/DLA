@@ -60,7 +60,7 @@ class SimpleLearningModel(LearningModel):
                 self.set_graph_parameters(init, X, Y, outputs, states, train_op, prediction, loss_op, optimizer, correct_pred, accuracy)
                 self.graph_built = True
             except Exception as ex:
-                logging.error(ex.message)
+                logging.error(ex)
 
         return self.is_graph_built()
 
@@ -153,7 +153,7 @@ class SimpleLearningModel(LearningModel):
         :param data: The dataset to split
         :return: The input and label two variables.
         """
-        batch_x = data[:, :, 1:]
+        batch_x = data[:, :, 1:self.config.values+1]
         batch_y_tmp = data[:, self.config.time_steps - 1, 0]
         batch_x = batch_x.reshape((data.shape[0], self.config.time_steps, self.config.values))
         first = True
