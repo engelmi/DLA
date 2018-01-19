@@ -89,7 +89,7 @@ class Stockpredictor(object):
                     test_file_data = files[:chunk_size]
 
                     self.learning_model.train(sess, training_file_data)
-                    loss, acc = self.learning_model.evaluate(sess, test_file_data, epoch)
+                    loss, acc = self.learning_model.evaluate_k_iteration(sess, test_file_data, epoch)
                     k_losses.append(loss)
                     k_accuracies.append(acc)
 

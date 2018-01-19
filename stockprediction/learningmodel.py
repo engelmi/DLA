@@ -127,7 +127,7 @@ class LearningModel(object):
             saver.save(session, join(self.save_folder, self.save_name))
             return True
         except Exception as ex:
-            logging.error(ex.message)
+            logging.error(ex)
             return False
 
     def restore_model(self, session):
@@ -140,5 +140,5 @@ class LearningModel(object):
             saver.restore(session, join(self.save_folder, self.save_name))
             return True
         except Exception as ex:
-            logging.error(ex.message)
+            logging.error(ex)
             return False
