@@ -75,12 +75,11 @@ class OnlyStockLearningModel(LearningModel):
             print("accuracy: " + str(acc))
             print("loss: " + str(l))
 
-    def predict(self, session, data, epoch):
+    def predict(self, session, data):
         """
         Predicts the course for a given stock.
         :param session: The session of the current training.
         :param data: The data of the current epoch.
-        :param epoch: The current epoch.
         """
         build_succeeded = self.build_graph()
         if not build_succeeded:

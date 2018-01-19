@@ -78,6 +78,15 @@ class LearningModel(object):
         """
         raise NotImplementedError("Subclass must override train()!")
 
+    def predict(self, data):
+        """
+        Abstract method.
+        Derived class must implement this method to make predicitions based on the trained data.
+        :param data: The data to predict
+        :return: A class for each sample
+        """
+        raise NotImplementedError("Subclass must override predict()!")
+
     def evaluate_k_iteration(self, session, data, epoch):
         """
         Abstract method.
@@ -104,6 +113,14 @@ class LearningModel(object):
         Derived class must implement this method to process the next batch during training.
         :param data: The data of which the next batch is being extracted.
         :return: Implementing subclass should return a tuple (batch_x,batch_y).
+        """
+        raise NotImplementedError("Subclass must override next_batch()!")
+
+    def split_X_Y(self, data):
+        """
+        Split the dataset in input and label.
+        :param data: The dataset to split
+        :return: The input and label two variables.
         """
         raise NotImplementedError("Subclass must override next_batch()!")
 

@@ -78,6 +78,18 @@ class SimpleLearningModel(LearningModel):
             batch_x, batch_y = batch
             session.run([train_op], feed_dict={X: batch_x, Y: batch_y})
 
+    def predict(self, data):
+        """
+        Predicts the class for a given stock.
+        :param session: The session of the current training.
+        :param data: The data to predict
+        :return: The class of the stock
+        """
+        X = self.graph.get_graph_parameter("X")
+        prediction = self.graph.get_graph_parameter("predict_op")
+        label = prediction.eval(feed_dict={X: data})
+        return label
+
     def evaluate_k_iteration(self, session, data, epoch):
         """
         Evaluates the current k-Iteration.
@@ -131,19 +143,28 @@ class SimpleLearningModel(LearningModel):
                 # shape is not allowed to be changed
                 break
             data_batch = data[low:high,:,:]
-            batch_x = data_batch[:, :, 1:]
-            batch_x = batch_x.reshape((self.config.batch_size, self.config.time_steps, self.config.values))
-            batch_y_tmp = data_batch[:, self.config.time_steps - 1, 0]
-            first = True
-            for i in range(0, self.config.batch_size):
-                if first:
-                    batch_y = self.map_classes(batch_y_tmp[i])
-                    first = False
-                else:
-                    batch_y = np.concatenate((batch_y, self.map_classes(batch_y_tmp[i])))
-            batch_y = batch_y.reshape((self.config.batch_size, 2))
+            batch_x, batch_y = self.split_X_Y(data_batch)
             low = high
             yield batch_x, batch_y
+
+    def split_X_Y(self, data):
+        """
+        Split the dataset in input and label.
+        :param data: The dataset to split
+        :return: The input and label two variables.
+        """
+        batch_x = data[:, :, 1:]
+        batch_y_tmp = data[:, self.config.time_steps - 1, 0]
+        batch_x = batch_x.reshape((data.shape[0], self.config.time_steps, self.config.values))
+        first = True
+        for i in range(0, data.shape[0]):
+            if first:
+                batch_y = self.map_classes(batch_y_tmp[i])
+                first = False
+            else:
+                batch_y = np.concatenate((batch_y, self.map_classes(batch_y_tmp[i])))
+        batch_y = batch_y.reshape((data.shape[0], 2))
+        return batch_x, batch_y
 
     def map_classes(self, value):
         """

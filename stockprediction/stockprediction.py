@@ -31,6 +31,7 @@ class Stockpredictor(object):
         self.learning_model = model
         self.folderMergedData = join("datasets", "myDataset")
         self.folderPreprocessedData = join("datasets", "preprocessed")
+        self.folderTestData = join("datasets", "testData")
 
     def preprocess(self):
         """
@@ -39,15 +40,18 @@ class Stockpredictor(object):
         """
         pp.preprocessing(self.folderPreprocessedData, self.folderMergedData, self.config.time_steps, self.config.values)
 
-    def load_preprocessed_data(self, file_list):
+    def load_preprocessed_data(self, file_list, folder=None):
         """
         Loads preprocessed data.
         :param file_list: List of files containing preprocessed data to be loaded.
+        :param folder: The folder to look for files.
         :return: The loaded data.
         """
         data = None
+        if not folder:
+            folder = self.folderPreprocessedData
         for pFile in file_list:
-            loadedMatrix = pp.load_preprocessed_data(join(self.folderPreprocessedData, pFile))
+            loadedMatrix = pp.load_preprocessed_data(join(folder, pFile))
             if data is None:
                 data = loadedMatrix
             else:
@@ -102,14 +106,15 @@ class Stockpredictor(object):
 
             self.learning_model.save_model(sess, "trained")
 
-    def predict(self, pathToFile, create_model = False, load_trained_model=None):
+    def predict(self, create_model = False, load_trained_model=None):
         """
         Predicts the course for a given stock.
-        :param pathToFile: Path to the file which is used to predict the course development.
         :param create_model: Flag to indicate if the model needs to be recreated.
                              Not necessary if train() was called during execution of the stock predictor.
         :param load_trained_model: Flag to indicate if a trained model should be loaded.
         """
+        pathToFile = [f for f in listdir(self.folderTestData) if
+                   isfile(join(self.folderTestData, f)) and f[-3:] == "npy"]
         if create_model:
             build_succeeded = self.learning_model.build_graph()
             if not build_succeeded:
@@ -124,15 +129,20 @@ class Stockpredictor(object):
                 else:
                     print("restore NOT successful")
 
-            data = self.load_preprocessed_data([pathToFile])
-            self.learning_model.predict(sess, data)
-
+            data = self.load_preprocessed_data(pathToFile, self.folderTestData)
+            input, y = self.learning_model.split_X_Y(data)
+            pred = self.learning_model.predict(input)
+            cor_pred = np.equal(np.argmax(y, 1), np.argmax(pred, 1))
+            print(cor_pred)
+            acc = np.mean(cor_pred)
+            print(acc)
 
 
 if __name__ == "__main__":
     config = config.StockpredictorConfig()
-    learning_model = slm.SimpleLearningModel(tf, config, dropout_prob=0.3)
+    learning_model = slm.SimpleLearningModel(tf, config)
     #learning_model = oslm.OnlyStockLearningModel(tf, config)
     sp = Stockpredictor(config, learning_model)
     sp.train(False)
-    #sp.predict(False)
+    learning_model = slm.SimpleLearningModel(tf, config, save_folder="model20000")
+    sp.predict(True, learning_model)
