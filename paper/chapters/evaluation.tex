@@ -7,3 +7,15 @@
 	\item  
 	\item using k fold cross validation, even though it is not best practice to log the k-mean outside graph, but it was easy to implement
 \end{itemize}
+
+\begin{figure}[!ht]
+	\caption{A Graph depicting the mean accuracy over 650 epochs of the k fold cross validation with $k=10$. Also, dropout was being used with a probability of 0.3. }
+	\includegraphics[width=0.95\linewidth]{images/evaluation/650-epochs-k-crossvalidation-accuracy-mean.png}
+	\label{fig:acc650epochs}
+\end{figure}
+
+\begin{figure}[!ht]
+	\caption{A Graph depicting the mean loss over 650 epochs of the k fold cross validation with $k=10$. Also, dropout was being used with a probability of 0.3. }
+	\includegraphics[width=0.95\linewidth]{images/evaluation/650-epochs-k-crossvalidation-loss-mean.png}
+	\label{fig:loss650epochs}
+\end{figure}

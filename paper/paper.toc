@@ -17,9 +17,9 @@
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VI-C}}Merged dataset}{4}{subsection.6.3}
 \contentsline {section}{\numberline {VII}Preprocessing}{5}{section.7}
 \contentsline {section}{\numberline {VIII}Architecture}{5}{section.8}
-\contentsline {section}{\numberline {IX}Deep Learning Model}{5}{section.9}
-\contentsline {section}{\numberline {X}Evaluation}{5}{section.10}
-\contentsline {section}{\numberline {XI}Conclusion}{5}{section.11}
+\contentsline {section}{\numberline {IX}Learning Model}{6}{section.9}
+\contentsline {section}{\numberline {X}Evaluation}{6}{section.10}
+\contentsline {section}{\numberline {XI}Conclusion}{6}{section.11}
 \contentsline {section}{\numberline {XII}Lessons Learned}{6}{section.12}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-A}}Daniel Sikeler}{6}{subsection.12.1}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-B}}Michael Engel}{6}{subsection.12.2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-B}}Michael Engel}{7}{subsection.12.2}
