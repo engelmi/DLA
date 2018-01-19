@@ -97,7 +97,7 @@ class Stockpredictor(object):
                     files = np.concatenate((files[chunk_size:],files[:chunk_size]))
                 mean_k_loss = sum(k_losses)/len(k_losses)
                 mean_k_accuracy = sum(k_accuracies) / len(k_accuracies)
-                self.learning_model.some(mean_k_loss, mean_k_accuracy, epoch)
+                self.learning_model.evaluate_k_mean(mean_k_loss, mean_k_accuracy, epoch)
 
 
             self.learning_model.save_model(sess, "trained")
