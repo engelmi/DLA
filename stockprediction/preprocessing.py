@@ -59,7 +59,7 @@ def preprocessing(folderPreprocessedData, folderMergedData, time_steps, values):
     mergedCSVFiles = [f for f in listdir(folderMergedData) if
                       isfile(join(folderMergedData, f)) and f[-3:] == "csv"]
     for csvfile in mergedCSVFiles:
-        centeredData = zeroCenter(join(folderMergedData, csvfile), (time_steps, values+1))
+        centeredData = zero_center(join(folderMergedData, csvfile), (time_steps, values+1))
         # maybe further preprocessing...
         persist_preprocessed_data(centeredData, folderPreprocessedData, csvfile[:len(csvfile) - 4])
 
