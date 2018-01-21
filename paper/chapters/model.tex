@@ -1,7 +1,17 @@
 \section{Learning Model}
 \label{sec:model}
-used model (kind of lstm), tensorboard, dropout
-\begin{itemize}
-	\item logical representation of the model
-	\item lstm/rnn: why?
-\end{itemize}
+The development of stock prices can be represented as a time series. The same applies to the Google trend data, where the number of searches for a specific term is used as y-value. These characteristics of both data types as well as the binary classification problem of predicting the rising or falling of the stocks urge the usage of a Long short-term memory network (LSTM). The necessary background for this type of network is explained in \ref{sec:lstm}. A common issue when training traditional RNN is the exploding and vanishing gradient problem. As LSTMs were developed to deal with those two problems, this advantage is another reason for using a LSTM. 
+\\
+As described in \ref{sec:architecture}, the model was separated in class. For higher flexibility an abstract base class \textit{LearningModel} was defined. Within this class the abstract function \textit{build\_graph} is declared. This method serves as the point of definition for the TensorFlow graph of the model. In \ref{subsec:simplelearningmodel} and \ref{subsec:onlystocklearningmodel} the implemented models used for stock prediction are explained. 
+
+\subsection{Simple Learning Model}
+\label{subsec:simplelearningmodel}
+The \textit{SimpleLearningModel} class is derived from the abstract base class \textit{LearningModel} and, therefore, needs to implement the \textit{build\_graph} function. A initial check if the graph has already been built prevents a possible exception. The first action when defining the TensorFlow graph is the creation of variables for the input X and the labels Y. Consequent, the variables for the weights and bias are defined and randomly initialized. The \textit{SimpleLearningModel} uses just a single LSTM-cell with a configurable hidden size and forget bias. This simple model also facilitates the use of dropout. If dropout is specified, a \textit{DropoutWrapper} is wrapped around the created LSTM-cell. The softmax function is used to predict the direction of future stock prices:
+\begin{align}
+prediction &= softmax(input \cdot weights + bias)
+\end{align}
+The loss is calculated by\textit{build\_graph} applying the summary metric \textit{cross entropy} to the unscaled output. This metric was deployed, because the cross entropy should be optimally minimized and the softmax function is used for the prediction. Therefore, numerically unstable corner cases are covered in a mathematically suitable way. For optimization the \textit{GradientDescentOptimizer} is facilitated by the model. Although this simple Optimizer requires more tuning of the learning rate to converge quickly, it does far less computations than the \textit{AdamOptimizer}. For training the minimization operation is applied to the loss. 
+
+\subsection{Only Stock Learning Model}
+\label{subsec:onlystocklearningmodel}
+TODO: Daniel
