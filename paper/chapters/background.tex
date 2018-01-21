@@ -35,7 +35,6 @@ With the parameter $\alpha$ one could regulate how fast the information of the p
 \subsection{Long Short-Term Memory}
 \label{sec:lstm}
 The Long Short-Term Memory (LSTM) is a gated recurrent neural network. Gated in this case means that the weight of the self-loop is controlled by another hidden unit. LTSM performed very good in handwriting and speech recognition, for example. The basic idea is that it might be useful to forget information of a leaky unit. As always it is better to have the network learn when to forget and not to decide manually.\\
-\label{sec:lstm}
 \begin{figure}[thb]
 	\caption{long short-term memory cell \cite[p. 405]{DeepLearning}}
 	\includegraphics[width=0.95\linewidth]{images/lstmCell.PNG}
@@ -43,8 +42,3 @@ The Long Short-Term Memory (LSTM) is a gated recurrent neural network. Gated in 
 \end{figure}
 In a LSTM network the hidden units consist of so called long short-term memory cells. A LSTM cell has three gating units (see figure \ref{fig:lstm}). The input gate is a sigmoid unit and controls the input feature. The input feature is a regular artificial neuron. The forget gate has the same task as the parameter $\alpha$ in a leaky unit. As there are only values between 0 and 1 are allowed, a sigmoid unit is used again. It controls how fast the information of the past is discarded. In other words it controls the weights of the state unit. The state unit has a self loop similar to the leaky units. With this self loop an internal recurrence is added to the outer recurrence of the LSTM cell. The output gate is also a sigmoid unit. It can shut off the output of the whole LSTM cell. So a Long Short-Term Memory network is far more complex than a simple recurrent neural network.
 
-\subsection{Dropout}
-\label{sec:dropout}
-
-\subsection{k-Fold Cross Validation}
-\label{sec:fcv}
