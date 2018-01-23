@@ -1,0 +1,2 @@
+model_checkpoint_path: "OSLMe650k10d0"
+all_model_checkpoint_paths: "OSLMe650k10d0"

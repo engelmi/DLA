@@ -1,0 +1,2 @@
+model_checkpoint_path: "OSLMextended"
+all_model_checkpoint_paths: "OSLMextended"
