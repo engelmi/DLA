@@ -20,10 +20,10 @@
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IX-A}}Simple Learning Model}{6}{subsection.9.1}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IX-B}}Only Stock Learning Model}{6}{subsection.9.2}
 \contentsline {section}{\numberline {X}Evaluation}{6}{section.10}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-A}}K fold cross validation}{6}{subsection.10.1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-A}}K fold cross validation}{7}{subsection.10.1}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-B}}Results of the cross validation}{7}{subsection.10.2}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-C}}Prediction results}{7}{subsection.10.3}
 \contentsline {section}{\numberline {XI}Conclusion}{7}{section.11}
 \contentsline {section}{\numberline {XII}Lessons Learned}{7}{section.12}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-A}}Daniel Sikeler}{7}{subsection.12.1}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-B}}Michael Engel}{7}{subsection.12.2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-B}}Michael Engel}{8}{subsection.12.2}

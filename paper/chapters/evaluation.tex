@@ -2,8 +2,9 @@
 \label{sec:evaluation}
 For evaluation of the model that is described in section \ref{sec:model} the tool \textit{Tensorboard} is used. This is a suite of visualization tools that can be used to understand, debug and optimize \textit{TensorFlow} programs. In the context of evaluation, \textit{Tensorboard} is used to visualize the 
 \begin{itemize}
-	\item accuracy and 
-	\item loss
+	\item accuracy,
+	\item loss and
+	\item graph
 \end{itemize}
 of the model. As validation technique the k fold cross validation is being deployed. How this technique works and how it is integrated within the architecture is described in the subsection \ref{subsec:kfoldxvalidation}. In \ref{subsec:xvalidationresults} the yielded results of this technique are explained. Finally, the trained model and an unused dataset are used to predict the rising or falling of the contained stocks. In \ref{subsec:predresults} the outcome of this validation of the model against to this point unknown data to the model is presented. 
 
