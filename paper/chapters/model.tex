@@ -14,4 +14,4 @@ The loss is calculated by\textit{build\_graph} applying the summary metric \text
 
 \subsection{Only Stock Learning Model}
 \label{subsec:onlystocklearningmodel}
-TODO: Daniel
+In comparison to the \textit{SimpleLearningModel} the \textit{OnlyStockLearningModel} uses far less information. The whole data from \textit{Google Trends} is discarded during runtime. As the \textit{SimpleLearningModel} can be configured very easily, the \textit{OnlyStockLearningModel} is derived from it. The only adaption is that the number of values (columns) used from the dataset is fixed to only the column with the stock data.
