@@ -20,9 +20,9 @@ class StockpredictorConfig(object):
 
     learning_rate = 1.0
     hidden_size = 100
-    num_epochs = 2000
+    num_epochs = 650
     cross_validation_k = 10
-    batch_size = 5
+    batch_size = 20
     time_steps = 30
     values = 15
     num_classes = 2
