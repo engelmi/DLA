@@ -40,7 +40,7 @@ def read_merged_csv(filepath):
     """
     data = []
     try:
-        if isfile(filepath) and filepath[-3:] == "csv":
+        if isfile(filepath) and (filepath[-3:] == "csv" or filepath[-8:] == "csv.test"):
             with open(filepath) as f:
                 reader = csv.reader(f, delimiter=',', quotechar='"')
                 for row in reader:
@@ -50,7 +50,7 @@ def read_merged_csv(filepath):
     return np.array(data)
 
 
-def preprocessing(folderPreprocessedData, folderMergedData, time_steps, values):
+def preprocessing(folderPreprocessedData, folderTestPreprocessedData, folderMergedData, time_steps, values):
     """
     Preprocessing of the merged data. Reads the merged data of stocks and google trends,
     applies preprocessing routines to it and writes the result out.
@@ -58,10 +58,16 @@ def preprocessing(folderPreprocessedData, folderMergedData, time_steps, values):
     delete_preprocessed_data(folderPreprocessedData)
     mergedCSVFiles = [f for f in listdir(folderMergedData) if
                       isfile(join(folderMergedData, f)) and f[-3:] == "csv"]
+    mergedCSVTestFiles = [f for f in listdir(folderMergedData) if
+                          isfile(join(folderMergedData, f)) and f[-8:] == "csv.test"]
     for csvfile in mergedCSVFiles:
         centeredData = zero_center(join(folderMergedData, csvfile), (time_steps, values+1))
         # maybe further preprocessing...
         persist_preprocessed_data(centeredData, folderPreprocessedData, csvfile[:len(csvfile) - 4])
+    for csvfile in mergedCSVTestFiles:
+        centeredData = zero_center(join(folderMergedData, csvfile), (time_steps, values + 1))
+        # maybe further preprocessing...
+        persist_preprocessed_data(centeredData, folderTestPreprocessedData, csvfile[:len(csvfile) - 9])
 
 
 def persist_preprocessed_data(matrix, filepath, filename):

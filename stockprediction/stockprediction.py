@@ -38,7 +38,7 @@ class Stockpredictor(object):
         Preprocesses google trends and stock data.
         :return:
         """
-        pp.preprocessing(self.folderPreprocessedData, self.folderMergedData, self.config.time_steps, self.config.values)
+        pp.preprocessing(self.folderPreprocessedData, self.folderTestData, self.folderMergedData, self.config.time_steps, self.config.values)
 
     def load_preprocessed_data(self, file_list, folder=None):
         """
