@@ -92,12 +92,12 @@ Although the dropout probability should ... according to \cite{dropout}
 In figure \ref{fig:OSLM_k-accuracy} you can see the accuracy of the three experiments described in table \ref{TODO}. The loss can be seen in figure \ref{fig:OSLM_k-loss}. The model without using dropout performed best. This seems to be reasonable because if the dropout drops the only input, like in the other two experiments, the model can not use any data for learning. The model with the biggest hidden size (experiment 3) has the highest loss but has a even better accuracy then the model of experiment 1. It would be interesting to see how this model performs without dropout.\\
 \begin{figure}[tb]
 	\caption{A Graph depicting the mean accuracy of the OnlyStockLearningModel over 650 epochs of the k fold cross validation with $k=10$. The blue line corresponds to experiment 2 and has the best accuracy with about $51\%$. The orange (experiment 1) and red (experiment 3) line have only an accuracy about $49\%$.}
-	\includegraphics[width=0.95\linewidth]{images/OSLM_k-accuracy.png}
+	\includegraphics[width=0.95\linewidth]{images/OSLM_k-accuracy.PNG}
 	\label{fig:OSLM_k-accuracy}
 \end{figure}
 \begin{figure}[tb]
 	\caption{A Graph depicting the mean loss of the OnlyStockLearningModel over 650 epochs of the k fold cross validation with $k=10$. The red line corresponds to experiment 3 and has the highest loss with about $25$. The orange (experiment 1) and blue (experiment 2) line have nearly the same loss after 650 epochs. }
-	\includegraphics[width=0.95\linewidth]{images/OSLM_k-loss.png}
+	\includegraphics[width=0.95\linewidth]{images/OSLM_k-loss.PNG}
 	\label{fig:OSLM_k-loss}
 \end{figure}
 In the following listing you can see how the models performed on data not seen during training. The test dataset contains only 16 entries, so the results have to be watched carefully.
