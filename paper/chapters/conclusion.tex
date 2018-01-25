@@ -1,5 +1,19 @@
 \section{Conclusion}
 \label{sec:ausblick}
+In this paper 
++ results of the project to predict rising or falling stocks using deep learning methods are presented
++ the basic framework for
+	- retrieving the google trends data
+	- preprocess the data
+	- learning models
+	implemented
++ simple learning model, which uses a lstm, achieved an accuracy of 53\% , just above simple guessing 
++ after ca. 150 epochs with k fold cross validation (k=10) and dropout the accuracy reached its max - longer training was contra productive 
+
++ simplified approach therefore does not encourage further research of predicting stocks based on google trend data
++ however as only the lstm, and only a single cell, was used, other models and model combinations could yield better results
++ as the architecture for this project was implemented flexible for future extensions, it could serve as a starting point / core for this future research. for example, another model could be derived from the abstract class and used instead
+
 simplified approach reached xx\% of accuracy, therefore it would be worthwhile to enhance the current model by predicting ranges of values, e.g. 50 up or down etc.
 as described in \ref{sec:architecture}, only minor changes would only be necessary
 \begin{itemize}
