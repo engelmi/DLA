@@ -1,12 +1,12 @@
 \section{Evaluation}
 \label{sec:evaluation}
-For evaluation of the model that is described in section \ref{sec:model} the tool \textit{Tensorboard} is used. This is a suite of visualization tools that can be used to understand, debug and optimize \textit{TensorFlow} programs. In the context of evaluation, \textit{Tensorboard} is used to visualize the 
+For evaluation of both models, which are described in section \ref{sec:model}, the tool \textit{Tensorboard} is used. This suite of visualization tools can be used to understand, debug and optimize \textit{TensorFlow} programs. In the context of evaluation, \textit{Tensorboard} is used to visualize the 
 \begin{itemize}
 	\item accuracy,
 	\item loss and
 	\item graph
 \end{itemize}
-of the model. As validation technique the k fold cross validation is being deployed. How this technique works and how it is integrated within the architecture is described in the subsection \ref{subsec:kfoldxvalidation}. In \ref{subsec:experiments} the yielded results of this technique are explained. Finally, the trained model and an unused dataset are used to predict the rising or falling of the contained stocks. In \ref{subsec:predresults} the outcome of this validation of the model against to this point unknown data to the model is presented. 
+of the model. As validation technique the k fold cross validation is being deployed. How this technique works and how it is integrated within the architecture is described in the subsection \ref{subsec:kfoldxvalidation}. In \ref{subsec:experiments} the basic setup used for executing different experiments are explained. The specific results of those experiments for the \textit{SimpleLearningModel} are shown in subsection \ref{subsec:slmexperiment}, while the results yielded by the \textit{OnlyStockLearningModel} are described in the subsection \ref{subsec:onlystockmodelexperiment}. Finally, the results from both models are compared in subsection \ref{subsec:compmodelresults}.
 
 \subsection{K fold cross validation}
 \label{subsec:kfoldxvalidation}
@@ -18,7 +18,7 @@ The evaluation of the model by the k fold cross validation is achieved by loggin
 
 \subsection{Experiments for evaluation}
 \label{subsec:experiments}
-For the validation of the implementation experiments are executed using the \textit{SimpleLearningModel}, which is described in subsection \ref{subsec:simplelearningmodel}. Although the same model is being used for all experiments, the following parameters are varied for an optimal result:
+For the validation of the model implementation experiments are executed for both defined models, which are described in detail in subsection \ref{subsec:simplelearningmodel} and \ref{subsec:onlystockmodelexperiment}. The following parameters are varied for a different setup: 
 \begin{itemize}
 	\item dropout probability, 
 	\item hidden size of the LSTM cell, 
@@ -28,67 +28,72 @@ For the validation of the implementation experiments are executed using the \tex
 \end{itemize}
 The mean accuracy and loss after each k fold cross validation as well as the mean overall accuracy and loss are being used as metrics for the rating of parameter configuration. These scalars are logged as described in the previous subsection \ref{subsec:kfoldxvalidation}. 
 \\
-Overall, two different settings of those parameters are executed. In table \ref{tbl:experiments} both configurations are depicted. 
-
-TODO: nur dropout mal weglassen?!
-Batch-Size: 20!!!!
-
+Overall, four different settings of those parameters are used, wherefore four experiments for each model type are executed. In table \ref{tbl:experiments} these configurations are depicted. 
 \renewcommand{\arraystretch}{1.5}
 \begin{table}[!ht]
 	\begin{center}
-		\begin{tabular}{c|c|c|c}
-			 & \textbf{Experiment 1} & \textbf{Experiment 2} & \textbf{Experiment 3} \\
+		\begin{tabular}{c|c|c|c|c|}
+			\multirow{2}{1cm}{} & \multicolumn{4}{c|}{\textbf{Experiment setups}} \\
+			 & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4}\\
 			\hline
-			\textbf{Hidden size} & 100 &  100 & 200 \\
+			\textbf{Hidden size} & 100 &  100 & 200 & 100 \\
 			\hline
-			\textbf{Dropout probability} & 0.3 & 0.0 & 0.3\\
+			\textbf{Dropout probability} & 0.3 & 0.0 & 0.3 & 0.3 \\
 			\hline
-			\textbf{Learning rate} & 1.0 & 1.0 & 2.0\\
+			\textbf{Learning rate} & 1.0 & 1.0 & 2.0 & 0.5 \\
 			\hline
-			\textbf{Number of folds k} & 10 & 10 & 10 \\
+			\textbf{Number of folds k} & 10 & 10 & 10 & 10 \\
 			\hline
-			\textbf{Number of epochs} & 650 & 650 & 650 \\
+			\textbf{Number of epochs} & 650 & 650 & 650 & 650 \\
 		\end{tabular}
 	\end{center}
-	\caption{The configurations for both experiments. While the hidden size of the LSTM cell, the number of folds $k$ and the count of epochs remain the same for both experiments, the learning rate is halved as the dropout probability is being doubled. }
+	\caption{The configurations for all experiments. }
 	\label{tbl:experiments}
 \end{table}
+While the number of folds k for the cross validation as well as the number of epochs for training remain the same for all experiments, the other three parameters are varied. According to a scientific paper about dropout from the university of Toronto (\cite{Srivastava:2014:DSW:2627435.2670313}) the minimal classification error is achieved for a fixed dropout probability $p$ in the range $0.3 \le p \le 0.8$. Therefore, the experiments using dropout are executed with a minimal dropout probability $p = 0.3$. To examine the effects of the hidden size of the LSTM cell and the learning rate of the optimizer on the accuracy and loss, these parameters are also varied. 
+\\
+Additionally, the trained model is used to predict the rising or falling of stocks unused during the training process. This prediction process is executed ten times and the maximum, minimum and average accuracy for the predictions are logged. Thus conclusions can be made about the applicability of the models for stock prediction. 
 
-Although the dropout probability should ... according to \cite{dropout}
-\begin{itemize} 
-	\item dropout (0.3) (wrapper)
-	\item hidden size 100 (lstm cell)
-	\item learning rate 1.0 (optimizer)
-	- k of cross validation 10 (validation), 10 is empirical
-	- num of epochs 650 
-\end{itemize}
-
-+ following setup
-	
-+ results can be seen in figures \ref{fig:acc650epochs} and \ref{fig:loss650epochs}
-	
+\subsection{SimpleLearningModel results}
+\label{subsec:slmexperiment}	
+The visualized experiment results of the \textit{SimpleLearningModel} are extracted from \textit{Tensorboard}. Within the visualization suite the accuracy and the loss of all experiments were grouped within one graph for better comparability. In figure \ref{fig:acc650epochs} the accuracy over 650 epochs are depicted. 
 \begin{figure}[!ht]
-	\caption{A Graph depicting the mean accuracy over 650 epochs of the k fold cross validation with $k=10$. Also, dropout was being used with a probability of 0.3. }
-	\includegraphics[width=0.95\linewidth]{images/evaluation/650-epochs-k-crossvalidation-accuracy-mean.png}
+	\caption{The mean accuracy of all experiments over 650 epochs of the k fold cross validation with $k=10$. }
+	\includegraphics[width=0.95\linewidth]{images/evaluation/slm-k-accuracy.png}
 	\label{fig:acc650epochs}
 \end{figure}
+\\ As expected, the experiment without dropout achieved the lowest accuracy of all experiments. While the other three experiments achieved quite similar results concerning the accuracy, experiment 2 needed about twice the time for the same number of epochs than experiment 1 and 4 with about 22 minutes. This is due to the doubled size of the hidden units, wherefore this setting is unsuitable for training and, also, strongly influences the extent of the loss which can be seen in figure \ref{fig:loss650epochs}. 
 \begin{figure}[!ht]
-	\caption{A Graph depicting the mean loss over 650 epochs of the k fold cross validation with $k=10$. Also, dropout was being used with a probability of 0.3. }
-	\includegraphics[width=0.95\linewidth]{images/evaluation/650-epochs-k-crossvalidation-loss-mean.png}
+	\caption{The mean loss of all experiments over 650 epochs of the k fold cross validation with $k=10$. }
+	\includegraphics[width=0.95\linewidth]{images/evaluation/slm-k-losses.png}
 	\label{fig:loss650epochs}
 \end{figure}
-
-
-+ another experiment wit following setup
-	- dropout (0.3) (wrapper)
-	- hidden size 100 (lstm cell)
-	- learning rate 0.5 (optimizer)
-	- k of cross validation 10 (validation), 10 is empirical
-	- num of epochs 1000
-
+\\ Therefore, only experiment 1 and 4 yield acceptable results. In comparison, the accuracy graph of experiment 4 is overall higher than the accuracy graph of experiment 1. This implies that the configuration of experiment 4 is better than the settings of experiment 1. However, regarding the prediction results for a dataset unknown to the trained models, experiment 1 seems to work better. In table \ref{tbl:slmpredictresults} these prediction results are presented. 
+\begin{table}[!ht]
+	\begin{center}
+		\begin{tabular}{c|c|c|c|c|}
+			\multirow{2}{1cm}{} & \multicolumn{4}{c|}{\textbf{Experiment setups}} \\
+			& \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4}\\
+			\hline
+			\textbf{Minimum} & 50.00 & 43.75 & 43.75 & 31.25 \\
+			\hline
+			\textbf{Maximum} & 68.75 & 43.75 & 68.75 & 68.75 \\
+			\hline
+			\textbf{Average} & 61.25 & 43.75 & 50.00 & 51.25 \\
+		\end{tabular}
+	\end{center}
+	\caption{The minimum, maximum and average prediction accuracy in \% of ten predictions for a dataset unknown to the trained \textit{SimpleLearningModel}. }
+	\label{tbl:slmpredictresults}
+\end{table}
+As described in the previous section \ref{subsec:experiments}, these results are collected by using a dataset unknown to the trained models and executing the prediction function ten times. For this validation the settings of experiment 1 achieve a 10\% higher accuracy than the model of experiment 4. The smaller learning rate of experiment 4 in combination with the presented results could imply that this model needs more epochs to converge to the optimum. However, the losses of all experiments quickly converge to a minimum. In figure \ref{fig:loss650epochs2} the graph of the third experiment is removed due to its magnitude so that a more precise view of the remaining loss graphs can be seen. 
+\begin{figure}[!ht]
+	\caption{The mean loss of the experiments 1, 2 and 4 over 650 epochs of the k fold cross validation with $k=10$. }
+	\includegraphics[width=0.95\linewidth]{images/evaluation/slm-k-losses-2.png}
+	\label{fig:loss650epochs2}
+\end{figure}
 
 \subsection{OnlyStockLearningModel results}
-\label{subsec:predresults}
+\label{subsec:onlystockmodelexperiment}
 In figure \ref{fig:OSLM_k-accuracy} you can see the accuracy of the three experiments described in table \ref{TODO}. The loss can be seen in figure \ref{fig:OSLM_k-loss}. The model without using dropout performed best. This seems to be reasonable because if the dropout drops the only input, like in the other two experiments, the model can not use any data for learning. The model with the biggest hidden size (experiment 3) has the highest loss but has a even better accuracy then the model of experiment 1. It would be interesting to see how this model performs without dropout.\\
 \begin{figure}[tb]
 	\caption{A Graph depicting the mean accuracy of the OnlyStockLearningModel over 650 epochs of the k fold cross validation with $k=10$. The blue line corresponds to experiment 2 and has the best accuracy with about $51\%$. The orange (experiment 1) and red (experiment 3) line have only an accuracy about $49\%$.}
@@ -107,3 +112,8 @@ In the following listing you can see how the models performed on data not seen d
 	\item Experiment 3: $43.75\%$ accuracy (7 correct predictions)
 \end{itemize}
 It is interesting to see that the accuracy is always worse than during training. None of the models has a higher accuracy as $50\%$ so they are even worse or equally bad as deciding randomly if one stock goes up or down on the next day.
+
+
+\subsection{Comparison of model results}
+\label{subsec:compmodelresults}	
+TODO
