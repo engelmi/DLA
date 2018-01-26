@@ -1,0 +1,41 @@
+[ True False False  True  True False  True  True False False  True False
+  True False False  True]
+0.5
+restore successful
+[ True  True False False  True  True False False  True  True  True False
+  True  True  True  True]
+0.6875
+restore successful
+[False False False False  True  True False  True  True False False  True
+  True False False  True]
+0.4375
+restore successful
+[False False  True False False False False  True False  True  True  True
+  True  True  True  True]
+0.5625
+restore successful
+[ True  True False False False False  True False False  True  True  True
+ False  True False False]
+0.4375
+restore successful
+[False False  True False False  True  True  True False  True False False
+ False False  True  True]
+0.4375
+restore successful
+[ True False  True  True False  True False  True False False False  True
+  True False False False]
+0.4375
+restore successful
+[False False False False False  True False  True False  True  True  True
+  True  True False False]
+0.4375
+restore successful
+[False  True False False  True  True False  True False  True False  True
+ False  True  True  True]
+0.5625
+restore successful
+[False False False  True  True False  True  True False False  True  True
+ False  True  True False]
+0.5
+
+Mean: 0.5

@@ -18,7 +18,7 @@ class StockpredictorConfig(object):
         "BLOCK": "block"
     }
 
-    learning_rate = 1.0
+    learning_rate = 0.5
     hidden_size = 100
     num_epochs = 650
     cross_validation_k = 10

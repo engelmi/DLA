@@ -112,6 +112,7 @@ class Stockpredictor(object):
         :param create_model: Flag to indicate if the model needs to be recreated.
                              Not necessary if train() was called during execution of the stock predictor.
         :param load_trained_model: Flag to indicate if a trained model should be loaded.
+		:return: A tuple (corrected prediction, accuracy). 
         """
         pathToFile = [f for f in listdir(self.folderTestData) if
                    isfile(join(self.folderTestData, f)) and f[-3:] == "npy"]
@@ -136,13 +137,16 @@ class Stockpredictor(object):
             print(cor_pred)
             acc = np.mean(cor_pred)
             print(acc)
+            return cor_pred, acc
 
 
 if __name__ == "__main__":
     config = config.StockpredictorConfig()
-    learning_model = slm.SimpleLearningModel(tf, config)
-    #learning_model = oslm.OnlyStockLearningModel(tf, config)
+    learning_model = slm.SimpleLearningModel(tf, config, dropout_prob=0.3, save_name="model", save_folder="trainedModels/SLM/experiment4", visualization_folder="logs/SLM/experiment4")
     sp = Stockpredictor(config, learning_model)
-    sp.train(False)
-    learning_model = slm.SimpleLearningModel(tf, config, save_folder="model20000")
-    sp.predict(True, learning_model)
+    #sp.train(False)
+    pred_acc_list = []
+    for i in range(10):
+        _, acc = sp.predict(True, True)
+        pred_acc_list.append(acc)
+    print(sum(pred_acc_list)/len(pred_acc_list))
