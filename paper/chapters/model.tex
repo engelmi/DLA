@@ -10,7 +10,7 @@ The \textit{SimpleLearningModel} class is derived from the abstract base class \
 \begin{align}
 prediction &= softmax(input \cdot weights + bias)
 \end{align}
-The loss is calculated by \textit{build\_graph} applying the summary metric \textit{cross entropy} to the unscaled output. This metric was deployed, because the cross entropy should be optimally minimized and the softmax function is used for the prediction. Therefore, numerically unstable corner cases are covered in a mathematically suitable way. For optimization the \textit{GradientDescentOptimizer} is facilitated by the model. Although this simple Optimizer requires more tuning of the learning rate to converge quickly, it does far less computations than the \textit{AdamOptimizer}. For training the minimization operation is applied to the loss. 
+The loss is calculated by applying the summary metric \textit{cross entropy} to the unscaled output. This metric was deployed, because the cross entropy should be optimally minimized and the softmax function is used for the prediction. Therefore, numerically unstable corner cases are covered in a mathematically suitable way. For optimization the \textit{GradientDescentOptimizer} is facilitated by the model. Although this simple Optimizer requires more tuning of the learning rate to converge quickly, it does far less computations than the \textit{AdamOptimizer}. For training the minimization operation is applied to the loss. 
 
 \subsection{Only Stock Learning Model}
 \label{subsec:onlystocklearningmodel}
