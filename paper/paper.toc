@@ -6,8 +6,7 @@
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-A}}Recurrent Neural Network}{2}{subsection.5.1}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Long-Term Dependencies}{3}{subsection.5.2}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-C}}Long Short-Term Memory}{3}{subsection.5.3}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-D}}Dropout}{3}{subsection.5.4}
-\contentsline {section}{\numberline {VI}Datasets}{4}{section.6}
+\contentsline {section}{\numberline {VI}Datasets}{3}{section.6}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VI-A}}Stock data}{4}{subsection.6.1}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VI-A}1}NYSE}{4}{subsubsection.6.1.1}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VI-A}2}S\&P500}{4}{subsubsection.6.1.2}
