@@ -1,25 +1,8 @@
 \section{Conclusion}
 \label{sec:ausblick}
-In this paper 
-+ results of the project to predict rising or falling stocks using deep learning methods are presented
-+ the basic framework for
-	- retrieving the google trends data
-	- preprocess the data
-	- learning models
-	implemented
-+ simple learning model, which uses a lstm, achieved an accuracy of 53\% , just above simple guessing 
-+ after ca. 150 epochs with k fold cross validation (k=10) and dropout the accuracy reached its max - longer training was contra productive 
-
-+ simplified approach therefore does not encourage further research of predicting stocks based on google trend data
-+ however as only the lstm, and only a single cell, was used, other models and model combinations could yield better results
-+ as the architecture for this project was implemented flexible for future extensions, it could serve as a starting point / core for this future research. for example, another model could be derived from the abstract class and used instead
-
-simplified approach reached xx\% of accuracy, therefore it would be worthwhile to enhance the current model by predicting ranges of values, e.g. 50 up or down etc.
-as described in \ref{sec:architecture}, only minor changes would only be necessary
-\begin{itemize}
-	\item summarize the results (implementation? evaluation results?) 
-	\item does it work? why? why not? 
-	\item how could the current solution be improved? 
-	\item possible further research? 
-	\item how fast must it be. Finance is fast changing market
-\end{itemize}
+In this work we showed how to build a basic framework for predicting the course of a stock by analyzing google trends data using deep learning methods. The framework consists of two major parts. The first is about retrieving and manipulating data. The most important part of it is collecting the data from google trends which was quite difficult. The second part is about the models used for prediction. We invented two simple learning models based on a long short term memory.\\
+The simplification of the problem to a binary classification task should help to investigate the hypothesis made in section \ref{sec:introduction} if there exists a correlation between google trends search terms and stock courses. The SimpleLearningModel which uses all the data from google trends achieved an accuracy only slightly above 50\% which is as bad as our second model using no data from google trends. Even a newcomer to the field of stock exchange can have the same accuracy and a financial expert may be far better than our models. Our simple approach of using google trends data for predicting the stock course does not encourage further research. But it may be worthwhile to try it again with other data from google trends. The data we used from google trends often had no correlation to the company or stock we tried to predict. Here the usage of the similar search terms provided by google was not constructive. If a financial expert could give some better search terms for each stock the approach might lead to better results than we had.\\
+However, as only the long short term memory with a single cell was investigated, other models and model combinations could yield better results. There exist other gated recurrent neural networks which also do not have the problem of exploding or vanishing gradients. A completely different approach would be the usage of convolutional networks. The architecture of the framework is flexible enough to easily try these other models and can be used as a starting point for future research.\\
+Another good starting point for improving the prediction of stocks by the usage of google trends is the dataset. The dataset we could use for training was too small. If google provides an API in the future collecting the data gets easier and our models should get a new try. One could also increase the number of similar search terms from 14 up to 20 or even more. It is also possible to increase or decrease the sequence length of 30 days.\\
+If the changes to the dataset or model yield to better results it would be worthwhile to enhance the model by predicting ranges of values or the exact price and not only the rise or fall of a stock.\\
+Overall it can be said that google trends data does not improve the prediction of stocks. But our dataset was small and often the data did not have any relation to the company we tried to predict the stock for.
