@@ -25,7 +25,7 @@
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-C}}SimpleLearningModel results}{7}{subsection.10.3}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-D}}OnlyStockLearningModel results}{8}{subsection.10.4}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-E}}Comparison of model results}{8}{subsection.10.5}
-\contentsline {section}{\numberline {XI}Conclusion}{8}{section.11}
+\contentsline {section}{\numberline {XI}Conclusion}{9}{section.11}
 \contentsline {section}{\numberline {XII}Lessons Learned}{9}{section.12}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-A}}Daniel Sikeler}{9}{subsection.12.1}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-B}}Michael Engel}{9}{subsection.12.2}

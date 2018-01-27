@@ -127,5 +127,9 @@ The model without using dropout (experiment 2) has a lower accuracy on unseen da
 
 \subsection{Comparison of model results}
 \label{subsec:compmodelresults}	
-TODO
+Comparing the results of the SimpleLearningModel \ref{subsec:slmexperiment} with the results of the OnlyStockLearningModel \ref{subsec:onlystockmodelexperiment} can help us to decide whether the data from google trends is useful in predicting the stock course.\\
+First of all we want to compare the differences between the two models according to the changes made to the configuration. As already mentioned in subsection \ref{subsec:onlystockmodelexperiment} dropout does not help the OnlyStockLearningModel, whereas the SimpleLearningModel improves with using dropout. Varying the hidden size of the LSTM cell does not lead to an improvement neither in the SimpleLearningModel nor in the OnlyStockLearningModel. The same can be said about the reduction of the learning rate.\\
+During training the second experiment with the OnlyStockLearningModel had the best accuracy, but on unseen data it is slightly worse than nearly all experiments (expect experiment 2) with the SimpleLearningModel. On unseen data the first experiment of the SimpleLearningModel has by far the best accuracy with $61.25\%$. But this has to be watched carefully because of the small number of samples in the test dataset.\\
+There is only a small variance of the accuracy in all experiments during training. The loss is also changing very slowly after about epoch $150$. In contrast the variance during testing is really high especially for the forth experiment of both models.\\
+If we consider the results of the first experiment of both models as a spike because they have the best average accuracy on unseen data, the three other experiments leaded to nearly the same results for both models. As a consequence the data from google trend does not really help to predict the stock course.
 
