@@ -7,7 +7,7 @@
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Long-Term Dependencies}{3}{subsection.5.2}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-C}}Long Short-Term Memory}{3}{subsection.5.3}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-D}}Dropout}{3}{subsection.5.4}
-\contentsline {section}{\numberline {VI}Datasets}{3}{section.6}
+\contentsline {section}{\numberline {VI}Datasets}{4}{section.6}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VI-A}}Stock data}{4}{subsection.6.1}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VI-A}1}NYSE}{4}{subsubsection.6.1.1}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VI-A}2}S\&P500}{4}{subsubsection.6.1.2}
@@ -21,9 +21,11 @@
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IX-B}}Only Stock Learning Model}{6}{subsection.9.2}
 \contentsline {section}{\numberline {X}Evaluation}{6}{section.10}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-A}}K fold cross validation}{7}{subsection.10.1}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-B}}Results of the cross validation}{7}{subsection.10.2}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-C}}OnlyStockLearningModel results}{7}{subsection.10.3}
-\contentsline {section}{\numberline {XI}Conclusion}{7}{section.11}
-\contentsline {section}{\numberline {XII}Lessons Learned}{8}{section.12}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-A}}Daniel Sikeler}{8}{subsection.12.1}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-B}}Michael Engel}{8}{subsection.12.2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-B}}Experiments for evaluation}{7}{subsection.10.2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-C}}SimpleLearningModel results}{7}{subsection.10.3}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-D}}OnlyStockLearningModel results}{8}{subsection.10.4}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-E}}Comparison of model results}{8}{subsection.10.5}
+\contentsline {section}{\numberline {XI}Conclusion}{8}{section.11}
+\contentsline {section}{\numberline {XII}Lessons Learned}{9}{section.12}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-A}}Daniel Sikeler}{9}{subsection.12.1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-B}}Michael Engel}{9}{subsection.12.2}
