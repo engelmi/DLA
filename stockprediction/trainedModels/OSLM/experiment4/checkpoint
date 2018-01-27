@@ -1,2 +1,2 @@
-model_checkpoint_path: "OSLMe650k10d0slow"
-all_model_checkpoint_paths: "OSLMe650k10d0slow"
+model_checkpoint_path: "model"
+all_model_checkpoint_paths: "model"
